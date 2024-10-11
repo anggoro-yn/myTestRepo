@@ -115,7 +115,19 @@ completion_labels = [f'{i} Course' for i in completion_counts.index]
 
 # Define color scale to match each label
 color_mapping = {
-    label: color for label, color in zip(completion_labels, ['red', 'orange', 'pink', 'yellow', 'green', 'teal', 'black', 'blue', 'cyan'])
+    label: color for label, color in zip(completion_labels, ['black', 'red', 'orange', 'pink', 'yellow', 'green', 'teal', 'blue', 'cyan'])
+}
+
+color_mapping = {
+    '0 Course': 'red', 
+    '1 Course': 'orange',
+    '2 Course': 'pink', 
+    '3 Course': 'yellow',
+    '4 Course': 'green', 
+    '5 Course': 'teal', 
+    '6 Course': 'black',
+    '7 Course': 'blue', 
+    '8 Course': 'cyan' 
 }
 
 # Buat DataFrame dari names dan values
