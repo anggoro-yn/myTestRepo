@@ -12,7 +12,7 @@ with st.sidebar:
     # Menggunakan HTML dan CSS untuk membuat kotak teks dengan latar belakang berwarna
     st.markdown(
         """
-        <div style="background-color: #e0f7fa; padding: 10px; border-radius: 5px;">
+        <div style="background-color: #a9a9a9; padding: 10px; border-radius: 5px;">
             <p style="font-size: 16px; color: black;">Ini adalah kotak teks dengan latar belakang berwarna cyan.</p>
         </div>
         """,
