@@ -124,7 +124,6 @@ color_mapping = {
     '8 Course': '#1E90FF'   # Kebiruan untuk 8 course
 }
 
-
 # Buat DataFrame dari names dan values
 df_pie = pd.DataFrame({'names': completion_labels, 'values': completion_counts})
 
@@ -154,7 +153,6 @@ color_mapping = {
     'Sudah Lulus Spesialisasi': '#1E90FF',
 }
 
-
 # Buat DataFrame dari names dan values
 df_pie = pd.DataFrame({'names': progress_labels, 'values': progress_counts})
 
@@ -175,8 +173,6 @@ st.header('4. Daftar Peserta dan Tingkat Penyelesaian')
 completion_table = data[['Name', 'Total Course yang Sudah Diselesaikan']].sort_values(by='Total Course yang Sudah Diselesaikan', ascending=False)
 completion_table = completion_table.rename(columns={'Name': 'Nama Peserta', 'Total Course yang Sudah Diselesaikan': 'Jumlah Course yang Diselesaikan'})
 st.dataframe(completion_table)
-
-# <TAMBAHAN
 
 # Menampilkan tabel
 st.subheader('5. Persentase Kelulusan Per Kelompok Fasilitator')
@@ -205,9 +201,6 @@ for threshold in thresholds:
 
 # Menampilkan grafik di Streamlit
 st.pyplot(plt)
-
-# TAMBAHAN>
-
 
 # Add a footer or caption at the bottom of the app
 st.markdown("""<hr style="border:1px solid gray">""", unsafe_allow_html=True)
