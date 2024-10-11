@@ -109,18 +109,21 @@ st.header('2. Tingkat Penyelesaian Peserta')
 
 # <Tambahan
 
-# Define color scale
-colors = [
-    '#FF0000',  # Merah untuk 0 course
-    '#FF4500',  # Gradasi untuk 1 course
-    '#FF7F00',  # Gradasi untuk 2 course
-    '#FFFF00',  # Gradasi untuk 3 course
-    '#7FFF00',  # Gradasi untuk 4 course
-    '#00FF00',  # Gradasi untuk 5 course
-    '#00FFFF',  # Gradasi untuk 6 course
-    '#00BFFF',  # Gradasi untuk 7 course
-    '#1E90FF'   # Kebiruan untuk 8 course
-]
+# Define color scale to match each label
+color_mapping = {
+    '0 Course': '#FF0000',  # Merah untuk 0 course
+    '1 Course': '#FF4500',  # Gradasi untuk 1 course
+    '2 Course': '#FF7F00',  # Gradasi untuk 2 course
+    '3 Course': '#FFFF00',  # Gradasi untuk 3 course
+    '4 Course': '#7FFF00',  # Gradasi untuk 4 course
+    '5 Course': '#00FF00',  # Gradasi untuk 5 course
+    '6 Course': '#00FFFF',  # Gradasi untuk 6 course
+    '7 Course': '#00BFFF',  # Gradasi untuk 7 course
+    '8 Course': '#1E90FF'   # Kebiruan untuk 8 course
+}
+
+# Map colors to each label
+colors = [color_mapping[label] for label in completion_labels]
 
 # Tambahan>
 
