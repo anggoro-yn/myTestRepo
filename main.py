@@ -13,7 +13,7 @@ with st.sidebar:
     st.markdown(
         """
         <div style="background-color: #a9a9a9; padding: 10px; border-radius: 5px;">
-            <p style="font-size: 16px; color: black;">Dashboard ini adalah tugas akhir Pelatihan Belajar Analisis Data dengan Python.</p>
+            <p style="font-size: 16px; color: black;">Dashboard ini adalah tugas akhir Pelatihan Belajar Analisis Data dengan Python, sebagai syarat kelulusan pelatihan.</p>
         </div>
         """,
         unsafe_allow_html=True
