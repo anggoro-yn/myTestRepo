@@ -21,6 +21,15 @@ with st.sidebar:
 
 st.title('Visualisasi Kelulusan dan Progress Peserta')
 
+# Menggunakan HTML dan CSS untuk membuat kotak teks dengan latar belakang berwarna
+st.markdown(
+    """
+    <div style="background-color: #f0f0f0; padding: 10px; border-radius: 5px;">
+        <p style="font-size: 16px; color: black;">Ini adalah kotak teks dengan latar belakang berwarna abu-abu muda.</p>
+    </div>
+    """,
+    unsafe_allow_html=True
+)
 
 # Add a footer or caption at the bottom of the app
 st.markdown("""<hr style="border:1px solid gray">""", unsafe_allow_html=True)
