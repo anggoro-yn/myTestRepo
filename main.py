@@ -50,6 +50,66 @@ ax.set_ylabel('Rata-rata Jumlah Pemakaian', fontsize=12)
 # Menampilkan grafik di Streamlit
 st.pyplot(fig)
 
+import streamlit as st
+import matplotlib.pyplot as plt
+import seaborn as sns
+import pandas as pd
+
+# Contoh data (gunakan dataset hour_df Anda di sini)
+hour_df = pd.DataFrame({
+    'season': [0, 1, 2, 3, 0, 1, 2, 3],
+    'yr': [0, 0, 0, 0, 1, 1, 1, 1],
+    'cnt': [100, 150, 200, 120, 110, 140, 210, 130]
+})
+
+# Filter data untuk tahun pertama (yr = 0)
+hour_df_year1 = hour_df[hour_df['yr'] == 0]
+
+# Menghitung rata-rata 'cnt' per season hanya untuk tahun pertama
+avg_cnt_per_season = hour_df_year1.groupby('season')['cnt'].mean().reset_index()
+
+# Menentukan warna untuk setiap batang
+colors = ['gray'] * len(avg_cnt_per_season)  # Semua batang berwarna abu-abu
+max_index = avg_cnt_per_season['cnt'].idxmax()  # Indeks nilai maksimum
+min_index = avg_cnt_per_season['cnt'].idxmin()  # Indeks nilai minimum
+
+# Mengubah warna batang maksimum dan minimum menjadi biru
+colors[max_index] = 'cyan'
+colors[min_index] = 'cyan'
+
+# Membuat bar chart menggunakan seaborn
+fig, ax = plt.subplots(figsize=(10, 6))
+sns.barplot(ax=ax, x='season', y='cnt', data=avg_cnt_per_season, palette=colors)
+
+# Mengubah label pada sumbu x
+season_labels = {1: 'Dingin', 2: 'Semi', 3: 'Panas', 4: 'Gugur'}
+ax.set_xticklabels([season_labels[i] for i in avg_cnt_per_season['season']], rotation=0)
+
+# Menambahkan judul dan label
+ax.set_title('Rata-rata Jumlah Pemakaian Berdasarkan Musim pada Tahun Pertama', fontsize=16)
+ax.set_xlabel('Musim', fontsize=12)
+ax.set_ylabel('Rata-rata Jumlah Pemakaian', fontsize=12)
+
+# Menampilkan grafik di Streamlit
+st.pyplot(fig)
+
+# Menambahkan footer atau caption di bagian bawah aplikasi
+st.markdown("""<hr style="border:1px solid gray">""", unsafe_allow_html=True)
+st.markdown(
+    "<p style='text-align: center; font-size: 12px;'>© 2024 oleh Anggoro Yudho Nuswantoro</p>",
+    unsafe_allow_html=True
+)
+
+
+
+
+
+
+
+
+
+
+
 # Menambahkan footer atau caption di bagian bawah aplikasi
 st.markdown("""<hr style="border:1px solid gray">""", unsafe_allow_html=True)
 st.markdown(
