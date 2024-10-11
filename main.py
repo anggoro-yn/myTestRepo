@@ -119,13 +119,13 @@ color_mapping = {
 }
 
 color_mapping = {
-    '0 Course': 'red', 
-    '1 Course': 'orange',
-    '2 Course': 'pink', 
-    '3 Course': 'yellow',
-    '4 Course': 'green', 
-    '5 Course': 'teal', 
-    '6 Course': 'black',
+    '0 Course': 'black', 
+    '1 Course': 'red',
+    '2 Course': 'orange', 
+    '3 Course': 'pink',
+    '4 Course': 'yellow', 
+    '5 Course': 'green', 
+    '6 Course': 'teal',
     '7 Course': 'blue', 
     '8 Course': 'cyan' 
 }
