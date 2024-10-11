@@ -131,15 +131,15 @@ color_mapping = {
 }
 
 color_mapping = {
-    '0 Course': '#990000',  # Merah gelap
-    '1 Course': '#CC3300',  # Merah sedang
-    '2 Course': '#FF6600',  # Merah terang
-    '3 Course': '#FFFF00',  # Kuning
-    '4 Course': '#CCFF00',  # Kuning-hijau
-    '5 Course': '#99CC00',  # Hijau sedang
-    '6 Course': '#669900',  # Hijau gelap
-    '7 Course': '#336600',  # Hijau gelap
-    '8 Course': '#003300'   # Hijau tua
+    '0 Course': '#CC0000',  # Merah
+    '1 Course': '#0066CC',  # Biru
+    '2 Course': '#FFCC00',  # Kuning
+    '3 Course': '#00CC66',  # Hijau
+    '4 Course': '#CC3333',  # Merah tua
+    '5 Course': '#0099CC',  # Biru muda
+    '6 Course': '#FFFF00',  # Kuning terang
+    '7 Course': '#00CC99',  # Hijau muda
+    '8 Course': '#6600CC'   # Ungu
 }
 
 # Buat DataFrame dari names dan values
