@@ -124,11 +124,8 @@ color_mapping = {
     '8 Course': 'cyan' 
 }
 
-# Map colors to each label
-# colors = [color_mapping[label] for label in completion_labels]
-
 fig_pie_completion = px.pie(
-    names=completion_labels,
+    names=completion_labels,  # Ini adalah nilai unik dalam kolom "nama"
     values=completion_counts,
     title='Tingkat Penyelesaian Semua Peserta',
     color_discrete_map=color_mapping
