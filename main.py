@@ -47,6 +47,9 @@ ax.set_title('Rata-rata Jumlah Pemakaian Berdasarkan Musim', fontsize=16)
 ax.set_xlabel('Musim', fontsize=12)
 ax.set_ylabel('Rata-rata Jumlah Pemakaian', fontsize=12)
 
+# Mengatur batas maksimum sumbu y
+ax.set_ylim(0, 250)
+
 # Menampilkan grafik di Streamlit
 st.pyplot(fig)
 
@@ -78,16 +81,11 @@ ax.set_title('Rata-rata Jumlah Pemakaian Berdasarkan Musim pada Tahun Pertama', 
 ax.set_xlabel('Musim', fontsize=12)
 ax.set_ylabel('Rata-rata Jumlah Pemakaian', fontsize=12)
 
+# Mengatur batas maksimum sumbu y
+ax.set_ylim(0, 250)
+
 # Menampilkan grafik di Streamlit
 st.pyplot(fig)
-
-# Menambahkan footer atau caption di bagian bawah aplikasi
-st.markdown("""<hr style="border:1px solid gray">""", unsafe_allow_html=True)
-st.markdown(
-    "<p style='text-align: center; font-size: 12px;'>© 2024 oleh Anggoro Yudho Nuswantoro</p>",
-    unsafe_allow_html=True
-)
-
 
 
 
