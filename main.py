@@ -19,7 +19,7 @@ with st.sidebar:
         unsafe_allow_html=True
     )
 
-st.title('Visualisasi Kelulusan dan Progress Peserta')
+st.title('Analisa Dataset Bike Sharing Dataset')
 
 # Menggunakan HTML dan CSS untuk membuat kotak teks dengan latar belakang berwarna
 st.markdown(
