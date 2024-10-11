@@ -113,15 +113,15 @@ completion_labels = [f'{i} Course' for i in completion_counts.index]
 
 # Define color scale to match each label
 color_mapping = {
-    '0 Course': 'red' # '#FF0000',   Merah untuk 0 course
-    '1 Course': 'orange' #'#FF4500',  Gradasi untuk 1 course
-    '2 Course': 'pink' # '#FF7F00',  # Gradasi untuk 2 course
-    '3 Course': 'yellow' # '#FFFF00',  # Gradasi untuk 3 course
-    '4 Course': 'green' # '#7FFF00',  # Gradasi untuk 4 course
-    '5 Course': 'teal' # '#00FF00',  # Gradasi untuk 5 course
-    '6 Course': 'black' # '#00FFFF',  # Gradasi untuk 6 course
-    '7 Course': 'blue' # '#00BFFF',  # Gradasi untuk 7 course
-    '8 Course': 'cyan' # '#1E90FF'   # Kebiruan untuk 8 course
+    '0 Course': 'red' 
+    '1 Course': 'orange'
+    '2 Course': 'pink' 
+    '3 Course': 'yellow'
+    '4 Course': 'green' 
+    '5 Course': 'teal' 
+    '6 Course': 'black'
+    '7 Course': 'blue' 
+    '8 Course': 'cyan' 
 }
 
 # Map colors to each label
