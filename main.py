@@ -6,6 +6,11 @@ import matplotlib.pyplot as plt
 # Load dataset
 data = pd.read_csv('hour.csv', delimiter=';')
 
+with st.sidebar:
+    # Menambahkan logo perusahaan
+    st.image("https://github.com/dicodingacademy/assets/raw/main/logo.png")
+    
+
 st.title('Visualisasi Kelulusan dan Progress Peserta')
 
 
