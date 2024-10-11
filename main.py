@@ -113,22 +113,14 @@ completion_labels = [f'{i} Course' for i in completion_counts.index]
 
 # Define color scale to match each label
 color_mapping = {
-    '0 Course': 'red', 
-    '1 Course': 'orange',
-    '2 Course': 'pink', 
-    '3 Course': 'yellow',
-    '4 Course': 'green', 
-    '5 Course': 'teal', 
-    '6 Course': 'black',
-    '7 Course': 'blue', 
-    '8 Course': 'cyan' 
+    label: color for label, color in zip(completion_labels, ['red', 'orange', 'pink', 'yellow', 'green', 'teal', 'black', 'blue', 'cyan'])
 }
 
 fig_pie_completion = px.pie(
-    names=completion_labels,  # Ini adalah nilai unik dalam kolom "nama"
+    names=completion_labels, 
     values=completion_counts,
     title='Tingkat Penyelesaian Semua Peserta',
-    color=names,
+    color='names',  # Gunakan 'names' sebagai kolom untuk pemetaan warna
     color_discrete_map=color_mapping
 )
 st.plotly_chart(fig_pie_completion)
