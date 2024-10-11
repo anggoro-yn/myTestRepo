@@ -104,6 +104,8 @@ fig_bar = px.bar(
 )
 st.plotly_chart(fig_bar)
 
+##########################
+
 # Tingkat penyelesaian peserta (Pie chart)
 st.header('2. Tingkat Penyelesaian Peserta')
 
@@ -116,14 +118,20 @@ color_mapping = {
     label: color for label, color in zip(completion_labels, ['red', 'orange', 'pink', 'yellow', 'green', 'teal', 'black', 'blue', 'cyan'])
 }
 
+# Buat DataFrame dari names dan values
+df_pie = pd.DataFrame({'names': completion_labels, 'values': completion_counts})
+
 fig_pie_completion = px.pie(
-    names=completion_labels, 
-    values=completion_counts,
+    data_frame=df_pie,  # Gunakan DataFrame sebagai data_frame
+    names='names',  # Kolom 'names' dalam DataFrame
+    values='values',  # Kolom 'values' dalam DataFrame
     title='Tingkat Penyelesaian Semua Peserta',
     color='names',  # Gunakan 'names' sebagai kolom untuk pemetaan warna
     color_discrete_map=color_mapping
 )
 st.plotly_chart(fig_pie_completion)
+
+#############################
 
 # Distribusi status progress peserta (Pie chart)
 st.header('3. Status Progress Peserta')
