@@ -50,18 +50,6 @@ ax.set_ylabel('Rata-rata Jumlah Pemakaian', fontsize=12)
 # Menampilkan grafik di Streamlit
 st.pyplot(fig)
 
-import streamlit as st
-import matplotlib.pyplot as plt
-import seaborn as sns
-import pandas as pd
-
-# Contoh data (gunakan dataset hour_df Anda di sini)
-hour_df = pd.DataFrame({
-    'season': [0, 1, 2, 3, 0, 1, 2, 3],
-    'yr': [0, 0, 0, 0, 1, 1, 1, 1],
-    'cnt': [100, 150, 200, 120, 110, 140, 210, 130]
-})
-
 # Filter data untuk tahun pertama (yr = 0)
 hour_df_year1 = hour_df[hour_df['yr'] == 0]
 
