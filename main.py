@@ -104,7 +104,7 @@ fig_bar = px.bar(
 )
 st.plotly_chart(fig_bar)
 
-# Tingkat penyelesaian semua peserta (Pie chart)
+# Tingkat penyelesaian peserta (Pie chart)
 st.header('2. Tingkat Penyelesaian Peserta')
 
 # <Tambahan
