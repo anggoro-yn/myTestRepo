@@ -9,7 +9,15 @@ data = pd.read_csv('hour.csv', delimiter=';')
 with st.sidebar:
     # Menambahkan logo perusahaan
     st.image("logo.jpg")
-    
+    # Menggunakan HTML dan CSS untuk membuat kotak teks dengan latar belakang berwarna
+    st.markdown(
+        """
+        <div style="background-color: #f0f0f0; padding: 10px; border-radius: 5px;">
+            <p style="font-size: 16px; color: black;">Ini adalah kotak teks dengan latar belakang berwarna abu-abu muda.</p>
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
 
 st.title('Visualisasi Kelulusan dan Progress Peserta')
 
