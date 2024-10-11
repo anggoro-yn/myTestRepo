@@ -109,6 +109,13 @@ st.header('2. Tingkat Penyelesaian Peserta')
 
 # <Tambahan
 
+
+# Tambahan>
+
+# Calculate completion rates for participants based on the number of completed courses
+completion_counts = data['Total Course yang Sudah Diselesaikan'].value_counts().sort_index()
+completion_labels = [f'{i} Course' for i in completion_counts.index]
+
 # Define color scale to match each label
 color_mapping = {
     '0 Course': '#FF0000',  # Merah untuk 0 course
@@ -125,11 +132,7 @@ color_mapping = {
 # Map colors to each label
 colors = [color_mapping[label] for label in completion_labels]
 
-# Tambahan>
 
-# Calculate completion rates for participants based on the number of completed courses
-completion_counts = data['Total Course yang Sudah Diselesaikan'].value_counts().sort_index()
-completion_labels = [f'{i} Course' for i in completion_counts.index]
 fig_pie_completion = px.pie(
     names=completion_labels,
     values=completion_counts,
