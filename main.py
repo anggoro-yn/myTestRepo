@@ -130,6 +130,12 @@ color_mapping = {
     '8 Course': 'cyan' 
 }
 
+# Define color scale to match each label
+color_mapping = {
+    label: px.colors.sequential.Reds[i]  # Menggunakan palet warna 'Reds'
+    for i, label in enumerate(completion_labels)
+}
+
 # Buat DataFrame dari names dan values
 df_pie = pd.DataFrame({'names': completion_labels, 'values': completion_counts})
 
