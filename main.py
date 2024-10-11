@@ -6,7 +6,6 @@ import seaborn as sns
 
 # Load dataset
 hour_df = pd.read_csv('hour.csv')
-st.write(hour_df)
 
 with st.sidebar:
     # Menambahkan logo perusahaan
