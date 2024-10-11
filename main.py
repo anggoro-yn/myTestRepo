@@ -131,16 +131,17 @@ color_mapping = {
 }
 
 color_mapping = {
-    '0 Course': '#CC0000',  # Merah
-    '1 Course': '#0066CC',  # Biru
-    '2 Course': '#FFCC00',  # Kuning
-    '3 Course': '#00CC66',  # Hijau
-    '4 Course': '#CC3333',  # Merah tua
-    '5 Course': '#0099CC',  # Biru muda
-    '6 Course': '#FFFF00',  # Kuning terang
-    '7 Course': '#00CC99',  # Hijau muda
-    '8 Course': '#6600CC'   # Ungu
+    '0 Course': '#FF0000',  # Merah untuk 0 course
+    '1 Course': '#FF4500',  # Gradasi untuk 1 course
+    '2 Course': '#FF7F00',  # Gradasi untuk 2 course
+    '3 Course': '#FFFF00',  # Gradasi untuk 3 course
+    '4 Course': '#7FFF00',  # Gradasi untuk 4 course
+    '5 Course': '#00FF00',  # Gradasi untuk 5 course
+    '6 Course': '#00FFFF',  # Gradasi untuk 6 course
+    '7 Course': '#00BFFF',  # Gradasi untuk 7 course
+    '8 Course': '#1E90FF'   # Kebiruan untuk 8 course
 }
+
 
 # Buat DataFrame dari names dan values
 df_pie = pd.DataFrame({'names': completion_labels, 'values': completion_counts})
