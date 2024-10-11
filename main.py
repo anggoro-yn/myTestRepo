@@ -40,7 +40,7 @@ fig, ax = plt.subplots(figsize=(10, 6))
 sns.barplot(ax=ax, x='season', y='cnt', data=avg_cnt_per_season, palette=colors)
 
 # Mengubah label pada sumbu x
-season_labels = {0: 'Dingin', 1: 'Semi', 2: 'Panas', 3: 'Gugur'}
+season_labels = {1: 'Dingin', 2: 'Semi', 3: 'Panas', 4: 'Gugur'}
 ax.set_xticklabels([season_labels[i] for i in avg_cnt_per_season['season']], rotation=0)
 
 # Menambahkan judul dan label
