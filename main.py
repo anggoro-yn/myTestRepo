@@ -138,8 +138,6 @@ fig_pie_completion = px.pie(
 )
 st.plotly_chart(fig_pie_completion)
 
-#######################################
-
 # Distribusi status progress peserta (Pie chart)
 st.header('3. Status Progress Peserta')
 
@@ -169,20 +167,6 @@ fig_pie_completion = px.pie(
     color_discrete_map=color_mapping
 )
 st.plotly_chart(fig_pie_completion)
-
-#####################################
-
-# Distribusi status progress peserta (Pie chart)
-st.header('3. Status Progress Peserta')
-
-# Calculate distribution of progress status
-progress_counts = data['Status Progress'].value_counts()
-fig_pie_progress = px.pie(
-    names=progress_counts.index,
-    values=progress_counts,
-    title='Distribusi Status Progress Peserta' 
-)
-st.plotly_chart(fig_pie_progress)
 
 # Tampilkan daftar nama peserta dan tingkat penyelesaiannya
 st.header('4. Daftar Peserta dan Tingkat Penyelesaian')
