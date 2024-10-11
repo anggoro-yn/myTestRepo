@@ -8,7 +8,7 @@ data = pd.read_csv('hour.csv', delimiter=';')
 
 with st.sidebar:
     # Menambahkan logo perusahaan
-    st.image("logo.png")
+    st.image("logo.jpg")
     
 
 st.title('Visualisasi Kelulusan dan Progress Peserta')
