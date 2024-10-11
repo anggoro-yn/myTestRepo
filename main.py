@@ -5,6 +5,7 @@ import matplotlib.pyplot as plt
 
 # Load dataset
 hour_df = pd.read_csv('hour.csv', delimiter=';')
+st.write(hour_df)
 
 with st.sidebar:
     # Menambahkan logo perusahaan
