@@ -130,10 +130,16 @@ color_mapping = {
     '8 Course': 'cyan' 
 }
 
-# Define color scale to match each label
 color_mapping = {
-    label: px.colors.sequential.Reds[i]  # Menggunakan palet warna 'Reds'
-    for i, label in enumerate(completion_labels)
+    '0 Course': '#990000',  # Merah gelap
+    '1 Course': '#CC3300',  # Merah sedang
+    '2 Course': '#FF6600',  # Merah terang
+    '3 Course': '#FFFF00',  # Kuning
+    '4 Course': '#CCFF00',  # Kuning-hijau
+    '5 Course': '#99CC00',  # Hijau sedang
+    '6 Course': '#669900',  # Hijau gelap
+    '7 Course': '#336600',  # Hijau gelap
+    '8 Course': '#003300'   # Hijau tua
 }
 
 # Buat DataFrame dari names dan values
