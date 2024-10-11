@@ -104,8 +104,6 @@ fig_bar = px.bar(
 )
 st.plotly_chart(fig_bar)
 
-##########################
-
 # Tingkat penyelesaian peserta (Pie chart)
 st.header('2. Tingkat Penyelesaian Peserta')
 
@@ -113,23 +111,7 @@ st.header('2. Tingkat Penyelesaian Peserta')
 completion_counts = data['Total Course yang Sudah Diselesaikan'].value_counts().sort_index()
 completion_labels = [f'{i} Course' for i in completion_counts.index]
 
-# Define color scale to match each label
-color_mapping = {
-    label: color for label, color in zip(completion_labels, ['black', 'red', 'orange', 'pink', 'yellow', 'green', 'teal', 'blue', 'cyan'])
-}
-
-color_mapping = {
-    '0 Course': 'black', 
-    '1 Course': 'red',
-    '2 Course': 'orange', 
-    '3 Course': 'pink',
-    '4 Course': 'yellow', 
-    '5 Course': 'green', 
-    '6 Course': 'teal',
-    '7 Course': 'blue', 
-    '8 Course': 'cyan' 
-}
-
+# Define color map to match each label
 color_mapping = {
     '0 Course': '#FF0000',  # Merah untuk 0 course
     '1 Course': '#FF4500',  # Gradasi untuk 1 course
@@ -156,7 +138,39 @@ fig_pie_completion = px.pie(
 )
 st.plotly_chart(fig_pie_completion)
 
-#############################
+#######################################
+
+# Distribusi status progress peserta (Pie chart)
+st.header('3. Status Progress Peserta')
+
+# Calculate distribution of progress status
+progress_counts = data['Status Progress'].value_counts()
+progress_labels = [f'{i}' for i in progress_counts.index]
+
+# Define color map to match each label
+color_mapping = {
+    'Belum Terdaftar': '#FF0000', 
+    'Belum Berprogress': '#FF4500',
+    'Progress Dibawah Rekomendasi': '#FF7F00',
+    'Progress Diatas/Sesuai Rekomendasi': '#00BFFF',
+    'Sudah Lulus Spesialisasi': '#1E90FF',
+}
+
+
+# Buat DataFrame dari names dan values
+df_pie = pd.DataFrame({'names': progress_labels, 'values': progress_counts})
+
+fig_pie_completion = px.pie(
+    data_frame=df_pie,  # Gunakan DataFrame sebagai data_frame
+    names='names',  # Kolom 'names' dalam DataFrame
+    values='values',  # Kolom 'values' dalam DataFrame
+    title='Status Progress Peserta',
+    color='names',  # Gunakan 'names' sebagai kolom untuk pemetaan warna
+    color_discrete_map=color_mapping
+)
+st.plotly_chart(fig_pie_completion)
+
+#####################################
 
 # Distribusi status progress peserta (Pie chart)
 st.header('3. Status Progress Peserta')
