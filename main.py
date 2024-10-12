@@ -19,7 +19,7 @@ hour_df['bins: hum'] = pd.cut(hour_df['hum'], bins=10)
 # Membuat interval kecepatan angin menjadi 10 bin
 hour_df['bins: windspeed'] = pd.cut(hour_df['windspeed'], bins=10)
 # Data tambahan
-periode = {'season': 'Musim', 'mnth': 'Bulan', 'hr': 'Jam', 'weekday': 'Hari', 'weathersit': 'Kondisi Cuaca', 'temp': 'Temperatur'}
+periode = {'season': 'Musim', 'mnth': 'Bulan', 'hr': 'Jam', 'weekday': 'Hari', 'weathersit': 'Kondisi Cuaca', 'bins: temp': 'Temperatur'}
 dict_season = {1: 'Dingin', 2: 'Semi', 3: 'Panas', 4: 'Gugur'}
 list_season = ['Dingin', 'Semi', 'Panas', 'Gugur']
 dict_month = {1: 'Jan', 2: 'Feb', 3: 'Mar', 4: 'Apr', 5: 'Mei', 6: 'Jun', 7: 'Jul', 8: 'Agu', 9: 'Sep', 10: 'Okt', 11: 'Nov', 12: 'Des'}
@@ -32,6 +32,7 @@ list_week = ['Min', 'Sen', 'Sel', 'Rab', 'Kam', 'Jum', 'Sab']
 dict_weather = {1:'Cerah', 2: 'Berkabut/Berawan', 3: 'Hujan/Salju Ringan', 4: 'Hujan Deras/Badai Salju'}
 list_weather = ['Cerah', 'Berkabut/Berawan', 'Hujan/Salju Ringan', 'Hujan Deras/Badai Salju']
 dict_temp = {}
+list_temo = []
 
 def tampil_barchart_pertahun(period, label):
     # Menghitung rata-rata 'cnt' per period dan per tahun
@@ -347,7 +348,11 @@ if option_3_1 == 'Per tahun':
         with col2:
             tampil_boxplot_pertahun('weathersit', list_weather)
     with tabTemp:
-        pass
+        col1, col2 = st.columns(2)
+        with col1:
+            tampil_barchart_pertahun('bins: temp', dict_temp)
+        with col2:
+            tampil_boxplot_pertahun('bins: temp', list_temp)
     with tabLembab:
         pass
     with tabAngin:
