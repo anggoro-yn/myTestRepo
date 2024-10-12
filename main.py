@@ -4,10 +4,13 @@ import plotly.express as px
 import matplotlib.pyplot as plt
 import seaborn as sns
 
+######################################
+# FUNGSI + DATA + DLL
+######################################
+
 # Periode analisa
 periode = {'season': 'Musim', 'mnth': 'Bulan', 'hr': 'Jam'}
 
-# FUNGSI
 def tampil_barchart_pertahun(period, label):
     # Menghitung rata-rata 'cnt' per period dan per tahun
     avg_cnt_per_period_year = hour_df.groupby([period, 'yr'])['cnt'].mean().reset_index()
@@ -59,7 +62,6 @@ def tampil_barchart_total(period, label):
     
     # Menampilkan grafik di Streamlit
     st.pyplot(fig)
-
     
 def tampil_boxplot_pertahun(period, label):
     # Membuat figure untuk boxplot
@@ -80,12 +82,30 @@ def tampil_boxplot_pertahun(period, label):
     # Menampilkan grafik di Streamlit
     st.pyplot(fig)
 
-
-
-#
+def tampil_boxplot_total(period, label):
+    # Membuat figure untuk boxplot
+    fig, ax = plt.subplots(figsize=(10, 6))
+    
+    # Membuat boxplot
+    sns.boxplot(x=period, y='cnt', data=hour_df, ax=ax)
+    
+    # Menambahkan judul dan label pada grafik
+    ax.set_title('Penggunaan Sepeda per ' + periode[period], fontsize=16)
+    ax.set_xlabel(periode[period], fontsize=12)
+    ax.set_ylabel('Jumlah Penggunaan Sepeda', fontsize=12)
+    
+    # Mengubah label pada sumbu x untuk musim
+    ax.set_xticklabels(label)
+    
+    # Menampilkan grafik di Streamlit
+    st.pyplot(fig)
+    
 # Load dataset
-#
 hour_df = pd.read_csv('hour.csv')
+
+######################################################
+# WEBPAGE
+######################################################
 
 # Mengatur konfigurasi halaman
 st.set_page_config(
@@ -109,12 +129,6 @@ with st.sidebar:
             unsafe_allow_html=True
         )
 
-
-
-#
-# MAIN PAGE
-#
-
 st.title('Analisa Bike Sharing Dataset')
 
 st.markdown(
@@ -126,9 +140,9 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-# 
+##########################
 # MUSIM DAN BULAN
-#
+##########################
 st.header('Pola Pemakaian Sepeda Berdasar Musim dan Bulan')
 
 pembuka_1 = '''\
@@ -168,41 +182,10 @@ else:
         col1, col2 = st.columns(2)
         with col1:
             tampil_barchart_total('season', {1: 'Dingin', 2: 'Semi', 3: 'Panas', 4: 'Gugur'})
-
-            str01='''
-            # Menghitung rata-rata 'cnt' per season
-            avg_cnt_per_season = hour_df.groupby('season')['cnt'].mean().reset_index()
-            
-            # Menentukan warna untuk setiap batang
-            #colors = ['gray'] * len(avg_cnt_per_season)  # Semua batang berwarna abu-abu
-            #max_index = avg_cnt_per_season['cnt'].idxmax()  # Indeks nilai maksimum
-            #min_index = avg_cnt_per_season['cnt'].idxmin()  # Indeks nilai minimum
-            
-            # Mengubah warna batang maksimum dan minimum menjadi biru
-            #colors[max_index] = 'cyan'
-            #colors[min_index] = 'cyan'
-            
-            # Membuat bar chart menggunakan seaborn
-            fig, ax = plt.subplots(figsize=(10, 6))
-            sns.barplot(ax=ax, x='season', y='cnt', data=avg_cnt_per_season) #, palette=colors)
-            
-            # Mengubah label pada sumbu x
-            season_labels = {1: 'Dingin', 2: 'Semi', 3: 'Panas', 4: 'Gugur'}
-            ax.set_xticklabels([season_labels[i] for i in avg_cnt_per_season['season']], rotation=0)
-            
-            # Menambahkan judul dan label
-            ax.set_title('Rata-rata Jumlah Pemakaian Berdasarkan Musim', fontsize=16)
-            ax.set_xlabel('Musim', fontsize=12)
-            ax.set_ylabel('Rata-rata Jumlah Pemakaian', fontsize=12)
-            
-            # Mengatur batas maksimum sumbu y
-            ax.set_ylim(0, 300)
-            
-            # Menampilkan grafik di Streamlit
-            st.pyplot(fig)
-            '''
         with col2:
-            # Membuat figure untuk boxplot
+            tampil_boxplot_total('season', ['Dingin', 'Semi', 'Panas', 'Gugur'])
+            
+            str='''# Membuat figure untuk boxplot
             fig, ax = plt.subplots(figsize=(10, 6))
             
             # Membuat boxplot dengan hue berdasarkan tahun (yr)
@@ -217,7 +200,7 @@ else:
             ax.set_xticklabels(['Dingin', 'Semi', 'Panas', 'Gugur'])
             
             # Menampilkan grafik di Streamlit
-            st.pyplot(fig)
+            st.pyplot(fig)'''
     with tab2:
         col1, col2 = st.columns(2)
         with col1:
