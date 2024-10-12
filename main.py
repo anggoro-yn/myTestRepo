@@ -62,17 +62,17 @@ else:
     avg_cnt_per_season = hour_df.groupby('season')['cnt'].mean().reset_index()
     
     # Menentukan warna untuk setiap batang
-    colors = ['gray'] * len(avg_cnt_per_season)  # Semua batang berwarna abu-abu
-    max_index = avg_cnt_per_season['cnt'].idxmax()  # Indeks nilai maksimum
-    min_index = avg_cnt_per_season['cnt'].idxmin()  # Indeks nilai minimum
+    #colors = ['gray'] * len(avg_cnt_per_season)  # Semua batang berwarna abu-abu
+    #max_index = avg_cnt_per_season['cnt'].idxmax()  # Indeks nilai maksimum
+    #min_index = avg_cnt_per_season['cnt'].idxmin()  # Indeks nilai minimum
     
     # Mengubah warna batang maksimum dan minimum menjadi biru
-    colors[max_index] = 'cyan'
-    colors[min_index] = 'cyan'
+    #colors[max_index] = 'cyan'
+    #colors[min_index] = 'cyan'
     
     # Membuat bar chart menggunakan seaborn
     fig, ax = plt.subplots(figsize=(10, 6))
-    sns.barplot(ax=ax, x='season', y='cnt', data=avg_cnt_per_season, palette=colors)
+    sns.barplot(ax=ax, x='season', y='cnt', data=avg_cnt_per_season) #, palette=colors)
     
     # Mengubah label pada sumbu x
     season_labels = {1: 'Dingin', 2: 'Semi', 3: 'Panas', 4: 'Gugur'}
