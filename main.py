@@ -34,7 +34,7 @@ list_weather = ['Cerah', 'Berkabut/Berawan', 'Hujan/Salju Ringan', 'Hujan Deras/
 dict_temp = {}
 list_temo = []
 
-def tampil_barchart_pertahun(period, label):
+def tampil_barchart_pertahun(period, label, change_label = 1):
     # Menghitung rata-rata 'cnt' per period dan per tahun
     avg_cnt_per_period_year = hour_df.groupby([period, 'yr'])['cnt'].mean().reset_index()
     
@@ -44,10 +44,11 @@ def tampil_barchart_pertahun(period, label):
     # Membuat bar chart menggunakan seaborn
     fig, ax = plt.subplots(figsize=(10, 6))
     sns.barplot(ax=ax, x=period, y='cnt', hue='yr', data=avg_cnt_per_period_year)
-    
-    # Mengubah label pada sumbu x
-    period_labels = label
-    ax.set_xticklabels([period_labels.get(i, 'Unknown') for i in avg_cnt_per_period_year[period].unique()])
+
+    if change_label == 1:
+        # Mengubah label pada sumbu x
+        period_labels = label
+        ax.set_xticklabels([period_labels.get(i, 'Unknown') for i in avg_cnt_per_period_year[period].unique()])
     
     # Menambahkan judul dan label
     ax.set_title('Rata-rata Penggunaan Sepeda per ' + periode[period] + ' untuk Tahun 2011 dan 2012', fontsize=16)
@@ -57,7 +58,7 @@ def tampil_barchart_pertahun(period, label):
     # Menampilkan grafik di Streamlit
     st.pyplot(fig)
 
-def tampil_barchart_total(period, label):
+def tampil_barchart_total(period, label, change_label = 1):
     # Menghitung rata-rata 'cnt' per season
     avg_cnt_per_period = hour_df.groupby(period)['cnt'].mean().reset_index()
     
@@ -74,9 +75,10 @@ def tampil_barchart_total(period, label):
     fig, ax = plt.subplots(figsize=(10, 6))
     sns.barplot(ax=ax, x=period, y='cnt', data=avg_cnt_per_period) #, palette=colors)
     
-    # Mengubah label pada sumbu x
-    period_labels = label
-    ax.set_xticklabels([period_labels[i] for i in avg_cnt_per_period[period]], rotation=0)
+    if change_label == 1:
+        # Mengubah label pada sumbu x
+        period_labels = label
+        ax.set_xticklabels([period_labels[i] for i in avg_cnt_per_period[period]], rotation=0)
     
     # Menambahkan judul dan label
     ax.set_title('Rata-rata Jumlah Pemakaian Berdasarkan ' + periode[period], fontsize=16)
@@ -86,7 +88,7 @@ def tampil_barchart_total(period, label):
     # Menampilkan grafik di Streamlit
     st.pyplot(fig)
     
-def tampil_boxplot_pertahun(period, label):
+def tampil_boxplot_pertahun(period, label, change_label = 1):
     # Membuat figure untuk boxplot
     fig, ax = plt.subplots(figsize=(10, 6))
     
@@ -98,13 +100,14 @@ def tampil_boxplot_pertahun(period, label):
     ax.set_xlabel(periode[period], fontsize=12)
     ax.set_ylabel('Jumlah Penggunaan Sepeda', fontsize=12)
     
-    # Mengubah label pada sumbu x untuk musim
-    ax.set_xticklabels(label)
+    if change_label == 1:
+        # Mengubah label pada sumbu x 
+        ax.set_xticklabels(label)
     
     # Menampilkan grafik di Streamlit
     st.pyplot(fig)
 
-def tampil_boxplot_total(period, label):
+def tampil_boxplot_total(period, label, change_label = 1):
     # Membuat figure untuk boxplot
     fig, ax = plt.subplots(figsize=(10, 6))
     
@@ -116,8 +119,9 @@ def tampil_boxplot_total(period, label):
     ax.set_xlabel(periode[period], fontsize=12)
     ax.set_ylabel('Jumlah Penggunaan Sepeda', fontsize=12)
     
-    # Mengubah label pada sumbu x untuk musim
-    ax.set_xticklabels(label)
+    if change_label == 1:
+        # Mengubah label pada sumbu x
+        ax.set_xticklabels(label)
     
     # Menampilkan grafik di Streamlit
     st.pyplot(fig)
@@ -350,9 +354,9 @@ if option_3_1 == 'Per tahun':
     with tabTemp:
         col1, col2 = st.columns(2)
         with col1:
-            tampil_barchart_pertahun('bins: temp', dict_temp)
+            tampil_barchart_pertahun('bins: temp', dict_temp, 0)
         with col2:
-            tampil_boxplot_pertahun('bins: temp', list_temp)
+            tampil_boxplot_pertahun('bins: temp', list_temp, 0)
     with tabLembab:
         pass
     with tabAngin:
