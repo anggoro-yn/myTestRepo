@@ -119,7 +119,9 @@ if option_1_1 == 'Per tahun':
     
         with col2:
             tampil_boxplot_pertahun('season', ['Dingin', 'Semi', 'Panas', 'Gugur'])
-            string101='''# Membuat figure untuk boxplot
+
+            string101= '''
+            # Membuat figure untuk boxplot
             fig, ax = plt.subplots(figsize=(10, 6))
             
             # Membuat boxplot dengan hue berdasarkan tahun (yr)
@@ -134,7 +136,8 @@ if option_1_1 == 'Per tahun':
             ax.set_xticklabels(['Dingin', 'Semi', 'Panas', 'Gugur'])
             
             # Menampilkan grafik di Streamlit
-            st.pyplot(fig)'''
+            st.pyplot(fig)
+            '''
     with tab2:
         col1, col2 = st.columns(2)
         with col1:
