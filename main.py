@@ -42,6 +42,7 @@ st.markdown(
     unsafe_allow_html=True
 )
 
+st.write('Analisa pertama yang akan kita lakukan adalah melihat pola pemakaian sepeda per musim. Melalui analisa ini kita ingin melihat hubungan antara musim dengan pemakaian sepeda. Salah satu manfaatnya adalah kita bisa merencakanan penyediaan sepeda secara optimal dan rencana perawatan rutin. ')
 
 # Membuat select box dengan beberapa opsi
 option_1 = st.selectbox(
