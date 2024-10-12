@@ -22,7 +22,7 @@ with st.sidebar:
         # Menggunakan HTML dan CSS untuk membuat kotak teks dengan latar belakang berwarna
         st.markdown(
             """
-            <div style="background-color: #a9a9a9; padding: 10px; border-radius: 5px;">
+            <div>
                 <p style="font-size: 16px; color: black;">Dashboard ini adalah tugas akhir Pelatihan Belajar Analisis Data dengan Python, sebagai syarat kelulusan pelatihan.</p>
             </div>
             """,
