@@ -321,6 +321,7 @@ st.header('Pola Pemakaian Sepeda Berdasar Kondisi Cuaca')
 pembuka_3 = '''\
 '''
 st.write(pembuka_3)
+st.write(hour_df)
 
 # Membuat select box dengan beberapa opsi
 option_3_1 = st.selectbox(
