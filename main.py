@@ -11,7 +11,7 @@ import seaborn as sns
 # Load dataset
 hour_df = pd.read_csv('hour.csv')
 # Data tambahan
-periode = {'season': 'Musim', 'mnth': 'Bulan', 'hr': 'Jam', 'weekday': 'Hari'}
+periode = {'season': 'Musim', 'mnth': 'Bulan', 'hr': 'Jam', 'weekday': 'Hari', 'weathersit': 'Kondisi Cuaca'}
 dict_season = {1: 'Dingin', 2: 'Semi', 3: 'Panas', 4: 'Gugur'}
 list_season = ['Dingin', 'Semi', 'Panas', 'Gugur']
 dict_month = {1: 'Jan', 2: 'Feb', 3: 'Mar', 4: 'Apr', 5: 'Mei', 6: 'Jun', 7: 'Jul', 8: 'Agu', 9: 'Sep', 10: 'Okt', 11: 'Nov', 12: 'Des'}
