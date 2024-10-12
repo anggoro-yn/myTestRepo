@@ -252,7 +252,7 @@ else:
             ax.set_ylabel('Jumlah Penggunaan Sepeda', fontsize=12)
             
             # Mengubah label pada sumbu x untuk musim
-            ax.set_xticklabels(['Jan', 'Feb', 'Mar', 'Apr', Mei', 'Jun', 'Jul', 'Agu', 'Sep','Okt','Nov','Des'])
+            ax.set_xticklabels(['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun', 'Jul', 'Agu', 'Sep','Okt','Nov','Des'])
             
             # Menampilkan grafik di Streamlit
             st.pyplot(fig)
