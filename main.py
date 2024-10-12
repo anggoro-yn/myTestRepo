@@ -7,6 +7,14 @@ import seaborn as sns
 # Load dataset
 hour_df = pd.read_csv('hour.csv')
 
+# Mengatur konfigurasi halaman
+st.set_page_config(
+    page_title="Analisis Data Bike Sharing",
+    page_icon="🚲",
+    layout="wide",  # Mengatur layout menjadi wide (lebih lebar)
+    initial_sidebar_state="expanded"  # Menampilkan sidebar dalam kondisi terbuka
+)
+
 with st.sidebar:
     # Menambahkan logo perusahaan
     st.image("logo.jpg")
