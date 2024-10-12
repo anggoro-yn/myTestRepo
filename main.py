@@ -254,7 +254,7 @@ if option_2_1 == 'Per tahun':
         with col1:
             tampil_barchart_pertahun('weekday', dict_week)
         with col2:
-            tampil_boxplot_pertahun('weekday', ['Min', 'Sen', 'Sel', 'Rab', 'Kam', 'Jum', 'Sab'])
+            tampil_boxplot_pertahun('weekday', list_week)
             # Membuat figure untuk boxplot
             fig, ax = plt.subplots(figsize=(10, 6))
             
