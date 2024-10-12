@@ -50,7 +50,7 @@ def tampil_barchart_pertahun(period, label, change_label = 1):
         period_labels = label
         ax.set_xticklabels([period_labels.get(i, 'Unknown') for i in avg_cnt_per_period_year[period].unique()])
     else:
-        ax.tick_params(axis='x', rotation=75)
+        ax.tick_params(axis='x', rotation=90)
     # Menambahkan judul dan label
     ax.set_title('Rata-rata Penggunaan Sepeda per ' + periode[period] + ' untuk Tahun 2011 dan 2012', fontsize=16)
     ax.set_xlabel(periode[period], fontsize=12)
@@ -106,6 +106,8 @@ def tampil_boxplot_pertahun(period, label, change_label = 1):
     if change_label == 1:
         # Mengubah label pada sumbu x 
         ax.set_xticklabels(label)
+    else:
+        ax.tick_params(axis='x', rotation=90)      
     
     # Menampilkan grafik di Streamlit
     st.pyplot(fig)
@@ -125,7 +127,9 @@ def tampil_boxplot_total(period, label, change_label = 1):
     if change_label == 1:
         # Mengubah label pada sumbu x
         ax.set_xticklabels(label)
-    
+    else:
+        ax.tick_params(axis='x', rotation=90)
+      
     # Menampilkan grafik di Streamlit
     st.pyplot(fig)
     
