@@ -21,7 +21,7 @@ dict_hour = {0:0, 1:1, 2:2, 3:3, 4:4, 5:5, 6:6, 7:7, 8:8, 9:9, 10:10, 11:11, 12:
 list_hour = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23]
 dict_week = {0: 'Min', 1: 'Sen', 2: 'Sel', 3: 'Rab', 4: 'Kam', 5: 'Jum', 6: 'Sab'}
 list_week = ['Min', 'Sen', 'Sel', 'Rab', 'Kam', 'Jum', 'Sab']
-dict_weather = {0:'Cerah', 1: 'Berkabut/Berawan', 2: 'Hujan/Salju Ringan', 3: 'Hujan Deras/Badai Salju'}
+dict_weather = {1:'Cerah', 2: 'Berkabut/Berawan', 3: 'Hujan/Salju Ringan', 4: 'Hujan Deras/Badai Salju'}
 list_weather = ['Cerah', 'Berkabut/Berawan', 'Hujan/Salju Ringan', 'Hujan Deras/Badai Salju']
 
 def tampil_barchart_pertahun(period, label):
