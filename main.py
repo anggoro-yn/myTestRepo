@@ -28,7 +28,7 @@ option_1 = st.selectbox(
     ['Per tahun','Total']
 )
 
-if option_1 == 'Per Tahun':
+if option_1 == 'Per tahun':
 
     # Menghitung rata-rata 'cnt' per season dan per tahun
     avg_cnt_per_season_year = hour_df.groupby(['season', 'yr'])['cnt'].mean().reset_index()
