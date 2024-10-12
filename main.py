@@ -23,7 +23,7 @@ def tampil_barchart_pertahun(period, label):
     # Menambahkan judul dan label
     periode = {'season': 'Musim', 'mnth': 'Bulan', 'hr': 'Jam'}
     ax.set_title('Rata-rata Penggunaan Sepeda per ' + periode[period] + ' untuk Tahun 2011 dan 2012', fontsize=16)
-    ax.set_xlabel(period, fontsize=12)
+    ax.set_xlabel(periode[period], fontsize=12)
     ax.set_ylabel('Rata-rata Jumlah Penggunaan Sepeda', fontsize=12)
 
     # Menampilkan grafik di Streamlit
@@ -42,7 +42,7 @@ def tampil_boxplot_pertahun(period, label):
     # Menambahkan judul dan label pada grafik
     periode = {'season': 'Musim', 'mnth': 'Bulan', 'hr': 'Jam'}
     ax.set_title('Penggunaan Sepeda per ' + periode[period] + ' untuk Tahun 2011 dan 2012', fontsize=16)
-    ax.set_xlabel(period, fontsize=12)
+    ax.set_xlabel(periode[period], fontsize=12)
     ax.set_ylabel('Jumlah Penggunaan Sepeda', fontsize=12)
     
     # Mengubah label pada sumbu x untuk musim
