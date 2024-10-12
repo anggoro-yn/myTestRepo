@@ -59,12 +59,12 @@ merencakanan penyediaan sepeda secara optimal dan rencana perawatan rutin tahuna
 st.write(pembuka_1)
 
 # Membuat select box dengan beberapa opsi
-option_1 = st.selectbox(
+option_1_1 = st.selectbox(
     'Pilihan analisa : ',
     ['Per tahun','Total']
 )
 
-if option_1 == 'Per tahun':
+if option_1_1 == 'Per tahun':
     tab1, tab2 = st.tabs(['Musim', 'Bulan'])
     with tab1:
         col1, col2 = st.columns(2)
@@ -297,12 +297,12 @@ merencakanan penyediaan sepeda secara optimal dan rencana perawatan rutin harian
 st.write(pembuka_2)
 
 # Membuat select box dengan beberapa opsi
-option_1 = st.selectbox(
+option_2_1 = st.selectbox(
     'Pilihan analisa : ',
     ['Per tahun','Total']
 )
 
-if option_1 == 'Per tahun':
+if option_2_1 == 'Per tahun':
     tab1, tab2 = st.tabs(['Jam', 'Hari'])
     with tab1:
         col1, col2 = st.columns(2)
