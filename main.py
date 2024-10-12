@@ -98,7 +98,7 @@ if option_1_1 == 'Per tahun':
         col1, col2 = st.columns(2)
         with col1:
             tampil_barchart_pertahun('season', {0: 'Dingin', 1:'Semi', 2:'Panas', 3:'Gugur'})
-                                     
+            string101 ='''                         
             # Menghitung rata-rata 'cnt' per season dan per tahun
             avg_cnt_per_season_year = hour_df.groupby(['season', 'yr'])['cnt'].mean().reset_index()
             
@@ -122,7 +122,7 @@ if option_1_1 == 'Per tahun':
             ax.set_ylim(0, 300)
             
             # Menampilkan grafik di Streamlit
-            st.pyplot(fig)
+            st.pyplot(fig)'''
     
         with col2:
             # Membuat figure untuk boxplot
