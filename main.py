@@ -32,7 +32,7 @@ list_week = ['Min', 'Sen', 'Sel', 'Rab', 'Kam', 'Jum', 'Sab']
 dict_weather = {1:'Cerah', 2: 'Berkabut/Berawan', 3: 'Hujan/Salju Ringan', 4: 'Hujan Deras/Badai Salju'}
 list_weather = ['Cerah', 'Berkabut/Berawan', 'Hujan/Salju Ringan', 'Hujan Deras/Badai Salju']
 dict_temp = {}
-list_temo = []
+list_temp = []
 
 def tampil_barchart_pertahun(period, label, change_label = 1):
     # Menghitung rata-rata 'cnt' per period dan per tahun
