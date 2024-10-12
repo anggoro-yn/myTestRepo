@@ -31,9 +31,15 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-st.header('Pola Pemakaian Sepeda Berdasar Musim')
+st.header('Pola Pemakaian Sepeda Berdasar Musim dan Bulan')
 
-st.write('Analisa pertama yang akan kita lakukan adalah melihat pola pemakaian sepeda per musim. Melalui analisa ini kita ingin melihat hubungan antara musim dengan pemakaian sepeda. Manfaat dilakukannya analisa ini adalah kita bisa merencakanan penyediaan sepeda secara optimal dan rencana perawatan rutin. ')
+pembuka_1 = '''\
+Analisa pertama yang akan kita lakukan adalah melihat pola pemakaian sepeda per musim dan bulan. Melalui analisa ini \
+kita ingin melihat hubungan antara musim dengan pemakaian sepeda. Manfaat dilakukannya analisa ini adalah kita bisa \
+merencakanan penyediaan sepeda secara optimal dan rencana perawatan rutin. ')\
+'''
+
+st.write(pembuka_1)
 
 # Membuat select box dengan beberapa opsi
 option_1 = st.selectbox(
@@ -68,6 +74,34 @@ if option_1 == 'Per tahun':
     # Menampilkan grafik di Streamlit
     st.pyplot(fig)
 
+    # Membuat figure untuk boxplot
+    fig, ax = plt.subplots(figsize=(10, 6))
+    
+    # Membuat boxplot dengan hue berdasarkan tahun (yr)
+    sns.boxplot(x='season', y='cnt', hue='yr', data=hour_df, ax=ax)
+    
+    # Menambahkan judul dan label pada grafik
+    ax.set_title('Penggunaan Sepeda per Musim untuk Tahun 2011 dan 2012', fontsize=16)
+    ax.set_xlabel('Musim', fontsize=12)
+    ax.set_ylabel('Jumlah Penggunaan Sepeda', fontsize=12)
+    
+    # Mengubah label pada sumbu x untuk musim
+    ax.set_xticklabels(['Dingin', 'Semi', 'Panas', 'Gugur'])
+    
+    # Menampilkan grafik di Streamlit
+    st.pyplot(fig)
+
+# Plot boxplot untuk tahun 2012
+with col2:
+    st.write("Boxplot Tahun 2012")
+    fig, ax = plt.subplots(figsize=(8, 6))
+    sns.boxplot(x='season', y='cnt', data=data_2012, ax=ax)
+    ax.set_title('Penggunaan Sepeda per Musim (2012)')
+    ax.set_xlabel('Musim')
+    ax.set_ylabel('Jumlah Penggunaan Sepeda')
+    # Mengubah label sumbu x agar lebih jelas
+    ax.set_xticklabels(['Dingin', 'Semi', 'Panas', 'Gugur'])
+    st.pyplot(fig)
 
 else:
 
@@ -106,6 +140,13 @@ hasil_analisa_1 = ''' \
 Berdasar visualisasi di atas, kita bisa melihat bahwa terdapat hubungan yang erat antara pemakaian sepeda dan musim yang sedang terjadi. \
 Kita bisa melihat bahwa pemakaian terendah pada musim dingin, sedangkan pemakaian tertinggi di saat musim panas. Di musim semi dan musim gugur, \
 pemakaian relatif tinggi, walaupun tidak setinggi di musim panas.\
+'''
+
+rekomendasi_1 ='''\
+Berdasarkan temuan di atas, ada beberapa hal yang bisa ditindaklanjuti, yaitu:
+1. Memfokuskan perawatan rutin tahunan di musim dingin agar saat masuk musim semi, sepeda-sepeda yang akan digunakan sudah kembali \
+dalam kondisi bagus dan dapat bertahan hingga musim dingin berikutnya.
+2. Mengatur penyediaan sepeda di musim semi hingga musim gugur agar selalu tersedia cukup sepeda untuk digunakan para pengguna. 
 '''
 
 st.write(hasil_analisa_1)
