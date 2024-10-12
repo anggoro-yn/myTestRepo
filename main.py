@@ -102,6 +102,32 @@ if option_1 == 'Per tahun':
         # Menampilkan grafik di Streamlit
         st.pyplot(fig)
 
+    # Menghitung rata-rata 'cnt' per bulan dan per tahun
+    avg_cnt_per_month_year = hour_df.groupby(['mnth', 'yr'])['cnt'].mean().reset_index()
+    
+    # Mengubah kolom 'yr' menjadi nama tahun yang lebih jelas
+    avg_cnt_per_month_year['yr'] = avg_cnt_per_month_year['yr'].replace({0: '2011', 1: '2012'})
+    
+    # Membuat bar chart menggunakan seaborn
+    fig, ax = plt.subplots(figsize=(10, 6))
+    sns.barplot(ax=ax, x='mnth', y='cnt', hue='yr', data=avg_cnt_per_month_year)
+    
+    # Mengubah label pada sumbu x
+    # season_labels = {0: 'Dingin', 1: 'Semi', 2: 'Panas', 3: 'Gugur'}
+    # ax.set_xticklabels([season_labels.get(i, 'Unknown') for i in avg_cnt_per_season_year['season'].unique()])
+    
+    # Menambahkan judul dan label
+    ax.set_title('Rata-rata Penggunaan Sepeda per bulan untuk Tahun 2011 dan 2012', fontsize=16)
+    ax.set_xlabel('Bulan', fontsize=12)
+    ax.set_ylabel('Rata-rata Jumlah Penggunaan Sepeda', fontsize=12)
+
+    # Mengatur batas maksimum sumbu y
+    ax.set_ylim(0, 300)
+    
+    # Menampilkan grafik di Streamlit
+    st.pyplot(fig)
+
+
 else:
 
     # Menghitung rata-rata 'cnt' per season
