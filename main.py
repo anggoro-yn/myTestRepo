@@ -255,13 +255,12 @@ if option_2_1 == 'Per tahun':
             tampil_barchart_pertahun('weekday', dict_week)
         with col2:
             tampil_boxplot_pertahun('weekday', list_week)
-            tampil_barchart_pertahun('weekday', dict_week)
-          
-else:
-    tab1, tab2 = st.tabs(['Musim', 'Bulan'])
-    with tab1:
+else:  # TOTAL
+    tabJam, tabHari = st.tabs(['Musim', 'Bulan'])
+    with tabJam:
         col1, col2 = st.columns(2)
         with col1:
+            tampil_barchart_total('hr', dict_hour)
             # Menghitung rata-rata 'cnt' per season
             avg_cnt_per_season = hour_df.groupby('season')['cnt'].mean().reset_index()
             
@@ -309,7 +308,7 @@ else:
             
             # Menampilkan grafik di Streamlit
             st.pyplot(fig)
-    with tab2:
+    with tabHari:
         col1, col2 = st.columns(2)
         with col1:
             # Menghitung rata-rata 'cnt' per season
