@@ -192,37 +192,8 @@ else:
         col1, col2 = st.columns(2)
         with col1:
             tampil_barchart_total('mnth', dict_month)
-            # Menghitung rata-rata 'cnt' per season
-            avg_cnt_per_month = hour_df.groupby('mnth')['cnt'].mean().reset_index()
-            
-            # Menentukan warna untuk setiap batang
-            #colors = ['gray'] * len(avg_cnt_per_month)  # Semua batang berwarna abu-abu
-            #max_index = avg_cnt_per_month['cnt'].idxmax()  # Indeks nilai maksimum
-            #min_index = avg_cnt_per_month['cnt'].idxmin()  # Indeks nilai minimum
-            
-            # Mengubah warna batang maksimum dan minimum menjadi biru
-            #colors[max_index] = 'cyan'
-            #colors[min_index] = 'cyan'
-            
-            # Membuat bar chart menggunakan seaborn
-            fig, ax = plt.subplots(figsize=(10, 6))
-            sns.barplot(ax=ax, x='mnth', y='cnt', data=avg_cnt_per_month) #, palette=colors)
-            
-            # Mengubah label pada sumbu x
-            month_labels = {1: 'Jan', 2: 'Feb', 3: 'Mar', 4: 'Apr', 5: 'Mei', 6: 'Jun', 7: 'Jul', 8: 'Agu', 9: 'Sep', 10: 'Okt', 11: 'Nov', 12: 'Des'}
-            ax.set_xticklabels([month_labels[i] for i in avg_cnt_per_month['mnth']], rotation=0)
-            
-            # Menambahkan judul dan label
-            ax.set_title('Rata-rata Jumlah Pemakaian Berdasarkan Bulan', fontsize=16)
-            ax.set_xlabel('Bulan', fontsize=12)
-            ax.set_ylabel('Rata-rata Jumlah Pemakaian', fontsize=12)
-            
-            # Mengatur batas maksimum sumbu y
-            ax.set_ylim(0, 300)
-            
-            # Menampilkan grafik di Streamlit
-            st.pyplot(fig)
         with col2:
+            tampil_boxplot_total('mnth', list_month)
             # Membuat figure untuk boxplot
             fig, ax = plt.subplots(figsize=(10, 6))
             
