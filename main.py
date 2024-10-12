@@ -26,11 +26,22 @@ st.markdown(
     """
     <div>
         <p style="font-size: 16px; color: black;">Aplikasi ini melakukan analisa terhadap dataset bike sharing. Dataset yang digunakan menunjukkan pemakaian sepeda pada tahun 2011 dan 2012.</p>
+    </div>
+    """,
+    unsafe_allow_html=True
+)
+
+st.header('Pola Pemakaian Sepeda Berdasar Musim')
+
+st.markdown(
+    """
+    <div>
         <p style="font-size: 16px; color: black;">Analisa pertama yang akan kita lakukan adalah melihat pola pemakaian sepeda per musim.</p>
     </div>
     """,
     unsafe_allow_html=True
 )
+
 
 # Membuat select box dengan beberapa opsi
 option_1 = st.selectbox(
