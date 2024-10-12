@@ -185,7 +185,7 @@ else:
     with tab1:
         col1, col2 = st.columns(2)
         with col1:
-            tampil_barchart_total('season', {0: 'Dingin', 1: 'Semi', 2: 'Panas', 3: 'Gugur'})
+            tampil_barchart_total('season', {1: 'Dingin', 2: 'Semi', 3: 'Panas', 4: 'Gugur'})
         with col2:
             tampil_boxplot_total('season', ['Dingin', 'Semi', 'Panas', 'Gugur'])
     with tab2:
