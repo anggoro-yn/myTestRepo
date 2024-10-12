@@ -244,7 +244,7 @@ if option_2_1 == 'Per tahun':
     tabJam, tabHari = st.tabs(['Jam', 'Hari'])
     with tabJam:
         col1, col2 = st.columns(2)
-        with col1
+        with col1:
             tampil_barchart_pertahun('hr', dict_hour)
         with col2:
             tampil_boxplot_pertahun('hr', list_hour)
