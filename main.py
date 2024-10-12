@@ -270,28 +270,32 @@ else:  # TOTAL
         with col2:
             tampil_boxplot_total('weekday', list_week)  
 
-hasil_analisa_1 = ''' \
-Berdasar visualisasi di atas, kita bisa melihat bahwa terdapat hubungan yang erat antara pemakaian sepeda dan musim serta bulan yang sedang berjalan. \
-Kita bisa melihat bahwa pemakaian terendah pada musim dingin, yang berlangsung dari akhir Desember sampai dengan akhir Maret, sedangkan pemakaian \
-tertinggi di saat musim panas, berlangsung dari akhir Juni sampai dengan akhir September. Di musim semi dan musim gugur, \
-pemakaian relatif tinggi, walaupun tidak setinggi di musim panas.
+hasil_analisa_2 = ''' \
+Berdasar visualisasi jam pemakaian sepeda dengan tingkat pemakaian, kita dapat melihat bahwa ada jam tertentu di mana pemakaian sepeda sangat \
+rendah, yaitu pada pada tengah malam hingga dini hari (sekitar jam 11 malam sampai dengan jam 6 pagi). Namun pada jam-jam lain, pemakaian rata-rata \
+sangat tinggi, yaitu sekitar jam 8 pagi serta jam 5 sore dan 6 sore, yang mana jam-jam tersebut bertepatan dengan aktivitas orang berangkat ke \
+tempat kerja di pagi hari dan pulang kembali ke rumah di sore hari. 
 
-Visualisasi menggunakan boxplot menunjukkan bahwa ada cukup banyak nilai outlier. Hal ini berarti bahwa di musim dingin, saat pemakaian sepeda \
-secara rata-rata rendah, ada saat-saat tertentu di mana ada tingkat pemakaian yang tinggi, bahkan melebihi rata-rata pemakaian di musim semi, \
-panas dan gugur. 
+Di luar jam tersebut, pemakaian cukup tinggi sepanjang hari sampai malam dan bisa dikatakan bahwa pemakaiannya relatif stabil. 
+
+Berdasarkan visualisasi boxplot penggunaan per jam, kita melihat bahwa variasi jumlah pengguna per jam cukup besar. Pada beberapa kasus, \
+pemakaian mencapai hampir 1000 pemakai per jam, nilai yang cukup tinggi dibandingkan nilai median yang berkisar 400 pemakaian per jam. 
+
+Sedangkan tingkat pemakaian per hari dari Minggu sampai dengan Sabtu tidak menunjukkan perbedaan yang mencolok. Bahkan bisa dikatakan bahwa \
+tingkat pemakaian relatif stabil sepanjang minggu. 
 '''
 
-rekomendasi_1 ='''\
-Berdasarkan temuan di atas, ada beberapa hal yang bisa ditindaklanjuti, yaitu:
-1. Memfokuskan perawatan rutin tahunan di musim dingin (terutama di bulan Januari dan Februari) agar saat masuk musim semi, sepeda-sepeda yang akan digunakan sudah kembali \
-dalam kondisi bagus dan dapat bertahan hingga musim dingin berikutnya.
-2. Mengatur penyediaan sepeda di musim dingin agar tidak terlalu banyak sepeda yang _idle_ tak terpakai, namun tetap memastikan bahwa \
-tersedia cukup sepeda jika terjadi lonjakan pemakaian.
-3. Mengatur penyediaan sepeda di musim semi hingga musim gugur agar selalu tersedia cukup sepeda untuk digunakan para pengguna yang secara rata-rata cukup tinggi.
+rekomendasi_2 ='''\
+Berdasarkan temuan di atas, kita dapat mempertimbangkan untuk:
+1. Menggunakan jam-jam sepi, yaitu tengan malam sampai dengan dini hari, kurang lebih jam 12 malam sampai jam 5 pagi, untuk melakukan \
+perawatan dan perbaikan harian atas sepeda-sepeda yang digunakan di hari itu. Hal ini untuk memastikan bahwa sepeda akan terus dalam \
+kondisi prima dan dapat dioperasionalkan sepanjang hari. 
+2. Menyiapkan distribusi sepeda secara baik untuk menjamin selalu tersedia sepeda bagi para pengguna sepanjang hari sepanjang minggu. \
+Jika jaminan ketersediaan sepeda dapat ditingkatkan maka akan akan semakin banyak orang yang tertarik untuk menggunakan sepeda.
 '''
 
-st.write(hasil_analisa_1)
-st.write(rekomendasi_1)
+st.write(hasil_analisa_2)
+st.write(rekomendasi_2)
 
 
 print('##################################################################')
