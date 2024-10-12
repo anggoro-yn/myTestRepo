@@ -426,10 +426,23 @@ Tingkat pemakaian terendah ada pada kondisi cuaca hujan deras atau badai salju. 
 pahami, mengingat pada kondisi ini, tentu sedikit sekali orang yang ingin beraktivitas di luar ruangan. 
 
 temperatur udara juga memiliki korelasi yang kuat dengan tingkat pemakaian sepeda. Pada suhu dingin membeku, pemakaian \
-sepeda sangat rendah. 
+sepeda sangat rendah. Sedangkan pada suhu yang cukup hangat, tingkat pemakaian sepeda cukup tinggi. Pada saat suhu udara \
+cukup panas, maka tingkat pemakaian akan turun karena pada kondisi ini orang juga akan cenderung menghindari kegiatan \
+di luar ruangan.
+
+Berdasarkan tingkat kelembaban udara, maka pemakaian yang cukup tinggi ada pada saat udara agak kering namun tidak sangat \
+kering. Pada saat udara sangat kering pemakaian sepeda sangat rendah. Demikian juga pada saat udara sangat basah, tingkat \
+pemakaian juga rendah. 
+
+Kecepatan angin tidak terlalu berpengaruh terhadap tingkat pemakaian sepeda walaupun ada kecenderungan pemakaian akan \
+meningkat pada kondisi di mana kecepatan angin tidak terlalu rendah dan tidak terlalu tinggi. Namun perbedaan antara rata-rata \
+tertinggi dan terendah tidak terlalu jauh bedanya. 
 '''
 
 rekomendasi_3 ='''\
+Berbeda dibandingkan korelasi dengan musim, bulan serta jam pemakaian, korelasi dengan kondisi cuaca tidak mudah diprediksi \
+kapan terjadinya sehingga sulit digunakan untuk merencanakan program pemeliharaan dan penggantian. Namun kondisi ini perlu terus \
+dimonitor dan diperkirakan agar kita dapat merencanakan tindak lanjut yang diperlukan jika kondisi cuaca memburuk. 
 '''
 
 st.write(hasil_analisa_3)
