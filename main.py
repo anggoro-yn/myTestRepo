@@ -122,7 +122,7 @@ if option_1 == 'Per tahun':
     ax.set_ylabel('Rata-rata Jumlah Penggunaan Sepeda', fontsize=12)
 
     # Mengatur batas maksimum sumbu y
-    ax.set_ylim(0, 300)
+    ax.set_ylim(0, 350)
     
     # Menampilkan grafik di Streamlit
     st.pyplot(fig)
