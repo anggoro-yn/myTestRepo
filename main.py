@@ -16,8 +16,8 @@ dict_season = {1: 'Dingin', 2: 'Semi', 3: 'Panas', 4: 'Gugur'}
 list_season = ['Dingin', 'Semi', 'Panas', 'Gugur']
 dict_month = {1: 'Jan', 2: 'Feb', 3: 'Mar', 4: 'Apr', 5: 'Mei', 6: 'Jun', 7: 'Jul', 8: 'Agu', 9: 'Sep', 10: 'Okt', 11: 'Nov', 12: 'Des'}
 list_month = ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun', 'Jul', 'Agu', 'Sep', 'Okt', 'Nov', 'Des']
-dict_hour = {1:1, 2:2, 3:3, 4:4, 5:5, 6:6, 7:7, 8:8, 9:9, 10:10, 11:11, 12:11, 12:12, 13:13, 14:14, 15:15, 16:16, 17:17, 18:18, 19:19, \
-             20:20, 21:21, 22:22, 23:23, 24:24 }
+dict_hour = {0:0, 1:1, 2:2, 3:3, 4:4, 5:5, 6:6, 7:7, 8:8, 9:9, 10:10, 11:11, 12:11, 12:12, 13:13, 14:14, 15:15, 16:16, 17:17, 18:18, 19:19, \
+             20:20, 21:21, 22:22, 23:23 }
 
 def tampil_barchart_pertahun(period, label):
     # Menghitung rata-rata 'cnt' per period dan per tahun
