@@ -21,7 +21,7 @@ def tampil_barchart_pertahun(period, label):
     ax.set_xticklabels([period_labels.get(i, 'Unknown') for i in avg_cnt_per_period_year[period].unique()])
     
     # Menambahkan judul dan label
-    ax.set_title('Rata-rata Penggunaan Sepeda per', period, 'untuk Tahun 2011 dan 2012', fontsize=16)
+    ax.set_title('Rata-rata Penggunaan Sepeda per' + period + 'untuk Tahun 2011 dan 2012', fontsize=16)
     ax.set_xlabel(period, fontsize=12)
     ax.set_ylabel('Rata-rata Jumlah Penggunaan Sepeda', fontsize=12)
 
