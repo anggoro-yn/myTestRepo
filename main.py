@@ -341,12 +341,12 @@ if option_3_1 == 'Per tahun':
             st.write('test03')
             tampil_boxplot_pertahun('weathersit', list_weather)
             st.write('test04')
-    with tabHari:
-        col1, col2 = st.columns(2)
-        with col1:
-            tampil_barchart_pertahun('weekday', dict_week)
-        with col2:
-            tampil_boxplot_pertahun('weekday', list_week)
+    with tabTemp:
+        pass
+    with tabLembab:
+        pass
+    with tabAngin:
+        pass
 else:  # TOTAL
     tabJam, tabHari = st.tabs(['Jam', 'Hari'])
     with tabJam:
