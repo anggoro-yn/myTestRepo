@@ -128,34 +128,10 @@ if option_1_1 == 'Per tahun':
         col1, col2 = st.columns(2)
         with col1:
             tampil_barchart_pertahun('mnth', {1: 'Jan', 2: 'Feb', 3: 'Mar', 4: 'Apr', 5: 'Mei', 6: 'Jun', 7: 'Jul', 8: 'Agu', 9: 'Sep', 10: 'Okt', 11: 'Nov', 12: 'Des'})
-
-            str1 = ''' 
-            # Menghitung rata-rata 'cnt' per bulan dan per tahun
-            avg_cnt_per_month_year = hour_df.groupby(['mnth', 'yr'])['cnt'].mean().reset_index()
-            
-            # Mengubah kolom 'yr' menjadi nama tahun yang lebih jelas
-            avg_cnt_per_month_year['yr'] = avg_cnt_per_month_year['yr'].replace({0: '2011', 1: '2012'})
-            
-            # Membuat bar chart menggunakan seaborn
-            fig, ax = plt.subplots(figsize=(10, 6))
-            sns.barplot(ax=ax, x='mnth', y='cnt', hue='yr', data=avg_cnt_per_month_year)
-            
-            # Mengubah label pada sumbu x
-            # season_labels = {0: 'Dingin', 1: 'Semi', 2: 'Panas', 3: 'Gugur'}
-            # ax.set_xticklabels([season_labels.get(i, 'Unknown') for i in avg_cnt_per_season_year['season'].unique()])
-            
-            # Menambahkan judul dan label
-            ax.set_title('Rata-rata Penggunaan Sepeda per bulan untuk Tahun 2011 dan 2012', fontsize=16)
-            ax.set_xlabel('Bulan', fontsize=12)
-            ax.set_ylabel('Rata-rata Jumlah Penggunaan Sepeda', fontsize=12)
-        
-            # Mengatur batas maksimum sumbu y
-            ax.set_ylim(0, 350)
-            
-            # Menampilkan grafik di Streamlit
-                        st.pyplot(fig)
-            '''
         with col2:
+            tampil_boxplot_pertahun('mnth', ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun', 'Jul', 'Agu', 'Sep', 'Okt', 'Nov', 'Des'])
+
+            str01='''
             # Membuat figure untuk boxplot
             fig, ax = plt.subplots(figsize=(10, 6))
             
@@ -172,6 +148,7 @@ if option_1_1 == 'Per tahun':
             
             # Menampilkan grafik di Streamlit
             st.pyplot(fig)
+            '''
 
 
 else:
