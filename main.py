@@ -255,24 +255,6 @@ if option_2_1 == 'Per tahun':
             tampil_barchart_pertahun('weekday', dict_week)
         with col2:
             tampil_boxplot_pertahun('weekday', list_week)
-            # Membuat figure untuk boxplot
-            fig, ax = plt.subplots(figsize=(10, 6))
-            
-            # Membuat boxplot dengan hue berdasarkan tahun (yr)
-            sns.boxplot(x='mnth', y='cnt', hue='yr', data=hour_df, ax=ax)
-            
-            # Menambahkan judul dan label pada grafik
-            ax.set_title('Penggunaan Sepeda per Bulan untuk Tahun 2011 dan 2012', fontsize=16)
-            ax.set_xlabel('Bulan', fontsize=12)
-            ax.set_ylabel('Jumlah Penggunaan Sepeda', fontsize=12)
-            
-            # Mengubah label pada sumbu x untuk musim
-            ax.set_xticklabels(['Dingin', 'Semi', 'Panas', 'Gugur'])
-            
-            # Menampilkan grafik di Streamlit
-            st.pyplot(fig)
-
-
 else:
     tab1, tab2 = st.tabs(['Musim', 'Bulan'])
     with tab1:
