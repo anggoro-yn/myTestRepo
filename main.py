@@ -33,7 +33,7 @@ def tampil_boxplot_pertahun(period, label):
     fig, ax = plt.subplots(figsize=(10, 6))
     
     # Membuat boxplot dengan hue berdasarkan tahun (yr)
-    sns.boxplot(x='period', y='cnt', hue='yr', data=hour_df, ax=ax)
+    sns.boxplot(x=period, y='cnt', hue='yr', data=hour_df, ax=ax)
     
     # Menambahkan judul dan label pada grafik
     ax.set_title('Penggunaan Sepeda per ' + period + ' untuk Tahun 2011 dan 2012', fontsize=16)
