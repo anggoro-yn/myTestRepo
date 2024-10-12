@@ -238,8 +238,8 @@ option_2_1 = st.selectbox(
 )
 
 if option_2_1 == 'Per tahun':
-    tab1, tab2 = st.tabs(['Jam', 'Hari'])
-    with tab1:
+    tabJam, tabHari = st.tabs(['Jam', 'Hari'])
+    with tabJam:
         col1, col2 = st.columns(2)
         with col1:
             # Menghitung rata-rata 'cnt' per jam dan per tahun
@@ -284,7 +284,7 @@ if option_2_1 == 'Per tahun':
             
             # Menampilkan grafik di Streamlit
             st.pyplot(fig)
-    with tab2:
+    with tabHari:
         col1, col2 = st.columns(2)
         with col1:
             # Menghitung rata-rata 'cnt' per bulan dan per tahun
