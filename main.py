@@ -18,6 +18,7 @@ dict_month = {1: 'Jan', 2: 'Feb', 3: 'Mar', 4: 'Apr', 5: 'Mei', 6: 'Jun', 7: 'Ju
 list_month = ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun', 'Jul', 'Agu', 'Sep', 'Okt', 'Nov', 'Des']
 dict_hour = {0:0, 1:1, 2:2, 3:3, 4:4, 5:5, 6:6, 7:7, 8:8, 9:9, 10:10, 11:11, 12:11, 12:12, 13:13, 14:14, 15:15, 16:16, 17:17, 18:18, 19:19, \
              20:20, 21:21, 22:22, 23:23 }
+list_hour = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23]
 
 def tampil_barchart_pertahun(period, label):
     # Menghitung rata-rata 'cnt' per period dan per tahun
@@ -243,34 +244,10 @@ if option_2_1 == 'Per tahun':
     tabJam, tabHari = st.tabs(['Jam', 'Hari'])
     with tabJam:
         col1, col2 = st.columns(2)
-        with col1:
+        with col1
             tampil_barchart_pertahun('hr', dict_hour)
-            # Menghitung rata-rata 'cnt' per jam dan per tahun
-            avg_cnt_per_hour_year = hour_df.groupby(['hr', 'yr'])['cnt'].mean().reset_index()
-            
-            # Mengubah kolom 'yr' menjadi nama tahun yang lebih jelas
-            avg_cnt_per_hour_year['yr'] = avg_cnt_per_hour_year['yr'].replace({0: '2011', 1: '2012'})
-            
-            # Membuat bar chart menggunakan seaborn
-            fig, ax = plt.subplots(figsize=(10, 6))
-            sns.barplot(ax=ax, x='hr', y='cnt', hue='yr', data=avg_cnt_per_hour_year)
-            
-            # Mengubah label pada sumbu x
-            #season_labels = {0: 'Dingin', 1: 'Semi', 2: 'Panas', 3: 'Gugur'}
-            #ax.set_xticklabels([season_labels.get(i, 'Unknown') for i in avg_cnt_per_season_year['season'].unique()])
-            
-            # Menambahkan judul dan label
-            ax.set_title('Rata-rata Penggunaan Sepeda per Jam untuk Tahun 2011 dan 2012', fontsize=16)
-            ax.set_xlabel('Jam', fontsize=12)
-            ax.set_ylabel('Rata-rata Jumlah Penggunaan Sepeda', fontsize=12)
-        
-            # Mengatur batas maksimum sumbu y
-            #ax.set_ylim(0, 300)
-            
-            # Menampilkan grafik di Streamlit
-            st.pyplot(fig)
-    
         with col2:
+            tampil_boxplot_pertahun('hr', list_hour)
             # Membuat figure untuk boxplot
             fig, ax = plt.subplots(figsize=(10, 6))
             
