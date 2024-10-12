@@ -14,7 +14,7 @@ def tampil_barchart_pertahun(period, label):
     
     # Membuat bar chart menggunakan seaborn
     fig, ax = plt.subplots(figsize=(10, 6))
-    sns.barplot(ax=ax, x='season', y='cnt', hue='yr', data=avg_cnt_per_period_year)
+    sns.barplot(ax=ax, x=period, y='cnt', hue='yr', data=avg_cnt_per_period_year)
     
     # Mengubah label pada sumbu x
     period_labels = label
@@ -129,7 +129,8 @@ if option_1_1 == 'Per tahun':
         with col1:
             tampil_barchart_pertahun('mnth', {1: 'Jan', 2: 'Feb', 3: 'Mar', 4: 'Apr', 5: 'Mei', 6: 'Jun', 7: 'Jul', 8: 'Agu', 9: 'Sep', 10: 'Okt', 11: 'Nov', 12: 'Des'})
 
-            str1 = ''' # Menghitung rata-rata 'cnt' per bulan dan per tahun
+            str1 = ''' 
+            # Menghitung rata-rata 'cnt' per bulan dan per tahun
             avg_cnt_per_month_year = hour_df.groupby(['mnth', 'yr'])['cnt'].mean().reset_index()
             
             # Mengubah kolom 'yr' menjadi nama tahun yang lebih jelas
