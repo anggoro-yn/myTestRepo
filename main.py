@@ -4,6 +4,31 @@ import plotly.express as px
 import matplotlib.pyplot as plt
 import seaborn as sns
 
+# FUNGSI
+def tampil_barchart_pertahun(period, label):
+    # Menghitung rata-rata 'cnt' per season dan per tahun
+    avg_cnt_per_period_year = hour_df.groupby([period, 'yr'])['cnt'].mean().reset_index()
+    
+    # Mengubah kolom 'yr' menjadi nama tahun yang lebih jelas
+    avg_cnt_per_period_year['yr'] = avg_cnt_per_period_year['yr'].replace({0: '2011', 1: '2012'})
+    
+    # Membuat bar chart menggunakan seaborn
+    fig, ax = plt.subplots(figsize=(10, 6))
+    sns.barplot(ax=ax, x='season', y='cnt', hue='yr', data=avg_cnt_per_period_year)
+    
+    # Mengubah label pada sumbu x
+    period_labels = period
+    ax.set_xticklabels([period_labels.get(i, 'Unknown') for i in avg_cnt_per_period_year[period].unique()])
+    
+    # Menambahkan judul dan label
+    ax.set_title('Rata-rata Penggunaan Sepeda per', period, 'untuk Tahun 2011 dan 2012', fontsize=16)
+    ax.set_xlabel(period, fontsize=12)
+    ax.set_ylabel('Rata-rata Jumlah Penggunaan Sepeda', fontsize=12)
+
+    # Menampilkan grafik di Streamlit
+    st.pyplot(fig)
+
+
 #
 # Load dataset
 #
@@ -18,7 +43,7 @@ st.set_page_config(
 )
 
 with st.sidebar:
-    # Menambahkan logo perusahaan
+    # Menambahkan logo
     st.image("logo.jpg")
     with st.expander('About this page'):
         # Menggunakan HTML dan CSS untuk membuat kotak teks dengan latar belakang berwarna
@@ -30,6 +55,8 @@ with st.sidebar:
             """,
             unsafe_allow_html=True
         )
+
+
 
 #
 # MAIN PAGE
@@ -70,6 +97,8 @@ if option_1_1 == 'Per tahun':
     with tab1:
         col1, col2 = st.columns(2)
         with col1:
+            tampil_barchart_pertahun('season', {1: 'Dingin', 2:'Semi', 3:'Panas', 4:'Gugur'})
+                                     
             # Menghitung rata-rata 'cnt' per season dan per tahun
             avg_cnt_per_season_year = hour_df.groupby(['season', 'yr'])['cnt'].mean().reset_index()
             
