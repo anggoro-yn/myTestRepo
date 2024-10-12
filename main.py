@@ -10,6 +10,15 @@ import seaborn as sns
 
 # Load dataset
 hour_df = pd.read_csv('hour.csv')
+# Mengembalikan nilai kolom temp, atemp, hum dan windspeed ke nilai aslinya sebelum dinornalisasi. 
+max_temp = 39
+min_temp = -8
+hour_df['temp'] = hour_df['temp'] * (max_temp - min_temp) + min_temp
+t_min = -16
+t_max = 50
+hour_df['atemp'] = hour_df['atemp'] * (t_max - t_min) + t_min
+hour_df['hum'] = hour_df['hum'] * 100
+hour_df['windspeed'] = hour_df['windspeed'] * 67
 # Membuat interval temperatur menjadi 10 bin
 hour_df['bins: temp'] = pd.cut(hour_df['temp'], bins=10)
 # Membuat interval temperatur dirasakanmenjadi 10 bin
@@ -345,6 +354,9 @@ st.write(rekomendasi_2)
 st.header('Pola Pemakaian Sepeda Berdasar Kondisi Cuaca')
 
 pembuka_3 = '''\
+Di bagian ketiga, kita akan melihat hubungan antara pemakaian sepeda dengan kondisi cuaca dan tiga \
+parameter lingkungan, yaitu temperatur, kelembaban dan kecepatan angin. Hubungan antara pemakaian \
+sepeda dan berbagai parameter ini akan divisualisasikan sehingga kita dapat mudah mencerna hubungannya.
 '''
 st.write(pembuka_3)
 
@@ -408,6 +420,13 @@ else:  # TOTAL
         with col2:
             tampil_boxplot_total('bins: windspeed', list_wind, 0)
 hasil_analisa_3 = ''' \
+Kita dapat melihat bahwa ada korelasi yang cukup kuat antara kondisi cuaca dengan tingkat pemakaian sepeda. \
+Pada kondisi cuaca yang cerah, tingkat pemakaian sepeda paling tinggi dibandingkan dengan kondisi cuaca lainnya. \
+Tingkat pemakaian terendah ada pada kondisi cuaca hujan deras atau badai salju. Hal ini dapat dengan mudah kita \
+pahami, mengingat pada kondisi ini, tentu sedikit sekali orang yang ingin beraktivitas di luar ruangan. 
+
+temperatur udara juga memiliki korelasi yang kuat dengan tingkat pemakaian sepeda. Pada suhu dingin membeku, pemakaian \
+sepeda sangat rendah. 
 '''
 
 rekomendasi_3 ='''\
