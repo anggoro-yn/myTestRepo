@@ -61,7 +61,8 @@ st.write(pembuka_1)
 # Membuat select box dengan beberapa opsi
 option_1_1 = st.selectbox(
     'Pilihan analisa : ',
-    ['Per tahun','Total']
+    ['Per tahun','Total'],
+    key = 'option_1'
 )
 
 if option_1_1 == 'Per tahun':
@@ -299,7 +300,8 @@ st.write(pembuka_2)
 # Membuat select box dengan beberapa opsi
 option_2_1 = st.selectbox(
     'Pilihan analisa : ',
-    ['Per tahun','Total']
+    ['Per tahun','Total'],
+    key='option_2'
 )
 
 if option_2_1 == 'Per tahun':
