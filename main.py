@@ -21,6 +21,8 @@ dict_hour = {0:0, 1:1, 2:2, 3:3, 4:4, 5:5, 6:6, 7:7, 8:8, 9:9, 10:10, 11:11, 12:
 list_hour = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23]
 dict_week = {0: 'Min', 1: 'Sen', 2: 'Sel', 3: 'Rab', 4: 'Kam', 5: 'Jum', 6: 'Sab'}
 list_week = ['Min', 'Sen', 'Sel', 'Rab', 'Kam', 'Jum', 'Sab']
+dict_weather = {1:'Cerah', 2: 'Berkabut/Berawan', 3: 'Hujan/Salju Ringan', 4: 'Hujan Deras/Badai Salju'}
+list_weather = ['Cerah', 'Berkabut/Berawan', 'Hujan/Salju Ringan', 'Hujan Deras/Badai Salju']
 
 def tampil_barchart_pertahun(period, label):
     # Menghitung rata-rata 'cnt' per period dan per tahun
@@ -321,20 +323,20 @@ pembuka_3 = '''\
 st.write(pembuka_3)
 
 # Membuat select box dengan beberapa opsi
-option_2_1 = st.selectbox(
+option_3_1 = st.selectbox(
     'Pilihan analisa : ',
     ['Per tahun','Total'],
-    key='option_2'
+    key='option_3'
 )
 
-if option_2_1 == 'Per tahun':
-    tabJam, tabHari = st.tabs(['Jam', 'Hari'])
-    with tabJam:
+if option_3_1 == 'Per tahun':
+    tabCuaca, tabTemp, tabLembab, tabAngin = st.tabs(['Kondisi Cuaca', 'Temperatur', 'Kelembaban', 'Kecepatan Angin'])
+    with tabCuaca:
         col1, col2 = st.columns(2)
         with col1:
-            tampil_barchart_pertahun('hr', dict_hour)
+            tampil_barchart_pertahun('weathersit', dict_weather)
         with col2:
-            tampil_boxplot_pertahun('hr', list_hour)
+            tampil_boxplot_pertahun('weathersit', list_weather)
     with tabHari:
         col1, col2 = st.columns(2)
         with col1:
