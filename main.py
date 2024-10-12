@@ -194,23 +194,6 @@ else:
             tampil_barchart_total('mnth', dict_month)
         with col2:
             tampil_boxplot_total('mnth', list_month)
-            # Membuat figure untuk boxplot
-            fig, ax = plt.subplots(figsize=(10, 6))
-            
-            # Membuat boxplot dengan hue berdasarkan tahun (yr)
-            sns.boxplot(x='mnth', y='cnt', data=hour_df, ax=ax)
-            
-            # Menambahkan judul dan label pada grafik
-            ax.set_title('Penggunaan Sepeda per Bulan', fontsize=16)
-            ax.set_xlabel('Bulan', fontsize=12)
-            ax.set_ylabel('Jumlah Penggunaan Sepeda', fontsize=12)
-            
-            # Mengubah label pada sumbu x untuk musim
-            ax.set_xticklabels(['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun', 'Jul', 'Agu', 'Sep','Okt','Nov','Des'])
-            
-            # Menampilkan grafik di Streamlit
-            st.pyplot(fig)
-
 
 hasil_analisa_1 = ''' \
 Berdasar visualisasi di atas, kita bisa melihat bahwa terdapat hubungan yang erat antara pemakaian sepeda dan musim serta bulan yang sedang berjalan. \
