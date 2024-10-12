@@ -226,8 +226,8 @@ else:
             sns.barplot(ax=ax, x='mnth', y='cnt', data=avg_cnt_per_month) #, palette=colors)
             
             # Mengubah label pada sumbu x
-            #season_labels = {1: 'Dingin', 2: 'Semi', 3: 'Panas', 4: 'Gugur'}
-            #ax.set_xticklabels([season_labels[i] for i in avg_cnt_per_season['season']], rotation=0)
+            month_labels = {1: 'Jan', 2: 'Feb', 3: 'Mar', 4: 'Apr', 5: 'Mei', 6: 'Jun', 7: 'Jul', 8: 'Agu', 9: 'Sep', 10: 'Okt', 11: 'Nov', 12: 'Des'}
+            ax.set_xticklabels([month_labels[i] for i in avg_cnt_per_month['mnth']], rotation=0)
             
             # Menambahkan judul dan label
             ax.set_title('Rata-rata Jumlah Pemakaian Berdasarkan Bulan', fontsize=16)
