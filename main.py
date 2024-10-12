@@ -108,7 +108,7 @@ Kita bisa melihat bahwa pemakaian terendah pada musim dingin, sedangkan pemakaia
 pemakaian relatif tinggi, walaupun tidak setinggi di musim panas.\
 '''
 
-st.write('hasil_analisa_1')
+st.write(hasil_analisa_1)
 
 
 print('##################################################################')
