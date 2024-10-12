@@ -10,8 +10,16 @@ import seaborn as sns
 
 # Load dataset
 hour_df = pd.read_csv('hour.csv')
+# Membuat interval temperatur menjadi 10 bin
+hour_df['bins: temp'] = pd.cut(hour_df['temp'], bins=10)
+# Membuat interval temperatur dirasakanmenjadi 10 bin
+hour_df['bins: atemp'] = pd.cut(hour_df['atemp'], bins=10)
+# Membuat interval kelembaban menjadi 10 bin
+hour_df['bins: hum'] = pd.cut(hour_df['hum'], bins=10)
+# Membuat interval kecepatan angin menjadi 10 bin
+hour_df['bins: windspeed'] = pd.cut(hour_df['windspeed'], bins=10)
 # Data tambahan
-periode = {'season': 'Musim', 'mnth': 'Bulan', 'hr': 'Jam', 'weekday': 'Hari', 'weathersit': 'Kondisi Cuaca'}
+periode = {'season': 'Musim', 'mnth': 'Bulan', 'hr': 'Jam', 'weekday': 'Hari', 'weathersit': 'Kondisi Cuaca', 'temp': 'Temperatur'}
 dict_season = {1: 'Dingin', 2: 'Semi', 3: 'Panas', 4: 'Gugur'}
 list_season = ['Dingin', 'Semi', 'Panas', 'Gugur']
 dict_month = {1: 'Jan', 2: 'Feb', 3: 'Mar', 4: 'Apr', 5: 'Mei', 6: 'Jun', 7: 'Jul', 8: 'Agu', 9: 'Sep', 10: 'Okt', 11: 'Nov', 12: 'Des'}
@@ -23,6 +31,7 @@ dict_week = {0: 'Min', 1: 'Sen', 2: 'Sel', 3: 'Rab', 4: 'Kam', 5: 'Jum', 6: 'Sab
 list_week = ['Min', 'Sen', 'Sel', 'Rab', 'Kam', 'Jum', 'Sab']
 dict_weather = {1:'Cerah', 2: 'Berkabut/Berawan', 3: 'Hujan/Salju Ringan', 4: 'Hujan Deras/Badai Salju'}
 list_weather = ['Cerah', 'Berkabut/Berawan', 'Hujan/Salju Ringan', 'Hujan Deras/Badai Salju']
+dict_temp = {}
 
 def tampil_barchart_pertahun(period, label):
     # Menghitung rata-rata 'cnt' per period dan per tahun
@@ -322,7 +331,6 @@ pembuka_3 = '''\
 '''
 st.write(pembuka_3)
 st.write(hour_df)
-
 # Membuat select box dengan beberapa opsi
 option_3_1 = st.selectbox(
     'Pilihan analisa : ',
@@ -335,13 +343,9 @@ if option_3_1 == 'Per tahun':
     with tabCuaca:
         col1, col2 = st.columns(2)
         with col1:
-            st.write('test01')
             tampil_barchart_pertahun('weathersit', dict_weather)
-            st.write('test02')
         with col2:
-            st.write('test03')
             tampil_boxplot_pertahun('weathersit', list_weather)
-            st.write('test04')
     with tabTemp:
         pass
     with tabLembab:
