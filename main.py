@@ -46,6 +46,9 @@ st.markdown(
     unsafe_allow_html=True
 )
 
+# 
+# MUSIM DAN BULAN
+#
 st.header('Pola Pemakaian Sepeda Berdasar Musim dan Bulan')
 
 pembuka_1 = '''\
@@ -259,8 +262,9 @@ else:
 
 
 hasil_analisa_1 = ''' \
-Berdasar visualisasi di atas, kita bisa melihat bahwa terdapat hubungan yang erat antara pemakaian sepeda dan musim yang sedang terjadi. \
-Kita bisa melihat bahwa pemakaian terendah pada musim dingin, sedangkan pemakaian tertinggi di saat musim panas. Di musim semi dan musim gugur, \
+Berdasar visualisasi di atas, kita bisa melihat bahwa terdapat hubungan yang erat antara pemakaian sepeda dan musim serta bulan yang sedang berjalan. \
+Kita bisa melihat bahwa pemakaian terendah pada musim dingin, yang berlangsung dari akhir Desember sampai dengan akhir Maret, sedangkan pemakaian \
+tertinggi di saat musim panas, berlangsung dari akhir Juni sampai dengan akhir September. Di musim semi dan musim gugur, \
 pemakaian relatif tinggi, walaupun tidak setinggi di musim panas.
 
 Visualisasi menggunakan boxplot menunjukkan bahwa ada cukup banyak nilai outlier. Hal ini berarti bahwa di musim dingin, saat pemakaian sepeda \
@@ -270,7 +274,7 @@ panas dan gugur.
 
 rekomendasi_1 ='''\
 Berdasarkan temuan di atas, ada beberapa hal yang bisa ditindaklanjuti, yaitu:
-1. Memfokuskan perawatan rutin tahunan di musim dingin agar saat masuk musim semi, sepeda-sepeda yang akan digunakan sudah kembali \
+1. Memfokuskan perawatan rutin tahunan di musim dingin (terutama di bulan Januari dan Februari) agar saat masuk musim semi, sepeda-sepeda yang akan digunakan sudah kembali \
 dalam kondisi bagus dan dapat bertahan hingga musim dingin berikutnya.
 2. Mengatur penyediaan sepeda di musim dingin agar tidak terlalu banyak sepeda yang _idle_ tak terpakai, namun tetap memastikan bahwa \
 tersedia cukup sepeda jika terjadi lonjakan pemakaian.
