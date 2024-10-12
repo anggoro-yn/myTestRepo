@@ -127,6 +127,17 @@ st.set_page_config(
 with st.sidebar:
     # Menambahkan logo
     st.image("logo.jpg")
+    with st.expander('About me'):
+        # Menggunakan HTML dan CSS untuk membuat kotak teks dengan latar belakang berwarna
+        st.markdown(
+            """
+            <div>
+                <p style="font-size: 16px; color: black;">Anggoro Yudho Nuswantoro</p>
+                <p style="font-size: 16px; color: black;">yudho.nuswantoro@gmail.com</p>                
+            </div>
+            """,
+            unsafe_allow_html=True
+        )
     with st.expander('About this page'):
         # Menggunakan HTML dan CSS untuk membuat kotak teks dengan latar belakang berwarna
         st.markdown(
