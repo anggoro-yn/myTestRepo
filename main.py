@@ -144,17 +144,24 @@ else:
 hasil_analisa_1 = ''' \
 Berdasar visualisasi di atas, kita bisa melihat bahwa terdapat hubungan yang erat antara pemakaian sepeda dan musim yang sedang terjadi. \
 Kita bisa melihat bahwa pemakaian terendah pada musim dingin, sedangkan pemakaian tertinggi di saat musim panas. Di musim semi dan musim gugur, \
-pemakaian relatif tinggi, walaupun tidak setinggi di musim panas.\
+pemakaian relatif tinggi, walaupun tidak setinggi di musim panas.
+
+Visualisasi menggunakan boxplot menunjukkan bahwa ada cukup banyak nilai outlier. Hal ini berarti bahwa di musim dingin, saat pemakaian sepeda \
+secara rata-rata rendah, ada saat-saat tertentu di mana ada tingkat pemakaian yang tinggi, bahkan melebihi rata-rata pemakaian di musim semi, \
+panas dan gugur. 
 '''
 
 rekomendasi_1 ='''\
 Berdasarkan temuan di atas, ada beberapa hal yang bisa ditindaklanjuti, yaitu:
 1. Memfokuskan perawatan rutin tahunan di musim dingin agar saat masuk musim semi, sepeda-sepeda yang akan digunakan sudah kembali \
 dalam kondisi bagus dan dapat bertahan hingga musim dingin berikutnya.
-2. Mengatur penyediaan sepeda di musim semi hingga musim gugur agar selalu tersedia cukup sepeda untuk digunakan para pengguna. 
+2. Mengatur penyediaan sepeda di musim dingin agar tidak terlalu banyak sepeda yang _idle_ tak terpakai, namun tetap memastikan bahwa \
+tersedia cukup sepeda jika terjadi lonjakan pemakaian.
+3. Mengatur penyediaan sepeda di musim semi hingga musim gugur agar selalu tersedia cukup sepeda untuk digunakan para pengguna yang secara rata-rata cukup tinggi.
 '''
 
 st.write(hasil_analisa_1)
+st.write(rekomendasi_1)
 
 
 print('##################################################################')
