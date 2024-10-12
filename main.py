@@ -91,18 +91,6 @@ if option_1 == 'Per tahun':
     # Menampilkan grafik di Streamlit
     st.pyplot(fig)
 
-# Plot boxplot untuk tahun 2012
-with col2:
-    st.write("Boxplot Tahun 2012")
-    fig, ax = plt.subplots(figsize=(8, 6))
-    sns.boxplot(x='season', y='cnt', data=data_2012, ax=ax)
-    ax.set_title('Penggunaan Sepeda per Musim (2012)')
-    ax.set_xlabel('Musim')
-    ax.set_ylabel('Jumlah Penggunaan Sepeda')
-    # Mengubah label sumbu x agar lebih jelas
-    ax.set_xticklabels(['Dingin', 'Semi', 'Panas', 'Gugur'])
-    st.pyplot(fig)
-
 else:
 
     # Menghitung rata-rata 'cnt' per season
