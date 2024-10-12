@@ -16,6 +16,8 @@ dict_season = {1: 'Dingin', 2: 'Semi', 3: 'Panas', 4: 'Gugur'}
 list_season = ['Dingin', 'Semi', 'Panas', 'Gugur']
 dict_month = {1: 'Jan', 2: 'Feb', 3: 'Mar', 4: 'Apr', 5: 'Mei', 6: 'Jun', 7: 'Jul', 8: 'Agu', 9: 'Sep', 10: 'Okt', 11: 'Nov', 12: 'Des'}
 list_month = ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun', 'Jul', 'Agu', 'Sep', 'Okt', 'Nov', 'Des']
+dict_hour = {1:1, 2:2, 3:3, 4:4, 5:5, 6:6, 7:7, 8:8, 9:9, 10:10, 11:11, 12:11, 12:12, 13:13, 14:14, 15:15, 16:16, 17:17, 18:18, 19:19, \
+             20:20, 21:21, 22:22, 23:23, 24:24 }
 
 def tampil_barchart_pertahun(period, label):
     # Menghitung rata-rata 'cnt' per period dan per tahun
@@ -218,9 +220,9 @@ tersedia cukup sepeda jika terjadi lonjakan pemakaian.
 st.write(hasil_analisa_1)
 st.write(rekomendasi_1)
 
-# 
+##########################
 # JAM DAN HARI
-#
+##########################
 st.header('Pola Pemakaian Sepeda Berdasar Jam dan Hari')
 
 pembuka_2 = '''\
@@ -242,6 +244,7 @@ if option_2_1 == 'Per tahun':
     with tabJam:
         col1, col2 = st.columns(2)
         with col1:
+            tampil_barchart_pertahun('hr', dict_hour)
             # Menghitung rata-rata 'cnt' per jam dan per tahun
             avg_cnt_per_hour_year = hour_df.groupby(['hr', 'yr'])['cnt'].mean().reset_index()
             
