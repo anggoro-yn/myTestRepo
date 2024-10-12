@@ -40,7 +40,8 @@ def tampil_boxplot_pertahun(period, label):
     sns.boxplot(x=period, y='cnt', hue='yr', data=hour_df, ax=ax)
     
     # Menambahkan judul dan label pada grafik
-    ax.set_title('Penggunaan Sepeda per ' + period + ' untuk Tahun 2011 dan 2012', fontsize=16)
+    periode = {'season': 'Musim', 'mnth': 'Bulan', 'hr': 'Jam'}
+    ax.set_title('Penggunaan Sepeda per ' + periode[period] + ' untuk Tahun 2011 dan 2012', fontsize=16)
     ax.set_xlabel(period, fontsize=12)
     ax.set_ylabel('Jumlah Penggunaan Sepeda', fontsize=12)
     
