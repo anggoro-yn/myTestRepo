@@ -317,7 +317,7 @@ if option_2_1 == 'Per tahun':
             
             # Membuat bar chart menggunakan seaborn
             fig, ax = plt.subplots(figsize=(10, 6))
-            sns.barplot(ax=ax, x='hour', y='cnt', hue='yr', data=avg_cnt_per_hour_year)
+            sns.barplot(ax=ax, x='hr', y='cnt', hue='yr', data=avg_cnt_per_hour_year)
             
             # Mengubah label pada sumbu x
             #season_labels = {0: 'Dingin', 1: 'Semi', 2: 'Panas', 3: 'Gugur'}
