@@ -6,7 +6,7 @@ import seaborn as sns
 
 # FUNGSI
 def tampil_barchart_pertahun(period, label):
-    # Menghitung rata-rata 'cnt' per season dan per tahun
+    # Menghitung rata-rata 'cnt' per period dan per tahun
     avg_cnt_per_period_year = hour_df.groupby([period, 'yr'])['cnt'].mean().reset_index()
     
     # Mengubah kolom 'yr' menjadi nama tahun yang lebih jelas
@@ -28,6 +28,9 @@ def tampil_barchart_pertahun(period, label):
     # Menampilkan grafik di Streamlit
     st.pyplot(fig)
 
+def tampil_barchart_total(period, label):
+    pass
+    
 def tampil_boxplot_pertahun(period, label):
     # Membuat figure untuk boxplot
     fig, ax = plt.subplots(figsize=(10, 6))
@@ -45,6 +48,7 @@ def tampil_boxplot_pertahun(period, label):
     
     # Menampilkan grafik di Streamlit
     st.pyplot(fig)
+
 
 
 #
@@ -112,36 +116,20 @@ option_1_1 = st.selectbox(
 
 if option_1_1 == 'Per tahun':
     tab1, tab2 = st.tabs(['Musim', 'Bulan'])
+
     with tab1:
         col1, col2 = st.columns(2)
         with col1:
             tampil_barchart_pertahun('season', {0: 'Dingin', 1: 'Semi', 2: 'Panas', 3: 'Gugur'})
-    
         with col2:
             tampil_boxplot_pertahun('season', ['Dingin', 'Semi', 'Panas', 'Gugur'])
 
-            string101= '''
-            # Membuat figure untuk boxplot
-            fig, ax = plt.subplots(figsize=(10, 6))
-            
-            # Membuat boxplot dengan hue berdasarkan tahun (yr)
-            sns.boxplot(x='season', y='cnt', hue='yr', data=hour_df, ax=ax)
-            
-            # Menambahkan judul dan label pada grafik
-            ax.set_title('Penggunaan Sepeda per Musim untuk Tahun 2011 dan 2012', fontsize=16)
-            ax.set_xlabel('Musim', fontsize=12)
-            ax.set_ylabel('Jumlah Penggunaan Sepeda', fontsize=12)
-            
-            # Mengubah label pada sumbu x untuk musim
-            ax.set_xticklabels(['Dingin', 'Semi', 'Panas', 'Gugur'])
-            
-            # Menampilkan grafik di Streamlit
-            st.pyplot(fig)
-            '''
     with tab2:
         col1, col2 = st.columns(2)
         with col1:
-            # Menghitung rata-rata 'cnt' per bulan dan per tahun
+            tampil_barchart_pertahun('mnth', {1: 'Jan', 2: 'Feb', 3: 'Mar', 4: 'Apr', 5: 'Mei', 6: 'Jun', 7: 'Jul', 8: 'Agu', 9: 'Sep', 10: 'Okt', 11: 'Nov', 12: 'Des'})
+
+            str1 = ''' # Menghitung rata-rata 'cnt' per bulan dan per tahun
             avg_cnt_per_month_year = hour_df.groupby(['mnth', 'yr'])['cnt'].mean().reset_index()
             
             # Mengubah kolom 'yr' menjadi nama tahun yang lebih jelas
@@ -164,7 +152,8 @@ if option_1_1 == 'Per tahun':
             ax.set_ylim(0, 350)
             
             # Menampilkan grafik di Streamlit
-            st.pyplot(fig)
+                        st.pyplot(fig)
+            '''
         with col2:
             # Membuat figure untuk boxplot
             fig, ax = plt.subplots(figsize=(10, 6))
