@@ -20,7 +20,7 @@ with st.sidebar:
         unsafe_allow_html=True
     )
 
-st.title('Analisa Dataset Bike Sharing Dataset')
+st.title('Analisa Bike Sharing Dataset')
 
 col1, col2, col3 = st.columns(3)
 
