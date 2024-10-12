@@ -8,8 +8,14 @@ import seaborn as sns
 # FUNGSI + DATA + DLL
 ######################################
 
-# Periode analisa
+# Load dataset
+hour_df = pd.read_csv('hour.csv')
+# Data tambahan
 periode = {'season': 'Musim', 'mnth': 'Bulan', 'hr': 'Jam'}
+dict_season = {0: 'Dingin', 1: 'Semi', 2: 'Panas', 3: 'Gugur'}
+list_season = ['Dingin', 'Semi', 'Panas', 'Gugur']
+dict_month = {1: 'Jan', 2: 'Feb', 3: 'Mar', 4: 'Apr', 5: 'Mei', 6: 'Jun', 7: 'Jul', 8: 'Agu', 9: 'Sep', 10: 'Okt', 11: 'Nov', 12: 'Des'}
+list_month = ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun', 'Jul', 'Agu', 'Sep', 'Okt', 'Nov', 'Des']
 
 def tampil_barchart_pertahun(period, label):
     # Menghitung rata-rata 'cnt' per period dan per tahun
@@ -100,8 +106,7 @@ def tampil_boxplot_total(period, label):
     # Menampilkan grafik di Streamlit
     st.pyplot(fig)
     
-# Load dataset
-hour_df = pd.read_csv('hour.csv')
+
 
 ######################################################
 # WEBPAGE
@@ -165,42 +170,25 @@ if option_1_1 == 'Per tahun':
     with tab1:
         col1, col2 = st.columns(2)
         with col1:
-            tampil_barchart_pertahun('season', {0: 'Dingin', 1: 'Semi', 2: 'Panas', 3: 'Gugur'})
+            tampil_barchart_pertahun('season', dict_season)
         with col2:
-            tampil_boxplot_pertahun('season', ['Dingin', 'Semi', 'Panas', 'Gugur'])
+            tampil_boxplot_pertahun('season', list_season)
 
     with tab2:
         col1, col2 = st.columns(2)
         with col1:
-            tampil_barchart_pertahun('mnth', {1: 'Jan', 2: 'Feb', 3: 'Mar', 4: 'Apr', 5: 'Mei', 6: 'Jun', 7: 'Jul', 8: 'Agu', 9: 'Sep', 10: 'Okt', 11: 'Nov', 12: 'Des'})
+            tampil_barchart_pertahun('mnth', dict_month)
         with col2:
-            tampil_boxplot_pertahun('mnth', ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun', 'Jul', 'Agu', 'Sep', 'Okt', 'Nov', 'Des'])
+            tampil_boxplot_pertahun('mnth', list_month)
 
 else:
     tab1, tab2 = st.tabs(['Musim', 'Bulan'])
     with tab1:
         col1, col2 = st.columns(2)
         with col1:
-            tampil_barchart_total('season', {1: 'Dingin', 2: 'Semi', 3: 'Panas', 4: 'Gugur'})
+            tampil_barchart_total('season', dict_season)
         with col2:
-            tampil_boxplot_total('season', ['Dingin', 'Semi', 'Panas', 'Gugur'])
-            
-            str='''# Membuat figure untuk boxplot
-            fig, ax = plt.subplots(figsize=(10, 6))
-            
-            # Membuat boxplot dengan hue berdasarkan tahun (yr)
-            sns.boxplot(x='season', y='cnt', data=hour_df, ax=ax)
-            
-            # Menambahkan judul dan label pada grafik
-            ax.set_title('Penggunaan Sepeda per Musim', fontsize=16)
-            ax.set_xlabel('Musim', fontsize=12)
-            ax.set_ylabel('Jumlah Penggunaan Sepeda', fontsize=12)
-            
-            # Mengubah label pada sumbu x untuk musim
-            ax.set_xticklabels(['Dingin', 'Semi', 'Panas', 'Gugur'])
-            
-            # Menampilkan grafik di Streamlit
-            st.pyplot(fig)'''
+            tampil_boxplot_total('season', list_season)
     with tab2:
         col1, col2 = st.columns(2)
         with col1:
