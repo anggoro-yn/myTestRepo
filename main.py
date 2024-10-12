@@ -347,7 +347,7 @@ st.header('Pola Pemakaian Sepeda Berdasar Kondisi Cuaca')
 pembuka_3 = '''\
 '''
 st.write(pembuka_3)
-st.write(hour_df)
+
 # Membuat select box dengan beberapa opsi
 option_3_1 = st.selectbox(
     'Pilihan analisa : ',
@@ -382,20 +382,31 @@ if option_3_1 == 'Per tahun':
         with col2:
             tampil_boxplot_pertahun('bins: windspeed', list_wind, 0)
 else:  # TOTAL
-    tabJam, tabHari = st.tabs(['Jam', 'Hari'])
-    with tabJam:
+    tabCuaca, tabTemp, tabLembab, tabAngin = st.tabs(['Kondisi Cuaca', 'Temperatur', 'Kelembaban', 'Kecepatan Angin'])
+    with tabCuaca:
         col1, col2 = st.columns(2)
         with col1:
-            tampil_barchart_total('hr', dict_hour)
+            tampil_barchart_total('weathersit', dict_weather)
         with col2:
-            tampil_boxplot_total('hr', list_hour)
-    with tabHari:
+            tampil_boxplot_total('weathersit', list_weather)
+    with tabTemp:
         col1, col2 = st.columns(2)
         with col1:
-            tampil_barchart_total('weekday', dict_week)
+            tampil_barchart_total('bins: temp', dict_temp, 0)
         with col2:
-            tampil_boxplot_total('weekday', list_week)  
-
+            tampil_boxplot_total('bins: temp', list_temp, 0)
+    with tabLembab:
+        col1, col2 = st.columns(2)
+        with col1:
+            tampil_barchart_total('bins: hum', dict_hum, 0)
+        with col2:
+            tampil_boxplot_total('bins: hum', list_hum, 0)
+    with tabAngin:
+        col1, col2 = st.columns(2)
+        with col1:
+            tampil_barchart_total('bins: windspeed', dict_wind, 0)
+        with col2:
+            tampil_boxplot_total('bins: windspeed', list_wind, 0)
 hasil_analisa_3 = ''' \
 '''
 
