@@ -22,6 +22,17 @@ with st.sidebar:
 
 st.title('Analisa Bike Sharing Dataset')
 
+# Membuat select box dengan beberapa opsi
+option_1 = st.selectbox(
+    'Pilihan analisa : ',
+    ['Per tahun','Total']
+)
+
+# Menampilkan pilihan yang dipilih oleh pengguna
+st.write('Anda memilih:', option_1)
+
+
+
 # Menghitung rata-rata 'cnt' per season
 avg_cnt_per_season = hour_df.groupby('season')['cnt'].mean().reset_index()
 
