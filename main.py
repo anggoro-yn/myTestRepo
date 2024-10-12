@@ -124,6 +124,23 @@ else:
     # Menampilkan grafik di Streamlit
     st.pyplot(fig)
 
+    # Membuat figure untuk boxplot
+    fig, ax = plt.subplots(figsize=(10, 6))
+    
+    # Membuat boxplot dengan hue berdasarkan tahun (yr)
+    sns.boxplot(x='season', y='cnt', data=hour_df, ax=ax)
+    
+    # Menambahkan judul dan label pada grafik
+    ax.set_title('Penggunaan Sepeda per Musim', fontsize=16)
+    ax.set_xlabel('Musim', fontsize=12)
+    ax.set_ylabel('Jumlah Penggunaan Sepeda', fontsize=12)
+    
+    # Mengubah label pada sumbu x untuk musim
+    ax.set_xticklabels(['Dingin', 'Semi', 'Panas', 'Gugur'])
+    
+    # Menampilkan grafik di Streamlit
+    st.pyplot(fig)
+
 hasil_analisa_1 = ''' \
 Berdasar visualisasi di atas, kita bisa melihat bahwa terdapat hubungan yang erat antara pemakaian sepeda dan musim yang sedang terjadi. \
 Kita bisa melihat bahwa pemakaian terendah pada musim dingin, sedangkan pemakaian tertinggi di saat musim panas. Di musim semi dan musim gugur, \
