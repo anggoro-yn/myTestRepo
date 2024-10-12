@@ -255,6 +255,7 @@ if option_2_1 == 'Per tahun':
             tampil_barchart_pertahun('weekday', dict_week)
         with col2:
             tampil_boxplot_pertahun('weekday', list_week)
+          
 else:
     tab1, tab2 = st.tabs(['Musim', 'Bulan'])
     with tab1:
