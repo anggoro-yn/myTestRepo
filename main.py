@@ -33,16 +33,7 @@ st.markdown(
 
 st.header('Pola Pemakaian Sepeda Berdasar Musim')
 
-st.markdown(
-    """
-    <div>
-        <p style="font-size: 16px; color: black;">Analisa pertama yang akan kita lakukan adalah melihat pola pemakaian sepeda per musim.</p>
-    </div>
-    """,
-    unsafe_allow_html=True
-)
-
-st.write('Analisa pertama yang akan kita lakukan adalah melihat pola pemakaian sepeda per musim. Melalui analisa ini kita ingin melihat hubungan antara musim dengan pemakaian sepeda. Salah satu manfaatnya adalah kita bisa merencakanan penyediaan sepeda secara optimal dan rencana perawatan rutin. ')
+st.write('Analisa pertama yang akan kita lakukan adalah melihat pola pemakaian sepeda per musim. Melalui analisa ini kita ingin melihat hubungan antara musim dengan pemakaian sepeda. Manfaat dilakukannya analisa ini adalah kita bisa merencakanan penyediaan sepeda secara optimal dan rencana perawatan rutin. ')
 
 # Membuat select box dengan beberapa opsi
 option_1 = st.selectbox(
@@ -110,6 +101,14 @@ else:
     
     # Menampilkan grafik di Streamlit
     st.pyplot(fig)
+
+hasil_analisa_1 = ''' \
+Berdasar visualisasi di atas, kita bisa melihat bahwa terdapat hubungan yang erat antara pemakaian sepeda dan musim yang sedang terjadi. \
+Kita bisa melihat bahwa pemakaian terendah pada musim dingin, sedangkan pemakaian tertinggi di saat musim panas. Di musim semi dan musim gugur, \
+pemakaian relatif tinggi, walaupun tidak setinggi di musim panas.\
+'''
+
+st.write('hasil_analisa_1')
 
 
 print('##################################################################')
