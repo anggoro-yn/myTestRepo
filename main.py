@@ -133,7 +133,10 @@ with st.sidebar:
             """
             <div>
                 <p style="font-size: 16px; color: black;">Anggoro Yudho Nuswantoro</p>
-                <p style="font-size: 16px; color: black;">yudho.nuswantoro@gmail.com</p>                
+                <p style="font-size: 16px; color: black;">Seorang electrical engineer yang bekerja di perusahaan manufaktur serat polyester di daerah Kaliwungu - Jawa Tengah.</p>
+                <p style="font-size: 16px; color: black;">yudho.nuswantoro@gmail.com</p>
+                <p style="font-size: 16px; color: black;">0811-5211770</p>
+
             </div>
             """,
             unsafe_allow_html=True
