@@ -24,7 +24,7 @@ st.title('Analisa Bike Sharing Dataset')
 
 st.markdown(
     """
-    <div style="background-color: #a9a9a9; padding: 10px; border-radius: 5px;">
+    <div>
         <p style="font-size: 16px; color: black;">Kita akan melakukan analisa terhadap dataset Bike Sharing. </p>
         <p style="font-size: 16px; color: black;">Analisa pertama yang akan kita lakukan adalah melihat pola pemakaian sepeda per musim.</p>
     </div>
