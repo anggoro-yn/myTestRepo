@@ -334,9 +334,13 @@ if option_3_1 == 'Per tahun':
     with tabCuaca:
         col1, col2 = st.columns(2)
         with col1:
+            st.write('test01')
             tampil_barchart_pertahun('weathersit', dict_weather)
+            st.write('test02')
         with col2:
+            st.write('test03')
             tampil_boxplot_pertahun('weathersit', list_weather)
+            st.write('test04')
     with tabHari:
         col1, col2 = st.columns(2)
         with col1:
