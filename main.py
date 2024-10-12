@@ -17,7 +17,7 @@ def tampil_barchart_pertahun(period, label):
     sns.barplot(ax=ax, x='season', y='cnt', hue='yr', data=avg_cnt_per_period_year)
     
     # Mengubah label pada sumbu x
-    period_labels = period
+    period_labels = label
     ax.set_xticklabels([period_labels.get(i, 'Unknown') for i in avg_cnt_per_period_year[period].unique()])
     
     # Menambahkan judul dan label
@@ -97,7 +97,7 @@ if option_1_1 == 'Per tahun':
     with tab1:
         col1, col2 = st.columns(2)
         with col1:
-            tampil_barchart_pertahun('season', {0: 'Dingin', 1:'Semi', 2:'Panas', 3:'Gugur'})
+            tampil_barchart_pertahun('season', {0: 'Dingin', 1: 'Semi', 2: 'Panas', 3: 'Gugur'})
             string101 ='''                         
             # Menghitung rata-rata 'cnt' per season dan per tahun
             avg_cnt_per_season_year = hour_df.groupby(['season', 'yr'])['cnt'].mean().reset_index()
