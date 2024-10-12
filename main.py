@@ -191,6 +191,7 @@ else:
     with tab2:
         col1, col2 = st.columns(2)
         with col1:
+            tampil_barchart_total('mnth', dict_month)
             # Menghitung rata-rata 'cnt' per season
             avg_cnt_per_month = hour_df.groupby('mnth')['cnt'].mean().reset_index()
             
