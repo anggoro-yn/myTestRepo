@@ -185,9 +185,9 @@ else:
     with tab1:
         col1, col2 = st.columns(2)
         with col1:
-            tampil_barchart_total('season', dict_season)
+            tampil_barchart_total('season', {1: 'Jan', 2: 'Feb', 3: 'Mar', 4: 'Apr', 5: 'Mei', 6: 'Jun', 7: 'Jul', 8: 'Agu', 9: 'Sep', 10: 'Okt', 11: 'Nov', 12: 'Des'})
         with col2:
-            tampil_boxplot_total('season', list_season)
+            tampil_boxplot_total('season', ['Jan', 'Feb', 'Mar', 'Apr', 'Mei', 'Jun', 'Jul', 'Agu', 'Sep', 'Okt', 'Nov', 'Des'])
     with tab2:
         col1, col2 = st.columns(2)
         with col1:
