@@ -20,7 +20,7 @@ hour_df['bins: hum'] = pd.cut(hour_df['hum'], bins=10)
 hour_df['bins: windspeed'] = pd.cut(hour_df['windspeed'], bins=10)
 # Data tambahan
 periode = {'season': 'Musim', 'mnth': 'Bulan', 'hr': 'Jam', 'weekday': 'Hari', 'weathersit': 'Kondisi Cuaca', \
-           'bins: temp': 'Temperatur', 'bins: hum': 'Kelembaban', 'bins: winspeed': 'Kecepatan Angin'}
+           'bins: temp': 'Temperatur', 'bins: hum': 'Kelembaban', 'bins: windspeed': 'Kecepatan Angin'}
 dict_season = {1: 'Dingin', 2: 'Semi', 3: 'Panas', 4: 'Gugur'}
 list_season = ['Dingin', 'Semi', 'Panas', 'Gugur']
 dict_month = {1: 'Jan', 2: 'Feb', 3: 'Mar', 4: 'Apr', 5: 'Mei', 6: 'Jun', 7: 'Jul', 8: 'Agu', 9: 'Sep', 10: 'Okt', 11: 'Nov', 12: 'Des'}
