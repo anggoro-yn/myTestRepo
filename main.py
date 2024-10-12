@@ -311,7 +311,59 @@ Jika jaminan ketersediaan sepeda dapat ditingkatkan maka akan akan semakin banya
 st.write(hasil_analisa_2)
 st.write(rekomendasi_2)
 
+##########################
+# KONDISI CUACA
+##########################
+st.header('Pola Pemakaian Sepeda Berdasar Kondisi Cuaca')
 
+pembuka_3 = '''\
+'''
+st.write(pembuka_3)
+
+# Membuat select box dengan beberapa opsi
+option_2_1 = st.selectbox(
+    'Pilihan analisa : ',
+    ['Per tahun','Total'],
+    key='option_2'
+)
+
+if option_2_1 == 'Per tahun':
+    tabJam, tabHari = st.tabs(['Jam', 'Hari'])
+    with tabJam:
+        col1, col2 = st.columns(2)
+        with col1:
+            tampil_barchart_pertahun('hr', dict_hour)
+        with col2:
+            tampil_boxplot_pertahun('hr', list_hour)
+    with tabHari:
+        col1, col2 = st.columns(2)
+        with col1:
+            tampil_barchart_pertahun('weekday', dict_week)
+        with col2:
+            tampil_boxplot_pertahun('weekday', list_week)
+else:  # TOTAL
+    tabJam, tabHari = st.tabs(['Jam', 'Hari'])
+    with tabJam:
+        col1, col2 = st.columns(2)
+        with col1:
+            tampil_barchart_total('hr', dict_hour)
+        with col2:
+            tampil_boxplot_total('hr', list_hour)
+    with tabHari:
+        col1, col2 = st.columns(2)
+        with col1:
+            tampil_barchart_total('weekday', dict_week)
+        with col2:
+            tampil_boxplot_total('weekday', list_week)  
+
+hasil_analisa_3 = ''' \
+'''
+
+rekomendasi_3 ='''\
+'''
+
+st.write(hasil_analisa_3)
+st.write(rekomendasi_3)
 
 
 # Menambahkan footer atau caption di bagian bawah aplikasi
