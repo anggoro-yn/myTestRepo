@@ -4,7 +4,9 @@ import plotly.express as px
 import matplotlib.pyplot as plt
 import seaborn as sns
 
+#
 # Load dataset
+#
 hour_df = pd.read_csv('hour.csv')
 
 # Mengatur konfigurasi halaman
@@ -29,6 +31,10 @@ with st.sidebar:
             unsafe_allow_html=True
         )
 
+#
+# MAIN PAGE
+#
+
 st.title('Analisa Bike Sharing Dataset')
 
 st.markdown(
@@ -47,7 +53,6 @@ Analisa pertama yang akan kita lakukan adalah melihat pola pemakaian sepeda per 
 kita ingin melihat hubungan antara musim dengan pemakaian sepeda. Manfaat dilakukannya analisa ini adalah kita bisa \
 merencakanan penyediaan sepeda secara optimal dan rencana perawatan rutin. ')\
 '''
-
 st.write(pembuka_1)
 
 # Membuat select box dengan beberapa opsi
@@ -102,30 +107,49 @@ if option_1 == 'Per tahun':
         # Menampilkan grafik di Streamlit
         st.pyplot(fig)
 
-    # Menghitung rata-rata 'cnt' per bulan dan per tahun
-    avg_cnt_per_month_year = hour_df.groupby(['mnth', 'yr'])['cnt'].mean().reset_index()
+    col1, col2 = st.columns(2)
+    with col1:
+        # Menghitung rata-rata 'cnt' per bulan dan per tahun
+        avg_cnt_per_month_year = hour_df.groupby(['mnth', 'yr'])['cnt'].mean().reset_index()
+        
+        # Mengubah kolom 'yr' menjadi nama tahun yang lebih jelas
+        avg_cnt_per_month_year['yr'] = avg_cnt_per_month_year['yr'].replace({0: '2011', 1: '2012'})
+        
+        # Membuat bar chart menggunakan seaborn
+        fig, ax = plt.subplots(figsize=(10, 6))
+        sns.barplot(ax=ax, x='mnth', y='cnt', hue='yr', data=avg_cnt_per_month_year)
+        
+        # Mengubah label pada sumbu x
+        # season_labels = {0: 'Dingin', 1: 'Semi', 2: 'Panas', 3: 'Gugur'}
+        # ax.set_xticklabels([season_labels.get(i, 'Unknown') for i in avg_cnt_per_season_year['season'].unique()])
+        
+        # Menambahkan judul dan label
+        ax.set_title('Rata-rata Penggunaan Sepeda per bulan untuk Tahun 2011 dan 2012', fontsize=16)
+        ax.set_xlabel('Bulan', fontsize=12)
+        ax.set_ylabel('Rata-rata Jumlah Penggunaan Sepeda', fontsize=12)
     
-    # Mengubah kolom 'yr' menjadi nama tahun yang lebih jelas
-    avg_cnt_per_month_year['yr'] = avg_cnt_per_month_year['yr'].replace({0: '2011', 1: '2012'})
-    
-    # Membuat bar chart menggunakan seaborn
-    fig, ax = plt.subplots(figsize=(10, 6))
-    sns.barplot(ax=ax, x='mnth', y='cnt', hue='yr', data=avg_cnt_per_month_year)
-    
-    # Mengubah label pada sumbu x
-    # season_labels = {0: 'Dingin', 1: 'Semi', 2: 'Panas', 3: 'Gugur'}
-    # ax.set_xticklabels([season_labels.get(i, 'Unknown') for i in avg_cnt_per_season_year['season'].unique()])
-    
-    # Menambahkan judul dan label
-    ax.set_title('Rata-rata Penggunaan Sepeda per bulan untuk Tahun 2011 dan 2012', fontsize=16)
-    ax.set_xlabel('Bulan', fontsize=12)
-    ax.set_ylabel('Rata-rata Jumlah Penggunaan Sepeda', fontsize=12)
-
-    # Mengatur batas maksimum sumbu y
-    ax.set_ylim(0, 350)
-    
-    # Menampilkan grafik di Streamlit
-    st.pyplot(fig)
+        # Mengatur batas maksimum sumbu y
+        ax.set_ylim(0, 350)
+        
+        # Menampilkan grafik di Streamlit
+        st.pyplot(fig)
+    with col2:
+        # Membuat figure untuk boxplot
+        fig, ax = plt.subplots(figsize=(10, 6))
+        
+        # Membuat boxplot dengan hue berdasarkan tahun (yr)
+        sns.boxplot(x='mnth', y='cnt', hue='yr', data=hour_df, ax=ax)
+        
+        # Menambahkan judul dan label pada grafik
+        ax.set_title('Penggunaan Sepeda per Bulan untuk Tahun 2011 dan 2012', fontsize=16)
+        ax.set_xlabel('Bulan', fontsize=12)
+        ax.set_ylabel('Jumlah Penggunaan Sepeda', fontsize=12)
+        
+        # Mengubah label pada sumbu x untuk musim
+        ax.set_xticklabels(['Dingin', 'Semi', 'Panas', 'Gugur'])
+        
+        # Menampilkan grafik di Streamlit
+        st.pyplot(fig)
 
 
 else:
