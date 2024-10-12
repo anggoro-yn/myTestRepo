@@ -59,7 +59,7 @@ def tampil_barchart_total(period, label):
     
     # Mengubah label pada sumbu x
     period_labels = label
-    ax.set_xticklabels([period_labels[i] for i in avg_cnt_per_period[period]], rotation=0)
+    ax.set_xticklabels([period_labels[i] for i in avg_cnt_per_period[period], rotation=0)
     
     # Menambahkan judul dan label
     ax.set_title('Rata-rata Jumlah Pemakaian Berdasarkan ' + periode[period], fontsize=16)
@@ -180,7 +180,6 @@ if option_1_1 == 'Per tahun':
             tampil_barchart_pertahun('mnth', dict_month)
         with col2:
             tampil_boxplot_pertahun('mnth', list_month)
-
 else:
     tab1, tab2 = st.tabs(['Musim', 'Bulan'])
     with tab1:
