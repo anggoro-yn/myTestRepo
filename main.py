@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 import plotly.express as px
 import matplotlib.pyplot as plt
-from wordcloud import WordCloud
+#from wordcloud import WordCloud
 
 # Load dataset
 data = pd.read_csv('data.csv', delimiter=';')
@@ -72,7 +72,8 @@ st.header('Selamat kepada peserta berikut yang telah menyelesaikan seluruh cours
 # Filter peserta yang telah menyelesaikan 8 course
 completed_all_courses = data[data['Total Course yang Sudah Diselesaikan'] == 8]['Name'].tolist()
 
-# ???????????????????????
+# wordcloud
+wordcloud01 = '''
 text = ''
 if completed_all_courses:
     for name in completed_all_courses:
@@ -89,16 +90,33 @@ wordcloud = WordCloud().generate(text)
 plt.imshow(wordcloud, interpolation='bilinear')
 plt.axis('off')
 st.pyplot()
-
-
-
-
-
+'''
 
 # Display the names of participants who completed all courses
+jumlah = len(completed_all_courses)
+col1, col2, col3 = st.columns(3)
+name1 = []
+name2 = []
+name3 = []
+count_name = 0
 if completed_all_courses:
     for name in completed_all_courses:
-        st.write(f"- {name}")
+        count_name = count_name + 1
+        if count_name % 3 == 1:
+            name1 = name1.append(name)
+        if count_name % 3 == 2:
+            name2 = name1.append(name)
+        if count_name % 3 == 3:
+            name3 = name1.append(name)
+    with col1:
+        for name in name1:
+                st.write(f"- {name}")
+    with col2:
+        for name in name2:
+                st.write(f"- {name}")
+    with col3:
+        for name in name3:
+                st.write(f"- {name}")
 else:
     st.write("Belum ada peserta yang menyelesaikan seluruh course.")
 
