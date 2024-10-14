@@ -24,6 +24,11 @@ with st.sidebar:
     st.header('Pilihan')
     tanggal_dipilih = st.selectbox('Pilihan tanggal:', tanggal_pengukuran)
 
+    name = st.text_input("nama Anda")
+    st.write(f"Nama Anda adalah {name}")
+    secret_code = st.text_input("nama Anda")
+    st.write(f"Nama Anda adalah {secret_code}")
+
 st.title('PT Asia Pacific Fiber Tbk')
 st.markdown("## Monitoring Konsumsi Listrik Harian")
 st.write(df)
