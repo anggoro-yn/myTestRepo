@@ -94,6 +94,7 @@ st.pyplot()
 
 # Display the names of participants who completed all courses
 jumlah = len(completed_all_courses)
+completed_all_courses.sort()
 col1, col2, col3 = st.columns(3)
 name1 = []
 name2 = []
