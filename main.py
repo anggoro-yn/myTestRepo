@@ -72,6 +72,25 @@ st.header('Selamat kepada peserta berikut yang telah menyelesaikan seluruh cours
 # Filter peserta yang telah menyelesaikan 8 course
 completed_all_courses = data[data['Total Course yang Sudah Diselesaikan'] == 8]['Name'].tolist()
 
+
+from wordcloud import WordCloud
+
+# Sample text
+text = 'Fun, fun, awesome, awesome, tubular, astounding, superb, great, amazing, amazing, amazing, amazing'
+
+# Generate word cloud
+wordcloud = WordCloud().generate(completed_all_courses)
+
+# Display the word cloud
+plt.imshow(wordcloud, interpolation='bilinear')
+plt.axis('off')
+st.pyplot()
+
+
+
+
+
+
 # Display the names of participants who completed all courses
 if completed_all_courses:
     for name in completed_all_courses:
