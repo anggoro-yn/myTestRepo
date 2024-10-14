@@ -79,15 +79,15 @@ if admin_user or general_user:
     nilai_Sum_APF_rata2 = df_10_hari['SUM ALL APF Area'].mean()
 
      # Menampilkan data sesuai dengan tanggal yang dipilih
-    nilai_pln = float(df.loc[df['Tanggal'] == tanggal_dipilih, 'PLN Meter'].values[0].replace(',','.'))
-    nilai_apf = float(df.loc[df['Tanggal'] == tanggal_dipilih, 'APF Meter (ION)'].values[0].replace(',','.'))
-    nilai_Sum_APF = float(df.loc[df['Tanggal'] == tanggal_dipilih, 'SUM ALL APF Area'].values[0].replace(',','.'))
+    nilai_pln = float(df.loc[df['Tanggal'] == tanggal_dipilih, 'PLN Meter'].values[0])
+    nilai_apf = float(df.loc[df['Tanggal'] == tanggal_dipilih, 'APF Meter (ION)'].values[0])
+    nilai_Sum_APF = float(df.loc[df['Tanggal'] == tanggal_dipilih, 'SUM ALL APF Area'].values[0])
     
     # Mencari nilai untuk satu hari sebelum tanggal_dipilih
     tanggal_sebelumnya = tanggal_dipilih - pd.Timedelta(days=1)
-    nilai_pln_sebelumnya = float(df.loc[df['Tanggal'] == tanggal_sebelumnya, 'PLN Meter'].values[0].replace(',','.'))
-    nilai_apf_sebelumnya = float(df.loc[df['Tanggal'] == tanggal_sebelumnya, 'APF Meter (ION)'].values[0].replace(',','.'))
-    nilai_Sum_APF_sebelumnya = float(df.loc[df['Tanggal'] == tanggal_sebelumnya, 'SUM ALL APF Area'].values[0].replace(',','.'))
+    nilai_pln_sebelumnya = float(df.loc[df['Tanggal'] == tanggal_sebelumnya, 'PLN Meter'].values[0])
+    nilai_apf_sebelumnya = float(df.loc[df['Tanggal'] == tanggal_sebelumnya, 'APF Meter (ION)'].values[0])
+    nilai_Sum_APF_sebelumnya = float(df.loc[df['Tanggal'] == tanggal_sebelumnya, 'SUM ALL APF Area'].values[0])
     
     #mencari delta value
     delta_PLN = round(nilai_pln - nilai_pln_sebelumnya, 2)
