@@ -191,6 +191,23 @@ with st.sidebar:
 
 st.title('Analisa Bike Sharing Dataset')
 
+
+import streamlit as st
+from wordcloud import WordCloud
+import matplotlib.pyplot as plt
+
+# Sample text
+text = 'Fun, fun, awesome, awesome, tubular, astounding, superb, great, amazing, amazing, amazing, amazing'
+
+# Generate word cloud
+wordcloud = WordCloud().generate(text)
+
+# Display the word cloud
+plt.imshow(wordcloud, interpolation='bilinear')
+plt.axis('off')
+st.pyplot()
+
+
 st.markdown(
     """
     <div>
