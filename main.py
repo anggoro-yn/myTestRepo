@@ -77,8 +77,8 @@ completed_all_courses = data[data['Total Course yang Sudah Diselesaikan'] == 8][
 text = ''
 if completed_all_courses:
     for name in completed_all_courses:
-        name = name.replace(" ", "")
-        text = text + name
+        namefull = name.replace(" ", "")
+        text = text + namefull
 else:
     st.write("Belum ada peserta yang menyelesaikan seluruh course.")
 
