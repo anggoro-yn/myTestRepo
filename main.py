@@ -104,10 +104,13 @@ if completed_all_courses:
         count_name = count_name + 1
         if count_name == 1:
             name1 = [name]
+            print(name1)
         elif count_name == 2:
             name2 = [name]
+            print(name2)
         elif count_name == 3:
             name3 = [name]
+            print(name3)
         if count_name > 3:
             if count_name % 3 == 1:
                 name1 = name1.append(name)
