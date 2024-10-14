@@ -117,9 +117,9 @@ if completed_all_courses:
             if count_name % 3 == 1:
                 name1 = name1 + [name]
             elif count_name % 3 == 2:
-                name2 = name2.append(name)
+                name2 = name2 + [name]
             elif count_name % 3 == 3:
-                name3 = name3.append(name)
+                name3 = name3 + [name]
     with col1:
         for name in name1:
                 st.write(f"- {name}")
