@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 
 # Load dataset
 data = pd.read_csv('data.csv', delimiter=';')
-df.drop(columns=['1'], inplace=True
+df.drop(columns=['1'], inplace=True)
 
 
 #st.set_page_config(layout="wide")
