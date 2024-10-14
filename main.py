@@ -5,7 +5,6 @@ import matplotlib.pyplot as plt
 
 # Load dataset
 data = pd.read_csv('data.csv', delimiter=';')
-st.write(data.info())
 #st.set_page_config(layout="wide")
 
 # Sidebar
@@ -18,6 +17,7 @@ st.title('PT Asia Pacific Fiber Tbk')
 st.markdown("## Monitoring Konsumsi Listrik Harian")
 
 st.write(data)
+st.write(data.info())
 
 # Add a footer or caption at the bottom of the app
 st.markdown("""<hr style="border:1px solid gray">""", unsafe_allow_html=True)
