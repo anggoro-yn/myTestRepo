@@ -10,9 +10,9 @@ data = pd.read_csv('data.csv', delimiter=';')
 
 # Sidebar
 with st.sidebar:
-    st.sidebar.image()
-st.sidebar.header('Option')
-selected_fasilitator = st.sidebar.selectbox('Pilih Kelompok Fasilitator:', ['a','b','c'])
+    st.sidebar.image('LogoAPF.png')
+    st.header('Option')
+    selected_fasilitator = st.selectbox('Pilih Kelompok Fasilitator:', ['a','b','c'])
 
 st.title('PT Asia Pacific Fiber Tbk')
 st.markdown("## Monitoring Konsumsi Listrik Harian")
