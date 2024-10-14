@@ -20,7 +20,7 @@ with st.sidebar:
 st.title('PT Asia Pacific Fiber Tbk')
 st.markdown("## Monitoring Konsumsi Listrik Harian")
 
-tanggal_terakhir = data['Tanggal'].max()
+tanggal_terakhir = data['Tanggal'].max().astype('str')
 
 # Menampilkan metrik
 st.metric(label="Tanggal", value=tanggal_terakhir, delta='0')
