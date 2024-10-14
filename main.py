@@ -4,7 +4,7 @@ import plotly.express as px
 import matplotlib.pyplot as plt
 
 # Load dataset
-#data = pd.read_csv('data.csv', delimiter=';')
+data = pd.read_csv('data.csv', delimiter=';')
 
 #st.set_page_config(layout="wide")
 
@@ -15,6 +15,7 @@ selected_fasilitator = st.sidebar.selectbox('Pilih Kelompok Fasilitator:', ['a',
 st.title('PT Asia Pacific Fiber Tbk')
 st.markdown("## Monitoring Konsumsi Listrik Harian")
 
+st.write(data)
 
 # Add a footer or caption at the bottom of the app
 st.markdown("""<hr style="border:1px solid gray">""", unsafe_allow_html=True)
