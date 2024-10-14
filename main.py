@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 
 # Load dataset
 data = pd.read_csv('data.csv', delimiter=';')
-
+st.write(data.info())
 #st.set_page_config(layout="wide")
 
 # Sidebar
