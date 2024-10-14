@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 import plotly.express as px
 import matplotlib.pyplot as plt
+from wordcloud import WordCloud
 
 # Load dataset
 data = pd.read_csv('data.csv', delimiter=';')
@@ -72,16 +73,11 @@ st.header('Selamat kepada peserta berikut yang telah menyelesaikan seluruh cours
 # Filter peserta yang telah menyelesaikan 8 course
 completed_all_courses = data[data['Total Course yang Sudah Diselesaikan'] == 8]['Name'].tolist()
 
-
-from wordcloud import WordCloud
-
-# Sample text
-text = 'Fun, fun, awesome, awesome, tubular, astounding, superb, great, amazing, amazing, amazing, amazing'
-
 # ???????????????????????
 text = ''
 if completed_all_courses:
     for name in completed_all_courses:
+        name = name.replace(" ", "")
         text = text + name
 else:
     st.write("Belum ada peserta yang menyelesaikan seluruh course.")
