@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 
 # Load dataset
 data = pd.read_csv('data.csv', delimiter=';')
-#data.drop(columns=['Unnamed: 15'], inplace=True)
+#data.drop(columns=['Unnamed: 14'], inplace=True)
 data['Tanggal'] = pd.to_datetime(data['Tanggal']) + pd.DateOffset(hours=8)
 
 #st.set_page_config(layout="wide")
