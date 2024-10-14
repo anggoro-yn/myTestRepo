@@ -16,6 +16,9 @@ df = df.sort_values(by='Tanggal', ascending=False)
 # Mengambil kolom 'Tanggal' dan memasukkannya ke dalam list 'tanggal_pengukuran'
 tanggal_pengukuran = df['Tanggal'].tolist()
 
+# User list
+dict_User = {'anggoro' : 'password01' ,'rahul':'password02','siska':'password03'}
+
 #st.set_page_config(layout="wide")
 
 # Sidebar
@@ -25,9 +28,16 @@ with st.sidebar:
     tanggal_dipilih = st.selectbox('Pilihan tanggal:', tanggal_pengukuran)
 
     name = st.text_input("Nama Anda")
-    st.write(f"Nama Anda adalah {name}")
     secret_code = st.text_input("secret code Anda", type="password")
-    st.write(f"Nama Anda adalah {secret_code}")
+    
+    if dict_user[name] == secret_code :
+        if name == anggoro:
+            st.write('User is Anggoro & secret code correct')
+        else:
+            st.write('User is correct but not Anggoro & secret code is correct')
+    else:
+        st.write('username is wrong or password is wrong')
+    
 
 st.title('PT Asia Pacific Fiber Tbk')
 st.markdown("## Monitoring Konsumsi Listrik Harian")
