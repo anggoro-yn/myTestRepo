@@ -20,10 +20,11 @@ with st.sidebar:
 st.title('PT Asia Pacific Fiber Tbk')
 st.markdown("## Monitoring Konsumsi Listrik Harian")
 
-tanggal_terakhir = data['Tanggal'].max().astype('str')
+# Memilih nilai tertinggi dari kolom 'Tanggal'
+tanggal_tertinggi = df['Tanggal'].max()
 
-# Menampilkan metrik
-st.metric(label="Tanggal", value=tanggal_terakhir, delta='0')
+# Menampilkan nilai tertinggi di st.metric
+st.metric(label="Tanggal Tertinggi", value=tanggal_tertinggi.strftime('%Y-%m-%d'))
 
 st.write(data)
 
