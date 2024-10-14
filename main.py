@@ -118,7 +118,7 @@ if completed_all_courses:
                 name1 = name1 + [name]
             elif count_name % 3 == 2:
                 name2 = name2 + [name]
-            elif count_name % 3 == 3:
+            elif count_name % 3 == 0:
                 name3 = name3 + [name]
     with col1:
         for name in name1:
