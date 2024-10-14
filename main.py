@@ -37,63 +37,71 @@ with st.sidebar:
         if name != '' and secret_code != '':
             if correct_secret_code == secret_code :
                 if name == 'anggoro':
-                    st.write('User is Anggoro & secret code correct')
+                    admin_user = True
+                    general user = False
                 else:
-                    st.write('User is correct but not Anggoro & secret code is correct')
+                    general_user = True
+                    admin_user = False
             else:
-                st.write('username is wrong or password is wrong')
+                admin_user = False
+                general_user = False
         else:
-            pass
-
-st.title('PT Asia Pacific Fiber Tbk')
-st.markdown("## Monitoring Konsumsi Listrik Harian")
-st.write(df)
-
-# Menampilkan tanggal
-st.metric(label="Tanggal", value=tanggal_dipilih.strftime('%Y-%m-%d'))
-
-# Menampilkan data sesuai dengan tanggal yang dipilih
-nilai_pln = float(df.loc[df['Tanggal'] == tanggal_dipilih, 'PLN Meter'].values[0].replace(',','.'))
-nilai_apf = float(df.loc[df['Tanggal'] == tanggal_dipilih, 'APF Meter (ION)'].values[0].replace(',','.'))
-nilai_Sum_APF = float(df.loc[df['Tanggal'] == tanggal_dipilih, 'SUM ALL APF Area'].values[0].replace(',','.'))
-
-# Mencari nilai untuk satu hari sebelum tanggal_dipilih
-tanggal_sebelumnya = tanggal_dipilih - pd.Timedelta(days=1)
-nilai_pln_sebelumnya = float(df.loc[df['Tanggal'] == tanggal_sebelumnya, 'PLN Meter'].values[0].replace(',','.'))
-nilai_apf_sebelumnya = float(df.loc[df['Tanggal'] == tanggal_sebelumnya, 'APF Meter (ION)'].values[0].replace(',','.'))
-nilai_Sum_APF_sebelumnya = float(df.loc[df['Tanggal'] == tanggal_sebelumnya, 'SUM ALL APF Area'].values[0].replace(',','.'))
-
-#mencari delta value
-delta_PLN = round(nilai_pln - nilai_pln_sebelumnya, 2)
-delta_APF = round(nilai_apf - nilai_apf_sebelumnya, 2)
-delta_Sum_APF = round(nilai_Sum_APF - nilai_Sum_APF_sebelumnya, 2)
-
-st.markdown('## Pemakaian Listrik APF Total')
-st.markdown('Berdasarkan pencatatan kWhmeter di GI PLN, GI APF dan Total Pemakaian Seluruh Plant')
-# add a border
-st.markdown("""<hr style="border:1px solid gray">""", unsafe_allow_html=True)
-col1, col2, col3 = st.columns(3)
-with col1:
-    st.metric(label='PLN Meter', value=nilai_pln, delta = delta_PLN)
-with col2:
-    st.metric(label='APF Meter (ION)', value=nilai_apf, delta = delta_APF)
-with col3:
-    st.metric(label='Sum ALL APF Area', value=nilai_Sum_APF, delta = delta_Sum_APF)
-
-col1, col2, col3 = st.columns(3)
-with col1:
-    st.metric(label='PLN Meter', value=nilai_pln_sebelumnya)
-with col2:
-    st.metric(label='APF Meter (ION)', value=nilai_apf_sebelumnya)
-with col3:
-    st.metric(label='Sum ALL APF Area', value=nilai_Sum_APF_sebelumnya)
-# add a border
-st.markdown("""<hr style="border:1px solid gray">""", unsafe_allow_html=True)
-
-# Memilih nilai tertinggi dari kolom 'Tanggal'
-tanggal_tertinggi = df['Tanggal'].max()
+            admin_user = False
+            general_user = Fase
 
 
+if admin_user or general_user:
+
+    st.title('PT Asia Pacific Fiber Tbk')
+    st.markdown("## Monitoring Konsumsi Listrik Harian")
+    st.write(df)
+    
+    # Menampilkan tanggal
+    st.metric(label="Tanggal", value=tanggal_dipilih.strftime('%Y-%m-%d'))
+    
+    # Menampilkan data sesuai dengan tanggal yang dipilih
+    nilai_pln = float(df.loc[df['Tanggal'] == tanggal_dipilih, 'PLN Meter'].values[0].replace(',','.'))
+    nilai_apf = float(df.loc[df['Tanggal'] == tanggal_dipilih, 'APF Meter (ION)'].values[0].replace(',','.'))
+    nilai_Sum_APF = float(df.loc[df['Tanggal'] == tanggal_dipilih, 'SUM ALL APF Area'].values[0].replace(',','.'))
+    
+    # Mencari nilai untuk satu hari sebelum tanggal_dipilih
+    tanggal_sebelumnya = tanggal_dipilih - pd.Timedelta(days=1)
+    nilai_pln_sebelumnya = float(df.loc[df['Tanggal'] == tanggal_sebelumnya, 'PLN Meter'].values[0].replace(',','.'))
+    nilai_apf_sebelumnya = float(df.loc[df['Tanggal'] == tanggal_sebelumnya, 'APF Meter (ION)'].values[0].replace(',','.'))
+    nilai_Sum_APF_sebelumnya = float(df.loc[df['Tanggal'] == tanggal_sebelumnya, 'SUM ALL APF Area'].values[0].replace(',','.'))
+    
+    #mencari delta value
+    delta_PLN = round(nilai_pln - nilai_pln_sebelumnya, 2)
+    delta_APF = round(nilai_apf - nilai_apf_sebelumnya, 2)
+    delta_Sum_APF = round(nilai_Sum_APF - nilai_Sum_APF_sebelumnya, 2)
+    
+    st.markdown('## Pemakaian Listrik APF Total')
+    st.markdown('Berdasarkan pencatatan kWhmeter di GI PLN, GI APF dan Total Pemakaian Seluruh Plant')
+    # add a border
+    st.markdown("""<hr style="border:1px solid gray">""", unsafe_allow_html=True)
+    col1, col2, col3 = st.columns(3)
+    with col1:
+        st.metric(label='PLN Meter', value=nilai_pln, delta = delta_PLN)
+    with col2:
+        st.metric(label='APF Meter (ION)', value=nilai_apf, delta = delta_APF)
+    with col3:
+        st.metric(label='Sum ALL APF Area', value=nilai_Sum_APF, delta = delta_Sum_APF)
+    
+    col1, col2, col3 = st.columns(3)
+    with col1:
+        st.metric(label='PLN Meter', value=nilai_pln_sebelumnya)
+    with col2:
+        st.metric(label='APF Meter (ION)', value=nilai_apf_sebelumnya)
+    with col3:
+        st.metric(label='Sum ALL APF Area', value=nilai_Sum_APF_sebelumnya)
+    # add a border
+    st.markdown("""<hr style="border:1px solid gray">""", unsafe_allow_html=True)
+    
+    # Memilih nilai tertinggi dari kolom 'Tanggal'
+    tanggal_tertinggi = df['Tanggal'].max()
+
+else:
+    st.markdown('#### Anda tidak memiliki otorisasi untuk melihat halaman ini!')
 
 # Add a footer or caption at the bottom of the app
 st.markdown("""<hr style="border:1px solid gray">""", unsafe_allow_html=True)
