@@ -30,7 +30,7 @@ st.write(df)
 st.write(tanggal_dipilih)
 
 # Menampilkan tanggal
-st.metric(label="Tanggal", value=tanggal_terpilih.strftime('%Y-%m-%d'))
+st.metric(label="Tanggal", value=tanggal_dipilih.strftime('%Y-%m-%d'))
 
 
 # Menampilkan data sesuai dengan tanggal yang dipilih
