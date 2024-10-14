@@ -24,7 +24,7 @@ st.markdown("## Monitoring Konsumsi Listrik Harian")
 tanggal_tertinggi = data['Tanggal'].max()
 
 # Menampilkan nilai tertinggi di st.metric
-st.metric(label="Tanggal Tertinggi", value=tanggal_tertinggi.strftime('%Y-%m-%d'))
+st.metric(label="Tanggal", value=tanggal_tertinggi.strftime('%Y-%m-%d'))
 
 st.write(data)
 
