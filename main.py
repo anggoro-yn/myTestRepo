@@ -4,9 +4,17 @@ import plotly.express as px
 import matplotlib.pyplot as plt
 
 # Load dataset
-data = pd.read_csv('data.csv', delimiter=';')
-data.drop(columns=['Unnamed: 14'], inplace=True)
-data['Tanggal'] = pd.to_datetime(data['Tanggal']) + pd.DateOffset(hours=8)
+df = pd.read_csv('data.csv', delimiter=';')
+df.drop(columns=['Unnamed: 14'], inplace=True)
+
+# Mengubah kolom 'Tanggal' menjadi tipe datetime
+df['Tanggal'] = pd.to_datetime(df['Tanggal']) + pd.DateOffset(hours=8)
+
+# Mengambil kolom 'Tanggal' dan memasukkannya ke dalam list 'tanggal_pengukuran'
+tanggal_pengukuran = df['Tanggal'].tolist()
+
+# Menampilkan list 'tanggal_pengukuran' menggunakan Streamlit
+st.write('Tanggal Pengukuran:', tanggal_pengukuran)
 
 #st.set_page_config(layout="wide")
 
