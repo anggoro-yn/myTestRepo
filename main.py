@@ -11,7 +11,7 @@ df.drop(columns=['Unnamed: 14'], inplace=True)
 df['Tanggal'] = pd.to_datetime(df['Tanggal']) + pd.DateOffset(hours=8)
 
 # Mengurutkan dataframe berdasarkan kolom 'Tanggal' secara descending
-df = df.sort_values(by='Tanggal', ascending=
+df = df.sort_values(by='Tanggal', ascending=False)
 
 # Mengambil kolom 'Tanggal' dan memasukkannya ke dalam list 'tanggal_pengukuran'
 tanggal_pengukuran = df['Tanggal'].tolist()
