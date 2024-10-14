@@ -28,7 +28,7 @@ st.metric(label="Tanggal", value=tanggal_tertinggi.strftime('%Y-%m-%d'))
 
 col1, col2, col3 = st.columns(3)
 with col1:
-    nilai_pln = data.loc[df['Tanggal'] == tanggal_tertinggi, 'PLN Meter'].values[0]
+    nilai_pln = data.loc[data['Tanggal'] == tanggal_tertinggi, 'PLN Meter'].values[0]
     st.metric(label="PLN Meter", value=nilai_pln.strftime('%Y-%m-%d'))
 
 st.write(data)
