@@ -16,7 +16,9 @@ df = df.sort_values(by='Tanggal', ascending=False)
 # Mengambil kolom 'Tanggal' dan memasukkannya ke dalam list 'tanggal_pengukuran'
 tanggal_pengukuran = df['Tanggal'].tolist()
 
-# User list
+# User tool
+admin_user = False
+general_user = False
 dict_user = {'anggoro' : 'password01' ,'rahul':'password02','siska':'password03'}
 
 #st.set_page_config(layout="wide")
