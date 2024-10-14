@@ -108,16 +108,12 @@ if admin_user or general_user:
     
     col1, col2, col3 = st.columns(3)
     with col1:
-        st.metric(label='PLN Meter', value=nilai_pln_sebelumnya)
+        st.metric(label='PLN Meter Rata-rata (10 hari)', value=round(nilai_pln_rata2, 2))
     with col2:
-        st.metric(label='APF Meter (ION)', value=nilai_apf_sebelumnya)
+        st.metric(label='APF Meter (ION) Rata-rata (10 hari)', value=round(nilai_apf_rata2, 2))
     with col3:
-        st.metric(label='Sum ALL APF Area', value=nilai_Sum_APF_sebelumnya)
+        st.metric(label='Sum ALL APF Area (10 hari)', value=round(nilai_Sum_APF_rata2, 2))
     
-    # Menampilkan hasil di Streamlit
-    st.metric(label='PLN Meter Rata-rata (10 hari)', value=round(nilai_pln_rata2, 2))
-    st.metric(label='APF Meter (ION) Rata-rata (10 hari)', value=round(nilai_apf_rata2, 2))
-    st.metric(label='Sum ALL APF Area (10 hari)', value=round(nilai_Sum_APF_rata2, 2))
 
     # add a border
     st.markdown("""<hr style="border:1px solid gray">""", unsafe_allow_html=True)
