@@ -20,6 +20,11 @@ with st.sidebar:
 st.title('PT Asia Pacific Fiber Tbk')
 st.markdown("## Monitoring Konsumsi Listrik Harian")
 
+tanggal_terakhir = data['Tanggal'].max()
+
+# Menampilkan metrik
+st.metric(label="Tanggal", value=tanggal_terakhir, delta='0')
+
 st.write(data)
 
 # Add a footer or caption at the bottom of the app
