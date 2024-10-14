@@ -78,7 +78,7 @@ text = ''
 if completed_all_courses:
     for name in completed_all_courses:
         namefull = name.replace(" ", "")
-        text = text + namefull
+        text = text + ' ' + namefull
 else:
     st.write("Belum ada peserta yang menyelesaikan seluruh course.")
 
