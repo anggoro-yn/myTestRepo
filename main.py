@@ -10,11 +10,11 @@ df.drop(columns=['Unnamed: 14'], inplace=True)
 # Mengubah kolom 'Tanggal' menjadi tipe datetime
 df['Tanggal'] = pd.to_datetime(df['Tanggal']) + pd.DateOffset(hours=8)
 
+# Mengurutkan dataframe berdasarkan kolom 'Tanggal' secara descending
+df = df.sort_values(by='Tanggal', ascending=
+
 # Mengambil kolom 'Tanggal' dan memasukkannya ke dalam list 'tanggal_pengukuran'
 tanggal_pengukuran = df['Tanggal'].tolist()
-
-# Menampilkan list 'tanggal_pengukuran' menggunakan Streamlit
-st.write('Tanggal Pengukuran:', tanggal_pengukuran)
 
 #st.set_page_config(layout="wide")
 
@@ -22,7 +22,7 @@ st.write('Tanggal Pengukuran:', tanggal_pengukuran)
 with st.sidebar:
     st.sidebar.image('LogoAPF.png')
     st.header('Pilihan')
-    pilihan_01 = st.selectbox('Pilihan:', tanggal_pengukuran)
+    pilihan_tanggal = st.selectbox('Pilihan:', tanggal_pengukuran)
 
 st.title('PT Asia Pacific Fiber Tbk')
 st.markdown("## Monitoring Konsumsi Listrik Harian")
