@@ -50,12 +50,17 @@ delta_Sum_APF = round(nilai_Sum_APF - nilai_Sum_APF_sebelumnya, 2)
 col1, col2, col3 = st.columns(3)
 with col1:
     st.metric(label='PLN Meter', value=nilai_pln, delta = delta_PLN)
-    st.metric(label='PLN Meter', value=nilai_pln_sebelumnya)
 with col2:
     st.metric(label='APF Meter (ION)', value=nilai_apf, delta = delta_APF)
-    st.metric(label='APF Meter (ION)', value=nilai_apf_sebelumnya)
 with col3:
     st.metric(label='Sum ALL APF Area', value=nilai_Sum_APF, delta = delta_Sum_APF)
+
+col1, col2, col3 = st.columns(3)
+with col1:
+    st.metric(label='PLN Meter', value=nilai_pln_sebelumnya)
+with col2:
+    st.metric(label='APF Meter (ION)', value=nilai_apf_sebelumnya)
+with col3:
     st.metric(label='Sum ALL APF Area', value=nilai_Sum_APF_sebelumnya)
 
 # Memilih nilai tertinggi dari kolom 'Tanggal'
