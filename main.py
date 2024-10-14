@@ -43,8 +43,8 @@ nilai_apf_sebelumnya = df.loc[df['Tanggal'] == tanggal_sebelumnya, 'APF Meter (I
 nilai_Sum_APF_sebelumnya = df.loc[df['Tanggal'] == tanggal_sebelumnya, 'SUM ALL APF Area'].values[0]
 
 #mencari delta value
-delta_PLN = nilai_PLN - nilai_PLN_sebelumnya
-delta_APF = nilai_APF - nilai_APF_sebelumnya
+delta_PLN = nilai_pln - nilai_pln_sebelumnya
+delta_APF = nilai_apf - nilai_apf_sebelumnya
 delta_Sum_APF = nilai_Sum_APF - nilai_Sum_APF_sebelumnya
 
 col1, col2, col3 = st.columns(3)
