@@ -29,9 +29,9 @@ with st.sidebar:
 
     name = st.text_input("Nama Anda")
     secret_code = st.text_input("secret code Anda", type="password")
-    if name != '':
+    if name != '' and secret_code != '':
         if dict_user[name] == secret_code :
-            if name == anggoro:
+            if name == 'anggoro':
                 st.write('User is Anggoro & secret code correct')
             else:
                 st.write('User is correct but not Anggoro & secret code is correct')
