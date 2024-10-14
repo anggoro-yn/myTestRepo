@@ -14,8 +14,8 @@ data['Tanggal'] = pd.to_datetime(data['Tanggal']) + pd.DateOffset(hours=8)
 # Sidebar
 with st.sidebar:
     st.sidebar.image('LogoAPF.png')
-    st.header('Option')
-    selected_fasilitator = st.selectbox('Pilih Kelompok Fasilitator:', ['a','b','c'])
+    st.header('Pilihan')
+    pilihan_01 = st.selectbox('Pilihan:', ['a','b','c'])
 
 st.title('PT Asia Pacific Fiber Tbk')
 st.markdown("## Monitoring Konsumsi Listrik Harian")
