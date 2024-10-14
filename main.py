@@ -450,6 +450,7 @@ st.write(rekomendasi_3)
 
 from wordcloud import WordCloud
 
+
 # Sample text
 text = 'Fun, fun, awesome, awesome, tubular, astounding, superb, great, amazing, amazing, amazing, amazing'
 
