@@ -21,7 +21,7 @@ st.title('PT Asia Pacific Fiber Tbk')
 st.markdown("## Monitoring Konsumsi Listrik Harian")
 
 # Memilih nilai tertinggi dari kolom 'Tanggal'
-tanggal_tertinggi = df['Tanggal'].max()
+tanggal_tertinggi = data['Tanggal'].max()
 
 # Menampilkan nilai tertinggi di st.metric
 st.metric(label="Tanggal Tertinggi", value=tanggal_tertinggi.strftime('%Y-%m-%d'))
