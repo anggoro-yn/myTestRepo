@@ -17,7 +17,7 @@ df = df.sort_values(by='Tanggal', ascending=False)
 tanggal_pengukuran = df['Tanggal'].tolist()
 
 # User list
-dict_User = {'anggoro' : 'password01' ,'rahul':'password02','siska':'password03'}
+dict_user = {'anggoro' : 'password01' ,'rahul':'password02','siska':'password03'}
 
 #st.set_page_config(layout="wide")
 
