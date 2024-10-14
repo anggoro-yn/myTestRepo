@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 # Load dataset
 #data = pd.read_csv('data.csv', delimiter=';')
 
-st.set_page_config(layout="wide")
+#st.set_page_config(layout="wide")
 
 # Sidebar for facilitator selection
 st.sidebar.header('Option')
