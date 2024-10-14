@@ -27,24 +27,32 @@ with st.sidebar:
 st.title('PT Asia Pacific Fiber Tbk')
 st.markdown("## Monitoring Konsumsi Listrik Harian")
 st.write(df)
-st.write(tanggal_dipilih)
 
 # Menampilkan tanggal
 st.metric(label="Tanggal", value=tanggal_dipilih.strftime('%Y-%m-%d'))
 
-
 # Menampilkan data sesuai dengan tanggal yang dipilih
 nilai_pln = df.loc[df['Tanggal'] == tanggal_dipilih, 'PLN Meter'].values[0]
 nilai_apf = df.loc[df['Tanggal'] == tanggal_dipilih, 'APF Meter (ION)'].values[0]
-nilai_poy = df.loc[df['Tanggal'] == tanggal_dipilih, 'SUM ALL APF Area'].values[0]
+nilai_Sum_APF = df.loc[df['Tanggal'] == tanggal_dipilih, 'SUM ALL APF Area'].values[0]
+
+# Mencari nilai untuk satu hari sebelum tanggal_dipilih
+tanggal_sebelumnya = tanggal_dipilih - pd.Timedelta(days=1)
+nilai_pln_sebelumnya = df.loc[df['Tanggal'] == tanggal_sebelumnya, 'PLN Meter'].values[0]
+nilai_apf_sebelumnya = df.loc[df['Tanggal'] == tanggal_sebelumnya, 'APF Meter (ION)'].values[0]
+nilai_Sum_APF_sebelumnya = df.loc[df['Tanggal'] == tanggal_sebelumnya, 'Sum ALL APF Area'].values[0]
+
 
 col1, col2, col3 = st.columns(3)
 with col1:
     st.metric(label='PLN Meter', value=nilai_pln)
+    st.metric(label='PLN Meter', value=nilai_pln_sebelumnya)
 with col2:
     st.metric(label='APF Meter (ION)', value=nilai_apf)
+    st.metric(label='APF Meter (ION)', value=nilai_apf_sebelumnya)
 with col3:
-    st.metric(label='Sum ALL APF Area', value=nilai_poy)
+    st.metric(label='Sum ALL APF Area', value=nilai_Sum_APF)
+    st.metric(label='Sum ALL APF Area', value=nilai_Sum_APF_sebelumnya)
 
 # Memilih nilai tertinggi dari kolom 'Tanggal'
 tanggal_tertinggi = df['Tanggal'].max()
