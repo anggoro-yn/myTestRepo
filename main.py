@@ -22,12 +22,21 @@ tanggal_pengukuran = df['Tanggal'].tolist()
 with st.sidebar:
     st.sidebar.image('LogoAPF.png')
     st.header('Pilihan')
-    pilihan_tanggal = st.selectbox('Pilihan:', tanggal_pengukuran)
+    tanggal_dipilih = st.selectbox('Pilihan tanggal:', tanggal_pengukuran)
 
 st.title('PT Asia Pacific Fiber Tbk')
 st.markdown("## Monitoring Konsumsi Listrik Harian")
 st.write(df)
-st.write(pilihan_tanggal)
+st.write(tanggal_dipilih)
+
+# Menampilkan data sesuai dengan tanggal yang dipilih
+nilai_pln = df.loc[df['Tanggal'] == tanggal_dipilih, 'PLN Meter'].values[0]
+nilai_apf = df.loc[df['Tanggal'] == tanggal_dipilih, 'APF Meter (ION)'].values[0]
+nilai_poy = df.loc[df['Tanggal'] == tanggal_dipilih, 'POY'].values[0]
+
+st.metric(label='PLN Meter', value=nilai_pln)
+st.metric(label='APF Meter (ION)', value=nilai_apf)
+st.metric(label='POY', value=nilai_poy)
 
 # Memilih nilai tertinggi dari kolom 'Tanggal'
 tanggal_tertinggi = data['Tanggal'].max()
