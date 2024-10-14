@@ -32,7 +32,7 @@ with st.sidebar:
     try:
         correct_secret_code = dict_user[name]
     except Exception as e:
-        st.write('muncul error')
+        correct_secret_code = 'incorrect code !!!!!!!!'
     else:
         if name != '' and secret_code != '':
             if correct_secret_code == secret_code :
