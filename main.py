@@ -47,7 +47,8 @@ delta_PLN = round(nilai_pln - nilai_pln_sebelumnya, 2)
 delta_APF = round(nilai_apf - nilai_apf_sebelumnya, 2)
 delta_Sum_APF = round(nilai_Sum_APF - nilai_Sum_APF_sebelumnya, 2)
 
-st.markdown('## Pemakain Listrik APF Total')
+st.markdown('## Pemakaian Listrik APF Total')
+st.markdown('Berdasarkan pencatatan kWhmeter di GI PLN, GI APF dan Total Pemakaian Seluruh Plant')
 # add a border
 st.markdown("""<hr style="border:1px solid gray">""", unsafe_allow_html=True)
 col1, col2, col3 = st.columns(3)
