@@ -12,7 +12,8 @@ st.set_page_config(layout="wide")
 st.sidebar.header('Option')
 selected_fasilitator = st.sidebar.selectbox('Pilih Kelompok Fasilitator:', ['a','b','c'])
 
-
+st.title('PT Asia Pacific Fiber Tbk')
+st.subtitle('Monitoring Pemakaian Listrik')
 
 
 # Add a footer or caption at the bottom of the app
