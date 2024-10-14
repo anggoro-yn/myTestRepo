@@ -76,7 +76,7 @@ if admin_user or general_user:
     # Menghitung rata-rata untuk sepuluh hari terakhir
     nilai_pln_rata2 = df_10_hari['PLN Meter'].mean()
     nilai_apf_rata2 = df_10_hari['APF Meter (ION)'].mean()
-    nilai_Sum-APF_rata2 = df_10_hari['SUM ALL APF Area'].mean()
+    nilai_Sum_APF_rata2 = df_10_hari['SUM ALL APF Area'].mean()
 
      # Menampilkan data sesuai dengan tanggal yang dipilih
     nilai_pln = float(df.loc[df['Tanggal'] == tanggal_dipilih, 'PLN Meter'].values[0].replace(',','.'))
