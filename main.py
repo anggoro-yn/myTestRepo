@@ -26,7 +26,7 @@ with st.sidebar:
 
     name = st.text_input("Nama Anda")
     st.write(f"Nama Anda adalah {name}")
-    secret_code = st.text_input("secret code Anda")
+    secret_code = st.text_input("secret code Anda", type="password")
     st.write(f"Nama Anda adalah {secret_code}")
 
 st.title('PT Asia Pacific Fiber Tbk')
