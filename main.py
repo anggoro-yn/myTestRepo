@@ -94,25 +94,20 @@ st.pyplot()
 
 # Display the names of participants who completed all courses
 jumlah = len(completed_all_courses)
-st.write(jumlah)
 col1, col2, col3 = st.columns(3)
 name1 = []
 name2 = []
 name3 = []
 count_name = 0
-st.write(count_name)
 if completed_all_courses:
     for name in completed_all_courses:
         count_name = count_name + 1
         if count_name == 1:
             name1 = [name]
-            st.write(name1)
         elif count_name == 2:
             name2 = [name]
-            st.write(name2)
         elif count_name == 3:
             name3 = [name]
-            st.write(name3)
         if count_name > 3:
             if count_name % 3 == 1:
                 name1 = name1 + [name]
