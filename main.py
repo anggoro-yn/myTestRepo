@@ -38,7 +38,7 @@ with st.sidebar:
             if correct_secret_code == secret_code :
                 if name == 'anggoro':
                     admin_user = True
-                    general user = False
+                    general_user = False
                 else:
                     general_user = True
                     admin_user = False
