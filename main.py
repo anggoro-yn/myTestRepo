@@ -448,19 +448,7 @@ dimonitor dan diperkirakan agar kita dapat merencanakan tindak lanjut yang diper
 st.write(hasil_analisa_3)
 st.write(rekomendasi_3)
 
-from wordcloud import WordCloud
 
-
-# Sample text
-text = 'Fun, fun, awesome, awesome, tubular, astounding, superb, great, amazing, amazing, amazing, amazing'
-
-# Generate word cloud
-wordcloud = WordCloud().generate(text)
-
-# Display the word cloud
-plt.imshow(wordcloud, interpolation='bilinear')
-plt.axis('off')
-st.pyplot()
 
 # Menambahkan footer atau caption di bagian bawah aplikasi
 st.markdown("""<hr style="border:1px solid gray">""", unsafe_allow_html=True)
