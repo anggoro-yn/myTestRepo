@@ -117,7 +117,7 @@ if admin_user or general_user:
     # Menampilkan hasil di Streamlit
     st.metric(label='PLN Meter Rata-rata (10 hari)', value=round(nilai_pln_rata2, 2))
     st.metric(label='APF Meter (ION) Rata-rata (10 hari)', value=round(nilai_apf_rata2, 2))
-    st.metric(label='Sum ALL APF Area (10 hari)', value=round(nilai_Sum_APF_rata2, 
+    st.metric(label='Sum ALL APF Area (10 hari)', value=round(nilai_Sum_APF_rata2, 2))
 
     # add a border
     st.markdown("""<hr style="border:1px solid gray">""", unsafe_allow_html=True)
