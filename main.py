@@ -40,7 +40,7 @@ nilai_Sum_APF = df.loc[df['Tanggal'] == tanggal_dipilih, 'SUM ALL APF Area'].val
 tanggal_sebelumnya = tanggal_dipilih - pd.Timedelta(days=1)
 nilai_pln_sebelumnya = df.loc[df['Tanggal'] == tanggal_sebelumnya, 'PLN Meter'].values[0]
 nilai_apf_sebelumnya = df.loc[df['Tanggal'] == tanggal_sebelumnya, 'APF Meter (ION)'].values[0]
-nilai_Sum_APF_sebelumnya = df.loc[df['Tanggal'] == tanggal_sebelumnya, 'Sum ALL APF Area'].values[0]
+nilai_Sum_APF_sebelumnya = df.loc[df['Tanggal'] == tanggal_sebelumnya, 'SUM ALL APF Area'].values[0]
 
 
 col1, col2, col3 = st.columns(3)
