@@ -29,6 +29,10 @@ st.markdown("## Monitoring Konsumsi Listrik Harian")
 st.write(df)
 st.write(tanggal_dipilih)
 
+# Menampilkan tanggal
+st.metric(label="Tanggal", value=tanggal_terpilih.strftime('%Y-%m-%d'))
+
+
 # Menampilkan data sesuai dengan tanggal yang dipilih
 nilai_pln = df.loc[df['Tanggal'] == tanggal_dipilih, 'PLN Meter'].values[0]
 nilai_apf = df.loc[df['Tanggal'] == tanggal_dipilih, 'APF Meter (ION)'].values[0]
@@ -45,8 +49,6 @@ with col3:
 # Memilih nilai tertinggi dari kolom 'Tanggal'
 tanggal_tertinggi = df['Tanggal'].max()
 
-# Menampilkan nilai tertinggi di st.metric
-st.metric(label="Tanggal", value=tanggal_tertinggi.strftime('%Y-%m-%d'))
 
 
 # Add a footer or caption at the bottom of the app
