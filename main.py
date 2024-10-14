@@ -29,15 +29,16 @@ with st.sidebar:
 
     name = st.text_input("Nama Anda")
     secret_code = st.text_input("secret code Anda", type="password")
-    
-    if dict_user[name] == secret_code :
-        if name == anggoro:
-            st.write('User is Anggoro & secret code correct')
+    if name != '':
+        if dict_user[name] == secret_code :
+            if name == anggoro:
+                st.write('User is Anggoro & secret code correct')
+            else:
+                st.write('User is correct but not Anggoro & secret code is correct')
         else:
-            st.write('User is correct but not Anggoro & secret code is correct')
+            st.write('username is wrong or password is wrong')
     else:
-        st.write('username is wrong or password is wrong')
-    
+        pass
 
 st.title('PT Asia Pacific Fiber Tbk')
 st.markdown("## Monitoring Konsumsi Listrik Harian")
