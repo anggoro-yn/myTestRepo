@@ -19,6 +19,7 @@ with st.sidebar:
 
 st.title('PT Asia Pacific Fiber Tbk')
 st.markdown("## Monitoring Konsumsi Listrik Harian")
+st.write(data)
 
 # Memilih nilai tertinggi dari kolom 'Tanggal'
 tanggal_tertinggi = data['Tanggal'].max()
@@ -31,7 +32,6 @@ with col1:
     nilai_pln = data.loc[data['Tanggal'] == tanggal_tertinggi, 'PLN Meter'].values[0]
     st.metric(label="PLN Meter", value=nilai_pln.strftime('%Y-%m-%d'))
 
-st.write(data)
 
 # Add a footer or caption at the bottom of the app
 st.markdown("""<hr style="border:1px solid gray">""", unsafe_allow_html=True)
