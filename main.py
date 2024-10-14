@@ -22,7 +22,7 @@ st.write('Tanggal Pengukuran:', tanggal_pengukuran)
 with st.sidebar:
     st.sidebar.image('LogoAPF.png')
     st.header('Pilihan')
-    pilihan_01 = st.selectbox('Pilihan:', ['a','b','c'])
+    pilihan_01 = st.selectbox('Pilihan:', tanggal_pengukuran)
 
 st.title('PT Asia Pacific Fiber Tbk')
 st.markdown("## Monitoring Konsumsi Listrik Harian")
