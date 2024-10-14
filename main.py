@@ -7,8 +7,7 @@ from wordcloud import WordCloud
 # Load dataset
 data = pd.read_csv('data.csv', delimiter=';')
 
-# Load dataset
-data = pd.read_csv('data.csv', delimiter=';')
+st.set_page_config(layout="wide")
 
 # Mapping dari kode fasilitator ke nama fasilitator
 fasilitator_mapping = {
