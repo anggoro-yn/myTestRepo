@@ -32,7 +32,7 @@ st.write(tanggal_dipilih)
 # Menampilkan data sesuai dengan tanggal yang dipilih
 nilai_pln = df.loc[df['Tanggal'] == tanggal_dipilih, 'PLN Meter'].values[0]
 nilai_apf = df.loc[df['Tanggal'] == tanggal_dipilih, 'APF Meter (ION)'].values[0]
-nilai_poy = df.loc[df['Tanggal'] == tanggal_dipilih, 'POY'].values[0]
+nilai_poy = df.loc[df['Tanggal'] == tanggal_dipilih, 'SUM ALL APF Area'].values[0]
 
 st.metric(label='PLN Meter', value=nilai_pln)
 st.metric(label='APF Meter (ION)', value=nilai_apf)
