@@ -8,7 +8,9 @@ data = pd.read_csv('data.csv', delimiter=';')
 
 #st.set_page_config(layout="wide")
 
-# Sidebar for facilitator selection
+# Sidebar
+with st.sidebar:
+    st.sidebar.image()
 st.sidebar.header('Option')
 selected_fasilitator = st.sidebar.selectbox('Pilih Kelompok Fasilitator:', ['a','b','c'])
 
