@@ -79,7 +79,7 @@ from wordcloud import WordCloud
 text = 'Fun, fun, awesome, awesome, tubular, astounding, superb, great, amazing, amazing, amazing, amazing'
 
 # ???????????????????????
-name = ''
+text = ''
 if completed_all_courses:
     for name in completed_all_courses:
         text = text + name
