@@ -43,9 +43,9 @@ nilai_apf_sebelumnya = float(df.loc[df['Tanggal'] == tanggal_sebelumnya, 'APF Me
 nilai_Sum_APF_sebelumnya = float(df.loc[df['Tanggal'] == tanggal_sebelumnya, 'SUM ALL APF Area'].values[0].replace(',','.'))
 
 #mencari delta value
-delta_PLN = nilai_pln - nilai_pln_sebelumnya
-delta_APF = nilai_apf - nilai_apf_sebelumnya
-delta_Sum_APF = nilai_Sum_APF - nilai_Sum_APF_sebelumnya
+delta_PLN = round(nilai_pln - nilai_pln_sebelumnya, 2)
+delta_APF = round(nilai_apf - nilai_apf_sebelumnya, 2)
+delta_Sum_APF = round(nilai_Sum_APF - nilai_Sum_APF_sebelumnya, 2)
 
 col1, col2, col3 = st.columns(3)
 with col1:
@@ -55,8 +55,8 @@ with col2:
     st.metric(label='APF Meter (ION)', value=nilai_apf, delta = delta_APF)
     st.metric(label='APF Meter (ION)', value=nilai_apf_sebelumnya)
 with col3:
-    st.metric(label='Sum ALL APF Area', value=nilai_Sum_APF)
-    st.metric(label='Sum ALL APF Area', value=nilai_Sum_APF_sebelumnya, delta = delta_Sum_APF)
+    st.metric(label='Sum ALL APF Area', value=nilai_Sum_APF, delta = delta_Sum_APF)
+    st.metric(label='Sum ALL APF Area', value=nilai_Sum_APF_sebelumnya)
 
 # Memilih nilai tertinggi dari kolom 'Tanggal'
 tanggal_tertinggi = df['Tanggal'].max()
