@@ -16,6 +16,11 @@ df = df.sort_values(by='Tanggal', ascending=False)
 # Mengambil kolom 'Tanggal' dan memasukkannya ke dalam list 'tanggal_pengukuran'
 tanggal_pengukuran = df['Tanggal'].tolist()
 
+# Mengkonversi kolom 'PLN Meter' dan kolom lainnya ke float
+df['PLN Meter'] = df['PLN Meter'].str.replace(',', '.').astype(float)
+df['APF Meter (ION)'] = df['APF Meter (ION)'].str.replace(',', '.').astype(float)
+df['SUM ALL APF Area'] = df['SUM ALL APF Area'].str.replace(',', '.').astype(float)
+
 # User tool
 admin_user = False
 general_user = False
@@ -28,6 +33,10 @@ with st.sidebar:
     st.sidebar.image('LogoAPF.png')
     st.header('Pilihan')
     tanggal_dipilih = st.selectbox('Pilihan tanggal:', tanggal_pengukuran)
+    
+    # Menentukan rentang tanggal untuk sepuluh hari terakhir
+    tanggal_awal = tanggal_dipilih - pd.Timedelta(days=9)
+    tanggal_akhir = tanggal_dipilih
 
     name = st.text_input("Nama Anda")
     secret_code = st.text_input("secret code Anda", type="password")
@@ -60,8 +69,16 @@ if admin_user or general_user:
     
     # Menampilkan tanggal
     st.metric(label="Tanggal", value=tanggal_dipilih.strftime('%Y-%m-%d'))
+
+    # Menyaring data untuk sepuluh hari terakhir
+    df_10_hari = df[(df['Tanggal'] >= tanggal_awal) & (df['Tanggal'] <= tanggal_akhir)]
     
-    # Menampilkan data sesuai dengan tanggal yang dipilih
+    # Menghitung rata-rata untuk sepuluh hari terakhir
+    nilai_pln_rata2 = df_10_hari['PLN Meter'].mean()
+    nilai_apf_rata2 = df_10_hari['APF Meter (ION)'].mean()
+    nilai_Sum-APF_rata2 = df_10_hari['SUM ALL APF Area'].mean()
+
+     # Menampilkan data sesuai dengan tanggal yang dipilih
     nilai_pln = float(df.loc[df['Tanggal'] == tanggal_dipilih, 'PLN Meter'].values[0].replace(',','.'))
     nilai_apf = float(df.loc[df['Tanggal'] == tanggal_dipilih, 'APF Meter (ION)'].values[0].replace(',','.'))
     nilai_Sum_APF = float(df.loc[df['Tanggal'] == tanggal_dipilih, 'SUM ALL APF Area'].values[0].replace(',','.'))
@@ -96,8 +113,16 @@ if admin_user or general_user:
         st.metric(label='APF Meter (ION)', value=nilai_apf_sebelumnya)
     with col3:
         st.metric(label='Sum ALL APF Area', value=nilai_Sum_APF_sebelumnya)
+    
+    # Menampilkan hasil di Streamlit
+    st.metric(label='PLN Meter Rata-rata (10 hari)', value=round(nilai_pln_rata2, 2))
+    st.metric(label='APF Meter (ION) Rata-rata (10 hari)', value=round(nilai_apf_rata2, 2))
+    st.metric(label='Sum ALL APF Area (10 hari)', value=round(nilai_Sum_APF_rata2, 
+
     # add a border
     st.markdown("""<hr style="border:1px solid gray">""", unsafe_allow_html=True)
+
+    
     
     # Memilih nilai tertinggi dari kolom 'Tanggal'
     tanggal_tertinggi = df['Tanggal'].max()
