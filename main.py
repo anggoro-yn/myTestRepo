@@ -77,7 +77,16 @@ from wordcloud import WordCloud
 
 # Sample text
 text = 'Fun, fun, awesome, awesome, tubular, astounding, superb, great, amazing, amazing, amazing, amazing'
-st.write(completed_all_courses)
+
+# ???????????????????????
+name = ''
+if completed_all_courses:
+    for name in completed_all_courses:
+        text = text + name
+else:
+    st.write("Belum ada peserta yang menyelesaikan seluruh course.")
+
+
 # Generate word cloud
 wordcloud = WordCloud().generate(text)
 
