@@ -157,8 +157,8 @@ if admin_user or general_user:
     nilai_tx3_rata2 = df_10_hari['TX 3'].mean()
     nilai_tx4_rata2 = df_10_hari['TX 4 (+Doubling)'].mean()
     nilai_wrp_rata2 = df_10_hari['WRP'].mean()
-    nilai_sp3_rata2 = df_10_hari['SP 3 Compressor'].mean()
-    nilai_tx2c_rata2 = df_10_hari['TX 2 Compressor'].mean()
+    nilai_sp3_rata2 = df_10_hari['SP3 Compressor'].mean()
+    nilai_tx2c_rata2 = df_10_hari['TX2 Compressor'].mean()
 
      # Menampilkan data sesuai dengan tanggal yang dipilih
     nilai_poy = float(df.loc[df['Tanggal'] == tanggal_dipilih, 'POY'].values[0])
@@ -168,8 +168,8 @@ if admin_user or general_user:
     nilai_tx3 = float(df.loc[df['Tanggal'] == tanggal_dipilih, 'TX 3'].values[0])
     nilai_tx4 = float(df.loc[df['Tanggal'] == tanggal_dipilih, 'TX 4 (+Doubling)'].values[0])
     nilai_wrp = float(df.loc[df['Tanggal'] == tanggal_dipilih, 'WRP'].values[0])
-    nilai_sp3 = float(df.loc[df['Tanggal'] == tanggal_dipilih, 'SP 3 Compressor'].values[0])
-    nilai_tx2c = float(df.loc[df['Tanggal'] == tanggal_dipilih, 'TX 2 Compressor'].values[0])
+    nilai_sp3 = float(df.loc[df['Tanggal'] == tanggal_dipilih, 'SP3 Compressor'].values[0])
+    nilai_tx2c = float(df.loc[df['Tanggal'] == tanggal_dipilih, 'TX2 Compressor'].values[0])
     
     # Mencari nilai untuk satu hari sebelum tanggal_dipilih
     nilai_poy_sebelumnya = float(df.loc[df['Tanggal'] == tanggal_sebelumnya, 'POY'].values[0])
@@ -179,8 +179,8 @@ if admin_user or general_user:
     nilai_tx3_sebelumnya = float(df.loc[df['Tanggal'] == tanggal_sebelumnya, 'TX 3'].values[0])
     nilai_tx4_sebelumnya = float(df.loc[df['Tanggal'] == tanggal_sebelumnya, 'TX 4 (+Doubling)'].values[0])
     nilai_wrp_sebelumnya = float(df.loc[df['Tanggal'] == tanggal_sebelumnya, 'WRP'].values[0])
-    nilai_sp3_sebelumnya = float(df.loc[df['Tanggal'] == tanggal_sebelumnya, 'SP 3 Compressor'].values[0])
-    nilai_tx2c_sebelumnya = float(df.loc[df['Tanggal'] == tanggal_sebelumnya, 'TX 2 Compressor'].values[0])
+    nilai_sp3_sebelumnya = float(df.loc[df['Tanggal'] == tanggal_sebelumnya, 'SP3 Compressor'].values[0])
+    nilai_tx2c_sebelumnya = float(df.loc[df['Tanggal'] == tanggal_sebelumnya, 'TX2 Compressor'].values[0])
     
     #mencari delta value
     delta_poy = round(nilai_poy - nilai_poy_sebelumnya, 2)
