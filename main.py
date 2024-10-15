@@ -147,7 +147,7 @@ if admin_user or general_user:
             # Menentukan nilai maksimum, minimum, dan tanggal terbaru
             max_value = df_10_hari['PLN Meter'].max()
             min_value = df_10_hari['PLN Meter'].min()
-            latest_date = df_10_hari['tanggal'].max()
+            latest_date = df_10_hari['Tanggal'].max()
             
             colors = []
             for index, row in df_10_hari.iterrows():
