@@ -155,8 +155,8 @@ if admin_user or general_user:
             # Menghitung batas sumbu y
             min_value = df_10_hari['PLN Meter'].min()
             max_value = df_10_hari['PLN Meter'].max()
-            y_min = min_value - 0.01 * min_value
-            y_max = max_value + 0.025 * max_value
+            y_min = min_value - 0.025 * min_value
+            y_max = max_value + 0.01 * max_value
 
             # Mengatur batas sumbu y
             ax.set_ylim(y_min, y_max)
@@ -180,6 +180,15 @@ if admin_user or general_user:
             ax.set_xticks(df_10_hari['Tanggal'])
             ax.set_xticklabels(df_10_hari['Tanggal'].dt.strftime('%Y-%m-%d'), rotation=90, ha='center')
             
+            # Menghitung batas sumbu y
+            min_value = df_10_hari['PLN Meter'].min()
+            max_value = df_10_hari['PLN Meter'].max()
+            y_min = min_value - 0.025 * min_value
+            y_max = max_value + 0.01 * max_value
+
+            # Mengatur batas sumbu y
+            ax.set_ylim(y_min, y_max)
+
             # Menambahkan label dan judul
             plt.xlabel('Tanggal')
             plt.ylabel('ION')
@@ -199,6 +208,15 @@ if admin_user or general_user:
             ax.set_xticks(df_10_hari['Tanggal'])
             ax.set_xticklabels(df_10_hari['Tanggal'].dt.strftime('%Y-%m-%d'), rotation=90, ha='center')
             
+            # Menghitung batas sumbu y
+            min_value = df_10_hari['PLN Meter'].min()
+            max_value = df_10_hari['PLN Meter'].max()
+            y_min = min_value - 0.025 * min_value
+            y_max = max_value + 0.01 * max_value
+
+            # Mengatur batas sumbu y
+            ax.set_ylim(y_min, y_max)
+
             # Menambahkan label dan judul
             plt.xlabel('Tanggal')
             plt.ylabel('SUM ALL APF')
@@ -218,6 +236,15 @@ if admin_user or general_user:
             ax.set_xticks(df_10_hari['Tanggal'])
             ax.set_xticklabels(df_10_hari['Tanggal'].dt.strftime('%Y-%m-%d'), rotation=90, ha='center')
             
+            # Menghitung batas sumbu y
+            min_value = df_10_hari['PLN Meter'].min()
+            max_value = df_10_hari['PLN Meter'].max()
+            y_min = min_value - 0.025 * min_value
+            y_max = max_value + 0.01 * max_value
+
+            # Mengatur batas sumbu y
+            ax.set_ylim(y_min, y_max)
+
             # Menambahkan label dan judul
             plt.xlabel('Tanggal')
             plt.ylabel('PLN')
