@@ -265,8 +265,6 @@ if admin_user or general_user:
                 else:
                     colors.append('lightgray')  # Warna untuk batang lainnya            
 
-
-            
             bars = ax.bar(df_10_hari['Tanggal'], df_10_hari['EMS'], color=colors)
         
             # Mengatur warna batang untuk tanggal terakhir
@@ -292,6 +290,12 @@ if admin_user or general_user:
             
             # Menampilkan grafik di Streamlit
             st.pyplot(fig)
+
+            # Tulisan dengan warna crimson
+            st.markdown('<p style="color:crimson;">Highest</p>', unsafe_allow_html=True)
+            st.markdown('<p style="color:limegreen;">Lower</p>', unsafe_allow_html=True)
+            st.markdown('<p style="color:turquoise;">Latest/Current</p>', unsafe_allow_html=True)
+
 
     # Memilih nilai tertinggi dari kolom 'Tanggal'
     tanggal_tertinggi = df['Tanggal'].max()
