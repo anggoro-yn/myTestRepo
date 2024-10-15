@@ -80,19 +80,29 @@ df = df.sort_values(by='Tanggal', ascending=False)
 tanggal_pengukuran = df['Tanggal'].tolist()
 
 # Mengkonversi kolom 'PLN Meter' dan kolom lainnya ke float
-df['PLN Meter'] = df['PLN Meter'].str.replace(',', '.').astype(float)
-df['APF Meter (ION)'] = df['APF Meter (ION)'].str.replace(',', '.').astype(float)
-df['POY'] = df['POY'].str.replace(',', '.').astype(float)
-df['TX 1'] = df['TX 1'].str.replace(',', '.').astype(float)
-df['TX 2'] = df['TX 2'].str.replace(',', '.').astype(float)
-df['WRP'] = df['WRP'].str.replace(',', '.').astype(float)
-df['TX 3'] = df['TX 3'].str.replace(',', '.').astype(float)
-df['TX 4 (+Doubling)'] = df['TX 4 (+Doubling)'].str.replace(',', '.').astype(float)
-df['PP'] = df['PP'].str.replace(',', '.').astype(float)
-df['SP3 Compressor'] = df['SP3 Compressor'].str.replace(',', '.').astype(float)
-df['TX 2 Compressor'] = df['TX 2 Compressor'].str.replace(',', '.').astype(float)
-df['SUM ALL APF Area'] = df['SUM ALL APF Area'].str.replace(',', '.').astype(float)
-df['EMS'] = df['EMS'].str.replace(',', '.').astype(float)
+#df['PLN Meter'] = df['PLN Meter'].str.replace(',', '.').astype(float)
+#df['APF Meter (ION)'] = df['APF Meter (ION)'].str.replace(',', '.').astype(float)
+#df['POY'] = df['POY'].str.replace(',', '.').astype(float)
+#df['TX 1'] = df['TX 1'].str.replace(',', '.').astype(float)
+#df['TX 2'] = df['TX 2'].str.replace(',', '.').astype(float)
+#df['WRP'] = df['WRP'].str.replace(',', '.').astype(float)
+#df['TX 3'] = df['TX 3'].str.replace(',', '.').astype(float)
+#df['TX 4 (+Doubling)'] = df['TX 4 (+Doubling)'].str.replace(',', '.').astype(float)
+#df['PP'] = df['PP'].str.replace(',', '.').astype(float)
+#df['SP3 Compressor'] = df['SP3 Compressor'].str.replace(',', '.').astype(float)
+#df['TX 2 Compressor'] = df['TX 2 Compressor'].str.replace(',', '.').astype(float)
+#df['SUM ALL APF Area'] = df['SUM ALL APF Area'].str.replace(',', '.').astype(float)
+#df['EMS'] = df['EMS'].str.replace(',', '.').astype(float)
+
+# List of columns to be converted
+columns_to_convert = [
+    'PLN Meter', 'APF Meter (ION)', 'POY', 'TX 1', 'TX 2', 'WRP', 
+    'TX 3', 'TX 4 (+Doubling)', 'PP', 'SP3 Compressor', 
+    'TX 2 Compressor', 'SUM ALL APF Area', 'EMS'
+]
+for col in columns_to_convert:
+    df[col] = df[col].str.replace(',', '.').astype(float)
+
 
 # User tool
 admin_user = False
