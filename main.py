@@ -176,7 +176,7 @@ if admin_user or general_user:
             bars = ax.bar(df_10_hari['Tanggal'], df_10_hari['APF Meter (ION)'], color='lightgray')
         
             # Mengatur warna batang untuk tanggal terakhir
-            bars[0].set_color('cyan')
+            bars[0].set_color('skyblue')
             
             # Mengatur posisi tick label di tengah batang
             ax.set_xticks(df_10_hari['Tanggal'])
