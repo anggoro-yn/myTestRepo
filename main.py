@@ -155,7 +155,7 @@ if admin_user or general_user:
                     colors.append('crimson')  # Warna untuk nilai y maksimal
                 elif row['POY'] == min_value:
                     colors.append('limegreen')  # Warna untuk nilai y minimal
-                elif row['tanggal'] == latest_date:
+                elif row['Tanggal'] == latest_date:
                     colors.append('turquoise')  # Warna untuk tanggal terbaru
                 else:
                     colors.append('lightgray')  # Warna untuk batang lainnya            
