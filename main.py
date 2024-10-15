@@ -143,10 +143,28 @@ if admin_user or general_user:
         with tab1:
             # Membuat grafik batang
             fig, ax = plt.subplots(figsize=(10, 6))
-            bars = ax.bar(df_10_hari['Tanggal'], df_10_hari['PLN Meter'], color='lightgray')
+            
+            # Menentukan nilai maksimum, minimum, dan tanggal terbaru
+            max_value = df_10_hari['PLN Meter'].max()
+            min_value = df_10_hari['PLN Mater'].min()
+            latest_date = df_10_hari['tanggal'].max()
+            
+            colors = []
+            for index, row in df_10_hari.iterrows():
+                if row['POY'] == max_value:
+                    colors.append('crimson')  # Warna untuk nilai y maksimal
+                elif row['POY'] == min_value:
+                    colors.append('limegreen')  # Warna untuk nilai y minimal
+                elif row['tanggal'] == latest_date:
+                    colors.append('turquoise')  # Warna untuk tanggal terbaru
+                else:
+                    colors.append('lightgray')  # Warna untuk batang lainnya            
+            
+            
+            bars = ax.bar(df_10_hari['Tanggal'], df_10_hari['PLN Meter'], color=colors)
         
             # Mengatur warna batang untuk tanggal terakhir
-            bars[0].set_color('cyan')
+            #bars[0].set_color('cyan')
             
             # Mengatur posisi tick label di tengah batang
             ax.set_xticks(df_10_hari['Tanggal'])
