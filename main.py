@@ -58,7 +58,7 @@ with st.sidebar:
                 general_user = False
         else:
             admin_user = False
-            general_user = Fase
+            general_user = False
 
 
 if admin_user or general_user:
