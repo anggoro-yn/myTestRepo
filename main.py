@@ -156,7 +156,7 @@ if admin_user or general_user:
     nilai_poy_sebelumnya = float(df.loc[df['Tanggal'] == tanggal_sebelumnya, 'POY'].values[0])
     
     #mencari delta value
-    delta_poy = round(nilai_po - nilai_poy_sebelumnya, 2)
+    delta_poy = round(nilai_poy - nilai_poy_sebelumnya, 2)
     
     col1, col2, col3, col4 = st.columns(4)
     with col1:
