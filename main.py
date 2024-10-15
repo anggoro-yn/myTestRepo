@@ -152,30 +152,38 @@ if admin_user or general_user:
     # Menghitung rata-rata untuk sepuluh hari terakhir
     nilai_poy_rata2 = df_10_hari['POY'].mean()
     nilai_pp_rata2 = df_10_hari['PP'].mean()
+    nilai_tx1_rata2 = df_10_hari['TX1'].mean()
 
      # Menampilkan data sesuai dengan tanggal yang dipilih
     nilai_poy = float(df.loc[df['Tanggal'] == tanggal_dipilih, 'POY'].values[0])
     nilai_pp = float(df.loc[df['Tanggal'] == tanggal_dipilih, 'PP'].values[0])
+    nilai_tx1 = float(df.loc[df['Tanggal'] == tanggal_dipilih, 'TX1'].values[0])
     
     # Mencari nilai untuk satu hari sebelum tanggal_dipilih
     nilai_poy_sebelumnya = float(df.loc[df['Tanggal'] == tanggal_sebelumnya, 'POY'].values[0])
     nilai_pp_sebelumnya = float(df.loc[df['Tanggal'] == tanggal_sebelumnya, 'PP'].values[0])
+    nilai_tx1_sebelumnya = float(df.loc[df['Tanggal'] == tanggal_sebelumnya, 'TX1'].values[0])
     
     #mencari delta value
     delta_poy = round(nilai_poy - nilai_poy_sebelumnya, 2)
     delta_pp = round(nilai_pp - nilai_pp_sebelumnya, 2)
+    delta_tx1 = round(nilai_tx1 - nilai_tx1_sebelumnya, 2)
     
     col1, col2, col3, col4 = st.columns(4)
     with col1:
         st.metric(label='POY Plant', value=nilai_poy, delta = delta_poy)
     with col2:
-        st.metric(label='PP Plant', value=nilai_pp, delta = delta_pp)    
+        st.metric(label='PP Plant', value=nilai_pp, delta = delta_pp)
+    with col3:
+        st.metric(label='TX 1 Plant', value=nilai_tx1, delta = delta_tx1)
 
     col1, col2, col3, col4 = st.columns(4)
     with col1:
         st.metric(label='POY Plant Rata-rata (10 hari)', value=round(nilai_poy_rata2, 2))
     with col2:
         st.metric(label='PP Plant Rata-rata (10 hari)', value=round(nilai_pp_rata2, 2))
+    with col3:
+        st.metric(label='TX1 Plant Rata-rata (10 hari)', value=round(nilai_tx1_rata2, 2))
     
     
     # add a border
@@ -184,17 +192,6 @@ if admin_user or general_user:
     
 else:
     st.markdown('#### Anda tidak memiliki otorisasi untuk melihat halaman ini!')
-
-# HTML and CSS for custom metric styling
-custom_metric_html = """
-<div style="border: 2px solid black; padding: 10px; border-radius: 5px; display: inline-block;">
-    <h3 style="margin: 0; font-size: 1.5em;">PLN Meter</h3>
-    <p style="margin: 0; font-size: 1.2em;">310.50</p>
-</div>
-"""
-
-# Display the custom metric
-st.markdown(custom_metric_html, unsafe_allow_html=True)
 
 # Add a footer or caption at the bottom of the app
 st.markdown("""<hr style="border:1px solid gray">""", unsafe_allow_html=True)
