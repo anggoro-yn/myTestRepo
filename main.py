@@ -143,7 +143,7 @@ if admin_user or general_user:
     bars = ax.bar(df_10_hari['Tanggal'], df_10_hari['POY'], color='gray')
 
     # Mengatur warna batang untuk tanggal terakhir
-    bars[-1].set_color('skyblue')
+    bars[1].set_color('skyblue')
     
     # Mengatur posisi tick label di tengah batang
     ax.set_xticks(df_10_hari['Tanggal'])
