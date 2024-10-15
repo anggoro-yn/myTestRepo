@@ -250,7 +250,24 @@ if admin_user or general_user:
             bars = ax.bar(df_10_hari['Tanggal'], df_10_hari['EMS'], color='lightgray')
         
             # Mengatur warna batang untuk tanggal terakhir
-            bars[0].set_color('cyan')
+            #bars[0].set_color('cyan')
+
+            # Menentukan nilai maksimum, minimum, dan tanggal terbaru
+            max_value = df_10_hari['EMS'].max()
+            min_value = df_10_hari['EMS'].min()
+            latest_date = df_10_hari['Tanggal'].max()
+            
+            colors = []
+            for index, row in df_10_hari.iterrows():
+                if row['EMS'] == max_value:
+                    colors.append('crimson')  # Warna untuk nilai y maksimal
+                elif row['EMS'] == min_value:
+                    colors.append('limegreen')  # Warna untuk nilai y minimal
+                elif row['Tanggal'] == latest_date:
+                    colors.append('turquoise')  # Warna untuk tanggal terbaru
+                else:
+                    colors.append('lightgray')  # Warna untuk batang lainnya            
+
             
             # Mengatur posisi tick label di tengah batang
             ax.set_xticks(df_10_hari['Tanggal'])
