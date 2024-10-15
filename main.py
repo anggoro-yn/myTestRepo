@@ -71,6 +71,9 @@ with st.sidebar:
             admin_user = False
             general_user = False
 
+    if st.button('Log out'):
+        name = ''
+    
 
 if admin_user or general_user:
 
