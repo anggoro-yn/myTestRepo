@@ -168,11 +168,13 @@ if admin_user or general_user:
     col1, col2, col3, col4 = st.columns(4)
     with col1:
         st.metric(label='POY Plant', value=nilai_poy, delta = delta_poy)
+    with col2:
         st.metric(label='PP Plant', value=nilai_pp, delta = delta_pp)    
 
     col1, col2, col3, col4 = st.columns(4)
     with col1:
         st.metric(label='POY Plant Rata-rata (10 hari)', value=round(nilai_poy_rata2, 2))
+    with col2:
         st.metric(label='PP Plant Rata-rata (10 hari)', value=round(nilai_pp_rata2, 2))
     
     
