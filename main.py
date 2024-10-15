@@ -80,7 +80,6 @@ if admin_user or general_user:
     st.markdown("Selamat datang " + dict_name[name])
     st.title('PT Asia Pacific Fiber Tbk')
     st.markdown("## Monitoring Konsumsi Listrik Harian")
-    st.write(df)
     
     # Menampilkan tanggal
     st.metric(label="Tanggal", value=tanggal_dipilih.strftime('%Y-%m-%d'))
@@ -245,7 +244,13 @@ if admin_user or general_user:
         st.metric(label='WRP Plant Rata-rata (10 hari)', value=round(nilai_wrp_rata2, 2))
     with col2:
         st.metric(label='SP3 & TX2 Utility Rata-rata (10 hari)', value=round(nilai_tx2c_rata2 + nilai_sp3_rata2, 2))
-    
+
+    # add a border
+    st.markdown("""<hr style="border:1px dashed gray">""", unsafe_allow_html=True)
+
+    st.write(df)
+
+
 else:
     st.markdown('#### Anda tidak memiliki otorisasi untuk melihat halaman ini!')
 
