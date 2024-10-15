@@ -155,8 +155,8 @@ if admin_user or general_user:
             # Menghitung batas sumbu y
             min_value = df_10_hari['PLN Meter'].min()
             max_value = df_10_hari['PLN Meter'].max()
-            y_min = min_value - 0.05 * min_value
-            y_max = max_value + 0.05 * max_value
+            y_min = min_value - 0.01 * min_value
+            y_max = max_value + 0.025 * max_value
 
             # Mengatur batas sumbu y
             ax.set_ylim(y_min, y_max)
