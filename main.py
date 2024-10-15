@@ -113,12 +113,12 @@ if admin_user or general_user:
     delta_Sum_APF = round(nilai_Sum_APF - nilai_Sum_APF_sebelumnya, 2)
     delta_ems = round(nilai_ems - nilai_ems_sebelumnya, 2)
     
+    # add a border
+    st.markdown("""<hr style="border:1px solid gray">""", unsafe_allow_html=True)
     # Subjudul
     st.markdown('## Pemakaian Listrik APF Total')
     st.markdown('Berdasarkan pencatatan kWhmeter di GI PLN, GI APF dan Total Pemakaian Seluruh Plant')
-    # add a border
-    st.markdown("""<hr style="border:1px solid gray">""", unsafe_allow_html=True)
-    
+
     col1, col2, col3, col4 = st.columns(4)
     with col1:
         st.metric(label='PLN Meter', value=nilai_pln, delta = delta_PLN)
@@ -141,6 +141,9 @@ if admin_user or general_user:
     
     # Memilih nilai tertinggi dari kolom 'Tanggal'
     tanggal_tertinggi = df['Tanggal'].max()
+
+    # add a border
+    st.markdown("""<hr style="border:1px solid gray">""", unsafe_allow_html=True)
 
     # Subjudul
     st.markdown('## Pemakaian listrik masing-masing plant')
