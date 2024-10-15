@@ -139,7 +139,7 @@ if admin_user or general_user:
         st.metric(label='EMS Rata-rata (10 hari)', value=round(nilai_ems_rata2, 2))
 
     with st.expander("Klik untuk melihat grafik pemakaian listrik"):
-        tab1, tab2, tab3, tab4 = st.tab2(["PLN Meter","ION Meter","APF Sum","EMS"])
+        tab1, tab2, tab3, tab4 = st.tabs(["PLN Meter","ION Meter","APF Sum","EMS"])
         with tab1:
             # Membuat grafik batang
             fig, ax = plt.subplots(figsize=(10, 6))
