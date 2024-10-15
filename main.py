@@ -73,6 +73,7 @@ with st.sidebar:
 
 if admin_user or general_user:
 
+    st.markdown("Selamat datang " + name)
     st.title('PT Asia Pacific Fiber Tbk')
     st.markdown("## Monitoring Konsumsi Listrik Harian")
     st.write(df)
