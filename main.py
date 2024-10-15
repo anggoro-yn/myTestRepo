@@ -159,6 +159,63 @@ if admin_user or general_user:
             
             # Menampilkan grafik di Streamlit
             st.pyplot(fig)
+        with tab2:
+            # Membuat grafik batang
+            fig, ax = plt.subplots(figsize=(10, 6))
+            bars = ax.bar(df_10_hari['Tanggal'], df_10_hari['APF Meter (ION)'], color='lightgray')
+        
+            # Mengatur warna batang untuk tanggal terakhir
+            bars[0].set_color('cyan')
+            
+            # Mengatur posisi tick label di tengah batang
+            ax.set_xticks(df_10_hari['Tanggal'])
+            ax.set_xticklabels(df_10_hari['Tanggal'].dt.strftime('%Y-%m-%d'), rotation=90, ha='center')
+            
+            # Menambahkan label dan judul
+            plt.xlabel('Tanggal')
+            plt.ylabel('ION')
+            plt.title('Konsumsi Listrik Sesuai Meter ION APF dalam 10 Hari Terakhir')
+            
+            # Menampilkan grafik di Streamlit
+            st.pyplot(fig)
+        with tab3:
+            # Membuat grafik batang
+            fig, ax = plt.subplots(figsize=(10, 6))
+            bars = ax.bar(df_10_hari['Tanggal'], df_10_hari['Sum ALL APF Area'], color='lightgray')
+        
+            # Mengatur warna batang untuk tanggal terakhir
+            bars[0].set_color('cyan')
+            
+            # Mengatur posisi tick label di tengah batang
+            ax.set_xticks(df_10_hari['Tanggal'])
+            ax.set_xticklabels(df_10_hari['Tanggal'].dt.strftime('%Y-%m-%d'), rotation=90, ha='center')
+            
+            # Menambahkan label dan judul
+            plt.xlabel('Tanggal')
+            plt.ylabel('PLN')
+            plt.title('Konsumsi Listrik Sesuai Meter PLN dalam 10 Hari Terakhir')
+            
+            # Menampilkan grafik di Streamlit
+            st.pyplot(fig)
+        with tab4:
+            # Membuat grafik batang
+            fig, ax = plt.subplots(figsize=(10, 6))
+            bars = ax.bar(df_10_hari['Tanggal'], df_10_hari['EMS'], color='lightgray')
+        
+            # Mengatur warna batang untuk tanggal terakhir
+            bars[0].set_color('cyan')
+            
+            # Mengatur posisi tick label di tengah batang
+            ax.set_xticks(df_10_hari['Tanggal'])
+            ax.set_xticklabels(df_10_hari['Tanggal'].dt.strftime('%Y-%m-%d'), rotation=90, ha='center')
+            
+            # Menambahkan label dan judul
+            plt.xlabel('Tanggal')
+            plt.ylabel('PLN')
+            plt.title('Konsumsi Listrik Sesuai Meter PLN dalam 10 Hari Terakhir')
+            
+            # Menampilkan grafik di Streamlit
+            st.pyplot(fig)
 
     # Memilih nilai tertinggi dari kolom 'Tanggal'
     tanggal_tertinggi = df['Tanggal'].max()
