@@ -237,7 +237,7 @@ if admin_user or general_user:
     with col1:
         st.metric(label='WRP', value=nilai_wrp, delta = delta_wrp)
     with col2:
-        st.metric(label='SP3 & TX2 Utility', value=nilai_tx2c + nilai_sp3, delta = delta_tx2c+nilai_sp3)
+        st.metric(label='SP3 & TX2 Utility', value=nilai_tx2c + nilai_sp3, delta = delta_tx2c+delta_sp3)
 
     col1, col2 = st.columns(2)
     with col1:
