@@ -247,10 +247,7 @@ if admin_user or general_user:
         with tab4:
             # Membuat grafik batang
             fig, ax = plt.subplots(figsize=(10, 6))
-            bars = ax.bar(df_10_hari['Tanggal'], df_10_hari['EMS'], color='lightgray')
-        
-            # Mengatur warna batang untuk tanggal terakhir
-            #bars[0].set_color('cyan')
+
 
             # Menentukan nilai maksimum, minimum, dan tanggal terbaru
             max_value = df_10_hari['EMS'].max()
@@ -268,6 +265,12 @@ if admin_user or general_user:
                 else:
                     colors.append('lightgray')  # Warna untuk batang lainnya            
 
+
+            
+            bars = ax.bar(df_10_hari['Tanggal'], df_10_hari['EMS'], color='colors')
+        
+            # Mengatur warna batang untuk tanggal terakhir
+            #bars[0].set_color('cyan')
             
             # Mengatur posisi tick label di tengah batang
             ax.set_xticks(df_10_hari['Tanggal'])
