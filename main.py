@@ -299,9 +299,10 @@ if admin_user or general_user:
             # Tulisan "Highest", "Lowest", dan "Latest" dalam satu baris dengan warna berbeda
             st.markdown("""
             <p>
-                <span style="color:crimson;">Highest</span> 
-                <span style="color:limegreen;">Lowest</span> 
-                <span style="color:turquoise;">Latest</span>
+                <span style="color:crimson;">Highest </span> 
+                <span style="color:limegreen;"> Lowest </span> 
+                <span style="color:turquoise;"> Latest </span>
+                <span style="color:black;"> - - - (average)</span> 
             </p>
             """, unsafe_allow_html=True)
 
