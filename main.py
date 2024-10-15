@@ -182,10 +182,19 @@ if admin_user or general_user:
     st.markdown("""<hr style="border:1px solid gray">""", unsafe_allow_html=True)
 
     
-
-
 else:
     st.markdown('#### Anda tidak memiliki otorisasi untuk melihat halaman ini!')
+
+# HTML and CSS for custom metric styling
+custom_metric_html = """
+<div style="border: 2px solid black; padding: 10px; border-radius: 5px; display: inline-block;">
+    <h3 style="margin: 0; font-size: 1.5em;">PLN Meter</h3>
+    <p style="margin: 0; font-size: 1.2em;">310.50</p>
+</div>
+"""
+
+# Display the custom metric
+st.markdown(custom_metric_html, unsafe_allow_html=True)
 
 # Add a footer or caption at the bottom of the app
 st.markdown("""<hr style="border:1px solid gray">""", unsafe_allow_html=True)
