@@ -153,8 +153,8 @@ if admin_user or general_user:
             ax.set_xticklabels(df_10_hari['Tanggal'].dt.strftime('%Y-%m-%d'), rotation=90, ha='center')
 
             # Menghitung batas sumbu y
-            min_value = df_10_hari['POY'].min()
-            max_value = df_10_hari['POY'].max()
+            min_value = df_10_hari['PLN Meter'].min()
+            max_value = df_10_hari['PLN Meter'].max()
             y_min = min_value - 0.1 * min_value
             y_max = max_value + 0.1 * max_value
 
