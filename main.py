@@ -205,6 +205,10 @@ if admin_user or general_user:
     with col2:
         st.metric(label='PP Plant Rata-rata (10 hari)', value=round(nilai_pp_rata2, 2))
 
+    
+    # add a border
+    st.markdown("""<hr style="border:1px dashed gray">""", unsafe_allow_html=True)
+    
     col1, col2, col3, col4 = st.columns(4)
     with col1:
         st.metric(label='TX 1 Plant', value=nilai_tx1, delta = delta_tx1)
