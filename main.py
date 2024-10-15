@@ -137,7 +137,18 @@ if admin_user or general_user:
         st.metric(label='Sum ALL APF Area Rata-rata (10 hari)', value=round(nilai_Sum_APF_rata2, 2))
     with col4:
         st.metric(label='EMS Rata-rata (10 hari)', value=round(nilai_ems_rata2, 2))
+
+    # Membuat grafik batang
+    plt.figure(figsize=(10, 6))
+    plt.bar(df_10_hari['Tanggal'], df_10_hari['PLN Meter'], color='skyblue')
+    plt.xlabel('Tanggal')
+    plt.ylabel('Nilai PLN')
+    plt.title('Grafik Batang Nilai POY dalam 10 Hari Terakhir')
+    plt.xticks(rotation=45)
     
+    # Menampilkan grafik di Streamlit
+    st.pyplot(plt)
+
     # Memilih nilai tertinggi dari kolom 'Tanggal'
     tanggal_tertinggi = df['Tanggal'].max()
 
