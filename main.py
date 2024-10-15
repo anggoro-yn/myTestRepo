@@ -301,33 +301,45 @@ if admin_user or general_user:
     with col4:
         st.metric(label='TX4 & Doubling Plant Rata-rata (10 hari)', value=round(nilai_tx4_rata2, 2))
     
-    
-    
     # add a border
     st.markdown("""<hr style="border:1px dashed gray">""", unsafe_allow_html=True)
 
-    col1, col2 = st.columns(2)
+    col1, col2, col3 = st.columns(3)
     with col1:
         st.metric(label='WRP', value=nilai_wrp, delta = delta_wrp)
     with col2:
-        st.metric(label='SP3 & TX2 Utility', value=nilai_tx2c + nilai_sp3, delta = delta_tx2c+delta_sp3)
+        st.metric(label='SP3 Compressor', value=nilai_sp3, delta = delta_sp3)
+    with col3:
+        st.metric(label='TX2 Compressor', value=nilai_tx2c, delta = delta_tx2c)
 
-    col1, col2 = st.columns(2)
+    col1, col2, col3 = st.columns(3)
     with col1:
         st.metric(label='WRP Plant Rata-rata (10 hari)', value=round(nilai_wrp_rata2, 2))
     with col2:
-        st.metric(label='SP3 & TX2 Utility Rata-rata (10 hari)', value=round(nilai_tx2c_rata2 + nilai_sp3_rata2, 2))
+        st.metric(label='SP3 Compressor Rata-rata (10 hari)', value=round(nilai_sp3_rata2, 2))
+    with col3:
+        st.metric(label='TX2 Compressor Rata-rata (10 hari)', value=round(nilai_tx2c_rata2, 2))
 
     with st.expander("Klik untuk melihat grafik pemakaian listrik"):
-        tab1, tab2, tab3, tab4, tab5, tab6, tab7, tab8, tab9, tab10, tab11, tab12 = st.tabs(["PLN Meter","ION Meter","APF Sum","EMS", "POY", "PP", "TX1", "TX2", "TX3", "TX4", "WRP", "Utility"])
-        with tab1:
-            buat_grafik_kwh('PLN Meter', nilai_pln_rata2, 'Konsumsi listrik berdasar kWhmeter PLN dalam 10 hari terakhir')
-        with tab2:
-            buat_grafik_kwh('APF Meter (ION)', nilai_apf_rata2, 'Konsumsi listrik berdasar kWhmeter APF dalam 10 hari terakhir')
-        with tab3:
-            buat_grafik_kwh('SUM ALL APF Area', nilai_Sum_APF_rata2, 'Jumlah Pemakaian Listrik Seluruh Plant dalam 10 hari terakhir')
-        with tab4:
-            buat_grafik_kwh('EMS', nilai_ems_rata2, 'Konsumsi listrik berdasar EMS dalam 10 hari terakhir')
+        tabPOY, tabPP, tabTX1, tabTX2, tabTX3, tabTX4, tabWRP, tabSP3, tabTX2C = st.tabs(["POY", "PP", "TX1", "TX2", "TX3", "TX4", "WRP", "SP3 Comp", "TX2 Comp"])
+        with tabPOY:
+            buat_grafik_kwh('POY', nilai_poy_rata2, 'Konsumsi listrik Plant POY dalam 10 hari terakhir')
+        with tabPP:
+            buat_grafik_kwh('PP', nilai_pp_rata2, 'Konsumsi listrik Plant PP dalam 10 hari terakhir')
+        with tabTX1:
+            buat_grafik_kwh('TX 1', nilai_tx1_rata2, 'Konsumsi listrik Plant TX 1 dalam 10 hari terakhir')
+        with tabTX2:
+            buat_grafik_kwh('TX 2', nilai_tx2_rata2, 'Konsumsi listrik Plant TX 2 dalam 10 hari terakhir')
+        with tabTX3:
+            buat_grafik_kwh('TX 3', nilai_tx3_rata2, 'Konsumsi listrik Plant TX 3 dalam 10 hari terakhir')
+        with tabTX4:
+            buat_grafik_kwh('TX 4', nilai_tx4_rata2, 'Konsumsi listrik Plant TX 4 dalam 10 hari terakhir')
+        with tabWRP:
+            buat_grafik_kwh('WRP', nilai_wrp_rata2, 'Konsumsi listrik Recycling Plant dalam 10 hari terakhir')
+        with tabSP3:
+            buat_grafik_kwh('SP3 Compressor', nilai_sp3_rata2, 'Konsumsi listrik Compressor SP3  dalam 10 hari terakhir')
+        with tabTX2C:
+            buat_grafik_kwh('TX 2 Compressor', nilai_tx2c_rata2, 'Konsumsi listrik Compressor TX 2  dalam 10 hari terakhir')
 
     
     # add a border
