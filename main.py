@@ -97,7 +97,8 @@ general_user = False
 dict_user = {'anggoro' : 'password01' ,'rahul':'password02','siska':'password03'}
 dict_name = {'anggoro' : 'Anggoro Yudho Nuswantoro' ,'rahul': 'Rahul Bankar','siska':'Siska Rahmawati'}
 
-st.set_page_config(layout="wide")
+# Menset page layout
+#st.set_page_config(layout="wide")
 
 # Sidebar
 with st.sidebar:
