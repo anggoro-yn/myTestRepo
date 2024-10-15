@@ -318,8 +318,20 @@ if admin_user or general_user:
     with col2:
         st.metric(label='SP3 & TX2 Utility Rata-rata (10 hari)', value=round(nilai_tx2c_rata2 + nilai_sp3_rata2, 2))
 
+    with st.expander("Klik untuk melihat grafik pemakaian listrik"):
+        tab1, tab2, tab3, tab4, tab5, tab6, tab7, tab8, tab9, tab10, tab11, tab12 = st.tabs(["PLN Meter","ION Meter","APF Sum","EMS", "POY", "PP", "TX1", "TX2", "TX3", "TX4", "WRP", "Utility"])
+        with tab1:
+            buat_grafik_kwh('PLN Meter', nilai_pln_rata2, 'Konsumsi listrik berdasar kWhmeter PLN dalam 10 hari terakhir')
+        with tab2:
+            buat_grafik_kwh('APF Meter (ION)', nilai_apf_rata2, 'Konsumsi listrik berdasar kWhmeter APF dalam 10 hari terakhir')
+        with tab3:
+            buat_grafik_kwh('SUM ALL APF Area', nilai_Sum_APF_rata2, 'Jumlah Pemakaian Listrik Seluruh Plant dalam 10 hari terakhir')
+        with tab4:
+            buat_grafik_kwh('EMS', nilai_ems_rata2, 'Konsumsi listrik berdasar EMS dalam 10 hari terakhir')
+
+    
     # add a border
-    st.markdown("""<hr style="border:1px dashed gray">""", unsafe_allow_html=True)
+    st.markdown("""<hr style="border:1px solid gray">""", unsafe_allow_html=True)
 
     st.write(df)
 
