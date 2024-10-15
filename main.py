@@ -19,7 +19,17 @@ tanggal_pengukuran = df['Tanggal'].tolist()
 # Mengkonversi kolom 'PLN Meter' dan kolom lainnya ke float
 df['PLN Meter'] = df['PLN Meter'].str.replace(',', '.').astype(float)
 df['APF Meter (ION)'] = df['APF Meter (ION)'].str.replace(',', '.').astype(float)
+df['POY'] = df['POY'].str.replace(',', '.').astype(float)
+df['TX 1'] = df['TX 1'].str.replace(',', '.').astype(float)
+df['TX 2'] = df['TX 2'].str.replace(',', '.').astype(float)
+df['WRP'] = df['WRP'].str.replace(',', '.').astype(float)
+df['TX 3'] = df['TX 3'].str.replace(',', '.').astype(float)
+df['TX 4(+ Doubling)'] = df['TX 4(+ Doubling'].str.replace(',', '.').astype(float)
+df['PP'] = df['PP'].str.replace(',', '.').astype(float)
+df['SP 3 Compressor'] = df['SP 3 Compressor'].str.replace(',', '.').astype(float)
+df['TX 2 Compressor'] = df['TX 2 Compressor'].str.replace(',', '.').astype(float)
 df['SUM ALL APF Area'] = df['SUM ALL APF Area'].str.replace(',', '.').astype(float)
+df['EMS'] = df['EMS'].str.replace(',', '.').astype(float)
 
 # User tool
 admin_user = False
@@ -94,10 +104,12 @@ if admin_user or general_user:
     delta_APF = round(nilai_apf - nilai_apf_sebelumnya, 2)
     delta_Sum_APF = round(nilai_Sum_APF - nilai_Sum_APF_sebelumnya, 2)
     
+    # Subjudul
     st.markdown('## Pemakaian Listrik APF Total')
     st.markdown('Berdasarkan pencatatan kWhmeter di GI PLN, GI APF dan Total Pemakaian Seluruh Plant')
     # add a border
     st.markdown("""<hr style="border:1px solid gray">""", unsafe_allow_html=True)
+    
     col1, col2, col3 = st.columns(3)
     with col1:
         st.metric(label='PLN Meter', value=nilai_pln, delta = delta_PLN)
@@ -114,14 +126,17 @@ if admin_user or general_user:
     with col3:
         st.metric(label='Sum ALL APF Area (10 hari)', value=round(nilai_Sum_APF_rata2, 2))
     
+    # Memilih nilai tertinggi dari kolom 'Tanggal'
+    tanggal_tertinggi = df['Tanggal'].max()
 
+    # Subjudul
+    st.markdown('## Pemakaian listrik masing-masing plant')
+    st.markdown('Berdasarkan pencatatan kWhmeter di masing-masing plant')
     # add a border
     st.markdown("""<hr style="border:1px solid gray">""", unsafe_allow_html=True)
 
     
-    
-    # Memilih nilai tertinggi dari kolom 'Tanggal'
-    tanggal_tertinggi = df['Tanggal'].max()
+
 
 else:
     st.markdown('#### Anda tidak memiliki otorisasi untuk melihat halaman ini!')
