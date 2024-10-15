@@ -75,12 +75,11 @@ with st.sidebar:
         admin_user = False
         general_user = False
         
-#    if st.button('Change Password'):
-#        password_baru = st.text_input("New password", type='password')
-#        dict_user[name] = password_baru
+    if st.button('Change Password'):
+        password_baru = st.text_input("New password", type='password')
+        dict_user[name] = password_baru
 
-#    st.write(dict_user)
-#    st.write(dict_name)
+    st.write(dict_user)
     
 
 if admin_user or general_user:
