@@ -73,6 +73,10 @@ with st.sidebar:
 
     if st.button('Log out'):
         name = ''
+        
+    if st.button('Change Password'):
+        password_baru = st.text_input("New password")
+        dict_user[name] = password_baru
     
 
 if admin_user or general_user:
