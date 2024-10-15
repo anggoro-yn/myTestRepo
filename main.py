@@ -193,47 +193,53 @@ if admin_user or general_user:
     delta_sp3 = round(nilai_sp3 - nilai_sp3_sebelumnya, 2)
     delta_tx2c = round(nilai_tx2c - nilai_tx2c_sebelumnya, 2)
     
-    col1, col2, col3, col4 = st.columns(4)
+    col1, col2 = st.columns(2)
     with col1:
         st.metric(label='POY Plant', value=nilai_poy, delta = delta_poy)
     with col2:
         st.metric(label='PP Plant', value=nilai_pp, delta = delta_pp)
-    with col3:
-        st.metric(label='TX 1 Plant', value=nilai_tx1, delta = delta_tx1)
-    with col4:
-        st.metric(label='TX 2 Plant', value=nilai_tx2, delta = delta_tx2)
 
-    col1, col2, col3, col4 = st.columns(4)
+    col1, col2 = st.columns(2)
     with col1:
         st.metric(label='POY Plant Rata-rata (10 hari)', value=round(nilai_poy_rata2, 2))
     with col2:
         st.metric(label='PP Plant Rata-rata (10 hari)', value=round(nilai_pp_rata2, 2))
-    with col3:
-        st.metric(label='TX1 Plant Rata-rata (10 hari)', value=round(nilai_tx1_rata2, 2))
-    with col4:
-        st.metric(label='TX2 Plant Rata-rata (10 hari)', value=round(nilai_tx2_rata2, 2))
 
+    col1, col2, col3, col4 = st.columns(4)
+    with col1:
+        st.metric(label='TX 1 Plant', value=nilai_tx1, delta = delta_tx1)
+    with col2:
+        st.metric(label='TX 2 Plant', value=nilai_tx2, delta = delta_tx2)
+    with col3:
+        st.metric(label='TX 3 Plant', value=nilai_tx3, delta = delta_tx3)
+    with col4:
+        st.metric(label='TX 4 & Doubling Plant', value=nilai_tx4, delta = delta_tx4)
+
+    col1, col2, col3, col4 = st.columns(4)
+    with col1:
+        st.metric(label='TX1 Plant Rata-rata (10 hari)', value=round(nilai_tx1_rata2, 2))
+    with col2:
+        st.metric(label='TX2 Plant Rata-rata (10 hari)', value=round(nilai_tx2_rata2, 2))
+    with col3:
+        st.metric(label='TX3 Plant Rata-rata (10 hari)', value=round(nilai_tx3_rata2, 2))
+    with col4:
+        st.metric(label='TX4 & Doubling Plant Rata-rata (10 hari)', value=round(nilai_tx4_rata2, 2))
+    
+    
+    
     # add a border
     st.markdown("""<hr style="border:1px dashed gray">""", unsafe_allow_html=True)
 
-    col1, col2, col3, col4 = st.columns(4)
+    col1, col2 = st.columns(2)
     with col1:
-        st.metric(label='TX 3 Plant', value=nilai_tx3, delta = delta_tx3)
-    with col2:
-        st.metric(label='TX 4 & Doubling Plant', value=nilai_tx4, delta = delta_tx4)
-    with col3:
         st.metric(label='WRP', value=nilai_wrp, delta = delta_wrp)
-    with col4:
+    with col2:
         st.metric(label='SP3 & TX2 Utility', value=nilai_tx2c + nilai_sp3, delta = delta_tx2c+nilai_sp3)
 
-    col1, col2, col3, col4 = st.columns(4)
+    col1, col2 = st.columns(2)
     with col1:
-        st.metric(label='TX3 Plant Rata-rata (10 hari)', value=round(nilai_tx3_rata2, 2))
-    with col2:
-        st.metric(label='TX4 & Doubling Plant Rata-rata (10 hari)', value=round(nilai_tx4_rata2, 2))
-    with col3:
         st.metric(label='WRP Plant Rata-rata (10 hari)', value=round(nilai_wrp_rata2, 2))
-    with col4:
+    with col2:
         st.metric(label='SP3 & TX2 Utility Rata-rata (10 hari)', value=round(nilai_tx2c_rata2 + nilai_sp3_rata2, 2))
     
 else:
