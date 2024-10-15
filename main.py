@@ -38,7 +38,7 @@ def buat_grafik_kwh(column_name, nilai_rata2, judul):
     # Menghitung batas sumbu y
     min_value = df_10_hari[column_name].min()
     max_value = df_10_hari[column_name].max()
-    y_min = min_value - 0.025 * min_value
+    y_min = min_value - 0.01 * min_value
     y_max = max_value + 0.01 * max_value
 
     # Mengatur batas sumbu y
