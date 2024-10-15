@@ -87,22 +87,26 @@ if admin_user or general_user:
     nilai_pln_rata2 = df_10_hari['PLN Meter'].mean()
     nilai_apf_rata2 = df_10_hari['APF Meter (ION)'].mean()
     nilai_Sum_APF_rata2 = df_10_hari['SUM ALL APF Area'].mean()
+    nilai_ems_rata2 = df_10_hari['EMS'].mean()
 
      # Menampilkan data sesuai dengan tanggal yang dipilih
     nilai_pln = float(df.loc[df['Tanggal'] == tanggal_dipilih, 'PLN Meter'].values[0])
     nilai_apf = float(df.loc[df['Tanggal'] == tanggal_dipilih, 'APF Meter (ION)'].values[0])
     nilai_Sum_APF = float(df.loc[df['Tanggal'] == tanggal_dipilih, 'SUM ALL APF Area'].values[0])
+    nilai_ems = float(df.loc[df['Tanggal'] == tanggal_dipilih, 'EMS'].values[0])
     
     # Mencari nilai untuk satu hari sebelum tanggal_dipilih
     tanggal_sebelumnya = tanggal_dipilih - pd.Timedelta(days=1)
     nilai_pln_sebelumnya = float(df.loc[df['Tanggal'] == tanggal_sebelumnya, 'PLN Meter'].values[0])
     nilai_apf_sebelumnya = float(df.loc[df['Tanggal'] == tanggal_sebelumnya, 'APF Meter (ION)'].values[0])
     nilai_Sum_APF_sebelumnya = float(df.loc[df['Tanggal'] == tanggal_sebelumnya, 'SUM ALL APF Area'].values[0])
+    nilai_ems_sebelumnya = float(df.loc[df['Tanggal'] == tanggal_sebelumnya, 'EMS'].values[0])
     
     #mencari delta value
     delta_PLN = round(nilai_pln - nilai_pln_sebelumnya, 2)
     delta_APF = round(nilai_apf - nilai_apf_sebelumnya, 2)
     delta_Sum_APF = round(nilai_Sum_APF - nilai_Sum_APF_sebelumnya, 2)
+    delta_ems = round(nilai_ems - nilai_ems_sebelumnya, 2)
     
     # Subjudul
     st.markdown('## Pemakaian Listrik APF Total')
@@ -110,21 +114,25 @@ if admin_user or general_user:
     # add a border
     st.markdown("""<hr style="border:1px solid gray">""", unsafe_allow_html=True)
     
-    col1, col2, col3 = st.columns(3)
+    ol1, col2, col3, col4 = st.columns(4)
     with col1:
         st.metric(label='PLN Meter', value=nilai_pln, delta = delta_PLN)
     with col2:
         st.metric(label='APF Meter (ION)', value=nilai_apf, delta = delta_APF)
     with col3:
         st.metric(label='Sum ALL APF Area', value=nilai_Sum_APF, delta = delta_Sum_APF)
+    with col4:
+        st.metric(label='EMS', value=nilai_ems, delta = delta_ems)
     
-    col1, col2, col3 = st.columns(3)
+    col1, col2, col3, col4 = st.columns(4)
     with col1:
         st.metric(label='PLN Meter Rata-rata (10 hari)', value=round(nilai_pln_rata2, 2))
     with col2:
         st.metric(label='APF Meter (ION) Rata-rata (10 hari)', value=round(nilai_apf_rata2, 2))
     with col3:
-        st.metric(label='Sum ALL APF Area (10 hari)', value=round(nilai_Sum_APF_rata2, 2))
+        st.metric(label='Sum ALL APF Area Rata-rata (10 hari)', value=round(nilai_Sum_APF_rata2, 2))
+    with col4:
+        st.metric(label='EMS Rata-rata (10 hari)', value=round(nilai_ems_rata2, 2))
     
     # Memilih nilai tertinggi dari kolom 'Tanggal'
     tanggal_tertinggi = df['Tanggal'].max()
