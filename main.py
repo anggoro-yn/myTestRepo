@@ -72,7 +72,8 @@ with st.sidebar:
             general_user = False
 
     if st.button('Log out'):
-        name = ''
+        admin_user = False
+        general_user = False
         
     if st.button('Change Password'):
         password_baru = st.text_input("New password", type='password')
