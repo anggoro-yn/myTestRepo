@@ -333,7 +333,7 @@ if admin_user or general_user:
         with tabTX3:
             buat_grafik_kwh('TX 3', nilai_tx3_rata2, 'Konsumsi listrik Plant TX 3 dalam 10 hari terakhir')
         with tabTX4:
-            buat_grafik_kwh('TX 4', nilai_tx4_rata2, 'Konsumsi listrik Plant TX 4 dalam 10 hari terakhir')
+            buat_grafik_kwh('TX 4 (+Doubling)', nilai_tx4_rata2, 'Konsumsi listrik Plant TX 4 dalam 10 hari terakhir')
         with tabWRP:
             buat_grafik_kwh('WRP', nilai_wrp_rata2, 'Konsumsi listrik Recycling Plant dalam 10 hari terakhir')
         with tabSP3:
