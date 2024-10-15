@@ -152,17 +152,17 @@ if admin_user or general_user:
     # Menghitung rata-rata untuk sepuluh hari terakhir
     nilai_poy_rata2 = df_10_hari['POY'].mean()
     nilai_pp_rata2 = df_10_hari['PP'].mean()
-    nilai_tx1_rata2 = df_10_hari['TX1'].mean()
+    nilai_tx1_rata2 = df_10_hari['TX 1'].mean()
 
      # Menampilkan data sesuai dengan tanggal yang dipilih
     nilai_poy = float(df.loc[df['Tanggal'] == tanggal_dipilih, 'POY'].values[0])
     nilai_pp = float(df.loc[df['Tanggal'] == tanggal_dipilih, 'PP'].values[0])
-    nilai_tx1 = float(df.loc[df['Tanggal'] == tanggal_dipilih, 'TX1'].values[0])
+    nilai_tx1 = float(df.loc[df['Tanggal'] == tanggal_dipilih, 'TX 1'].values[0])
     
     # Mencari nilai untuk satu hari sebelum tanggal_dipilih
     nilai_poy_sebelumnya = float(df.loc[df['Tanggal'] == tanggal_sebelumnya, 'POY'].values[0])
     nilai_pp_sebelumnya = float(df.loc[df['Tanggal'] == tanggal_sebelumnya, 'PP'].values[0])
-    nilai_tx1_sebelumnya = float(df.loc[df['Tanggal'] == tanggal_sebelumnya, 'TX1'].values[0])
+    nilai_tx1_sebelumnya = float(df.loc[df['Tanggal'] == tanggal_sebelumnya, 'TX 1'].values[0])
     
     #mencari delta value
     delta_poy = round(nilai_poy - nilai_poy_sebelumnya, 2)
