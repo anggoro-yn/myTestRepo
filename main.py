@@ -266,7 +266,10 @@ if admin_user or general_user:
                     colors.append('lightgray')  # Warna untuk batang lainnya            
 
             bars = ax.bar(df_10_hari['Tanggal'], df_10_hari['EMS'], color=colors)
-        
+
+            # Menambahkan garis horizontal putus-putus
+            ax.axhline(y=nilai_ems_rata2, color='black', linestyle='--') 
+
             # Mengatur warna batang untuk tanggal terakhir
             #bars[0].set_color('cyan')
             
@@ -292,7 +295,7 @@ if admin_user or general_user:
             st.pyplot(fig)
 
             # Memberikan catatan
-            st.write("Note: Y-axis doesn't start from zero to emphasize fluctuation.")
+            st.write("Note:Y-axis doesn't start from zero to emphasize fluctuation.")
             # Tulisan "Highest", "Lowest", dan "Latest" dalam satu baris dengan warna berbeda
             st.markdown("""
             <p>
