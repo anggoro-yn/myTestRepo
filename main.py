@@ -140,7 +140,10 @@ if admin_user or general_user:
 
     # Membuat grafik batang
     fig, ax = plt.subplots(figsize=(10, 6))
-    bars = ax.bar(df_10_hari['Tanggal'], df_10_hari['POY'], color='skyblue')
+    bars = ax.bar(df_10_hari['Tanggal'], df_10_hari['POY'], color='gray')
+
+    # Mengatur warna batang untuk tanggal terakhir
+    bars[-1].set_color('skyblue')
     
     # Mengatur posisi tick label di tengah batang
     ax.set_xticks(df_10_hari['Tanggal'])
