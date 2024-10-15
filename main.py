@@ -368,7 +368,7 @@ if admin_user or general_user:
             </p>
             """, unsafe_allow_html=True)
             
-            def buat_grafik_kwh('EMS', nilai_ems_rata2, 'Konsumsi listrik berdasar EMS dalam 10 hari terakhir')
+            buat_grafik_kwh('EMS', nilai_ems_rata2, 'Konsumsi listrik berdasar EMS dalam 10 hari terakhir')
 
 
     # Memilih nilai tertinggi dari kolom 'Tanggal'
