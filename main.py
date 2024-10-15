@@ -267,7 +267,7 @@ if admin_user or general_user:
 
 
             
-            bars = ax.bar(df_10_hari['Tanggal'], df_10_hari['EMS'], color='colors')
+            bars = ax.bar(df_10_hari['Tanggal'], df_10_hari['EMS'], color=colors)
         
             # Mengatur warna batang untuk tanggal terakhir
             #bars[0].set_color('cyan')
