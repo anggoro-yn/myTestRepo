@@ -151,23 +151,29 @@ if admin_user or general_user:
 
     # Menghitung rata-rata untuk sepuluh hari terakhir
     nilai_poy_rata2 = df_10_hari['POY'].mean()
+    nilai_pp_rata2 = df_10_hari['PP'].mean()
 
      # Menampilkan data sesuai dengan tanggal yang dipilih
     nilai_poy = float(df.loc[df['Tanggal'] == tanggal_dipilih, 'POY'].values[0])
+    nilai_pp = float(df.loc[df['Tanggal'] == tanggal_dipilih, 'PP'].values[0])
     
     # Mencari nilai untuk satu hari sebelum tanggal_dipilih
     nilai_poy_sebelumnya = float(df.loc[df['Tanggal'] == tanggal_sebelumnya, 'POY'].values[0])
+    nilai_pp_sebelumnya = float(df.loc[df['Tanggal'] == tanggal_sebelumnya, 'PP'].values[0])
     
     #mencari delta value
     delta_poy = round(nilai_poy - nilai_poy_sebelumnya, 2)
+    delta_pp = round(nilai_pp - nilai_pp_sebelumnya, 2)
     
     col1, col2, col3, col4 = st.columns(4)
     with col1:
         st.metric(label='POY Plant', value=nilai_poy, delta = delta_poy)
-    
+        st.metric(label='PP Plant', value=nilai_pp, delta = delta_pp)    
+
     col1, col2, col3, col4 = st.columns(4)
     with col1:
         st.metric(label='POY Plant Rata-rata (10 hari)', value=round(nilai_poy_rata2, 2))
+        st.metric(label='PP Plant Rata-rata (10 hari)', value=round(nilai_pp_rata2, 2))
     
     
     # add a border
