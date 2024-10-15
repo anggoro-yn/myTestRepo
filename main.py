@@ -291,10 +291,16 @@ if admin_user or general_user:
             # Menampilkan grafik di Streamlit
             st.pyplot(fig)
 
-            # Tulisan dengan warna crimson
-            st.markdown('<p style="color:crimson;">Highest</p>', unsafe_allow_html=True)
-            st.markdown('<p style="color:limegreen;">Lower</p>', unsafe_allow_html=True)
-            st.markdown('<p style="color:turquoise;">Latest/Current</p>', unsafe_allow_html=True)
+            # Memberikan catatan
+            st.write("Note: Y-axis doesn't start from zero to emphasize fluctuation.")
+            # Tulisan "Highest", "Lowest", dan "Latest" dalam satu baris dengan warna berbeda
+            st.markdown("""
+            <p>
+                <span style="color:crimson;">Highest</span> 
+                <span style="color:limegreen;">Lowest</span> 
+                <span style="color:turquoise;">Latest</span>
+            </p>
+            """, unsafe_allow_html=True)
 
 
     # Memilih nilai tertinggi dari kolom 'Tanggal'
