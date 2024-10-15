@@ -3,66 +3,66 @@ import pandas as pd
 import plotly.express as px
 import matplotlib.pyplot as plt
 
-        def buat_grafik_kwh(column_name, nilai_rata2, judul):
-            # Membuat grafik batang
-            fig, ax = plt.subplots(figsize=(10, 6))
+def buat_grafik_kwh(column_name, nilai_rata2, judul):
+    # Membuat grafik batang
+    fig, ax = plt.subplots(figsize=(10, 6))
 
-            # Menentukan nilai maksimum, minimum, dan tanggal terbaru
-            max_value = df_10_hari[column_name].max()
-            min_value = df_10_hari[column_name].min()
-            latest_date = df_10_hari['Tanggal'].max()
-            
-            colors = []
-            for index, row in df_10_hari.iterrows():
-                if row[column_name] == max_value:
-                    colors.append('crimson')  # Warna untuk nilai y maksimal
-                elif row[column_name] == min_value:
-                    colors.append('limegreen')  # Warna untuk nilai y minimal
-                elif row['Tanggal'] == latest_date:
-                    colors.append('turquoise')  # Warna untuk tanggal terbaru
-                else:
-                    colors.append('lightgray')  # Warna untuk batang lainnya            
+    # Menentukan nilai maksimum, minimum, dan tanggal terbaru
+    max_value = df_10_hari[column_name].max()
+    min_value = df_10_hari[column_name].min()
+    latest_date = df_10_hari['Tanggal'].max()
+    
+    colors = []
+    for index, row in df_10_hari.iterrows():
+        if row[column_name] == max_value:
+            colors.append('crimson')  # Warna untuk nilai y maksimal
+        elif row[column_name] == min_value:
+            colors.append('limegreen')  # Warna untuk nilai y minimal
+        elif row['Tanggal'] == latest_date:
+            colors.append('turquoise')  # Warna untuk tanggal terbaru
+        else:
+            colors.append('lightgray')  # Warna untuk batang lainnya            
 
-            bars = ax.bar(df_10_hari['Tanggal'], df_10_hari[column_name], color=colors)
+    bars = ax.bar(df_10_hari['Tanggal'], df_10_hari[column_name], color=colors)
 
-            # Menambahkan garis horizontal putus-putus
-            ax.axhline(y=nilai_rata2, color='black', linestyle='--') 
+    # Menambahkan garis horizontal putus-putus
+    ax.axhline(y=nilai_rata2, color='black', linestyle='--') 
 
-            # Mengatur warna batang untuk tanggal terakhir
-            #bars[0].set_color('cyan')
-            
-            # Mengatur posisi tick label di tengah batang
-            ax.set_xticks(df_10_hari['Tanggal'])
-            ax.set_xticklabels(df_10_hari['Tanggal'].dt.strftime('%Y-%m-%d'), rotation=90, ha='center')
-            
-            # Menghitung batas sumbu y
-            min_value = df_10_hari[column_name].min()
-            max_value = df_10_hari[column_name].max()
-            y_min = min_value - 0.025 * min_value
-            y_max = max_value + 0.01 * max_value
+    # Mengatur warna batang untuk tanggal terakhir
+    #bars[0].set_color('cyan')
+    
+    # Mengatur posisi tick label di tengah batang
+    ax.set_xticks(df_10_hari['Tanggal'])
+    ax.set_xticklabels(df_10_hari['Tanggal'].dt.strftime('%Y-%m-%d'), rotation=90, ha='center')
+    
+    # Menghitung batas sumbu y
+    min_value = df_10_hari[column_name].min()
+    max_value = df_10_hari[column_name].max()
+    y_min = min_value - 0.025 * min_value
+    y_max = max_value + 0.01 * max_value
 
-            # Mengatur batas sumbu y
-            ax.set_ylim(y_min, y_max)
+    # Mengatur batas sumbu y
+    ax.set_ylim(y_min, y_max)
 
-            # Menambahkan label dan judul
-            plt.xlabel('Tanggal')
-            plt.ylabel('MWh')
-            plt.title(judul)
-            
-            # Menampilkan grafik di Streamlit
-            st.pyplot(fig)
+    # Menambahkan label dan judul
+    plt.xlabel('Tanggal')
+    plt.ylabel('MWh')
+    plt.title(judul)
+    
+    # Menampilkan grafik di Streamlit
+    st.pyplot(fig)
 
-            # Memberikan catatan
-            st.write("Note:Y-axis doesn't start from zero to emphasize fluctuation.")
-            # Tulisan "Highest", "Lowest", dan "Latest" dalam satu baris dengan warna berbeda
-            st.markdown("""
-            <p>
-                <span style="color:crimson;">Highest </span> 
-                <span style="color:limegreen;"> Lowest </span> 
-                <span style="color:turquoise;"> Latest </span>
-                <span style="color:black;"> - - - (average)</span> 
-            </p>
-            """, unsafe_allow_html=True)
+    # Memberikan catatan
+    st.write("Note:Y-axis doesn't start from zero to emphasize fluctuation.")
+    # Tulisan "Highest", "Lowest", dan "Latest" dalam satu baris dengan warna berbeda
+    st.markdown("""
+    <p>
+        <span style="color:crimson;">Highest </span> 
+        <span style="color:limegreen;"> Lowest </span> 
+        <span style="color:turquoise;"> Latest </span>
+        <span style="color:black;"> - - - (average)</span> 
+    </p>
+    """, unsafe_allow_html=True)
 
 
 # Load dataset
