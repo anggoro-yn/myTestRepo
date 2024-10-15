@@ -158,7 +158,7 @@ if admin_user or general_user:
     nilai_tx4_rata2 = df_10_hari['TX 4 (+Doubling)'].mean()
     nilai_wrp_rata2 = df_10_hari['WRP'].mean()
     nilai_sp3_rata2 = df_10_hari['SP3 Compressor'].mean()
-    nilai_tx2c_rata2 = df_10_hari['TX2 Compressor'].mean()
+    nilai_tx2c_rata2 = df_10_hari['TX 2 Compressor'].mean()
 
      # Menampilkan data sesuai dengan tanggal yang dipilih
     nilai_poy = float(df.loc[df['Tanggal'] == tanggal_dipilih, 'POY'].values[0])
