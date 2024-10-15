@@ -181,8 +181,8 @@ if admin_user or general_user:
             ax.set_xticklabels(df_10_hari['Tanggal'].dt.strftime('%Y-%m-%d'), rotation=90, ha='center')
             
             # Menghitung batas sumbu y
-            min_value = df_10_hari['PLN Meter'].min()
-            max_value = df_10_hari['PLN Meter'].max()
+            min_value = df_10_hari['APF Meter (ION)'].min()
+            max_value = df_10_hari['APF Meter (ION)'].max()
             y_min = min_value - 0.025 * min_value
             y_max = max_value + 0.01 * max_value
 
@@ -209,8 +209,8 @@ if admin_user or general_user:
             ax.set_xticklabels(df_10_hari['Tanggal'].dt.strftime('%Y-%m-%d'), rotation=90, ha='center')
             
             # Menghitung batas sumbu y
-            min_value = df_10_hari['PLN Meter'].min()
-            max_value = df_10_hari['PLN Meter'].max()
+            min_value = df_10_hari['SUM ALL APF Area'].min()
+            max_value = df_10_hari['SUM ALL APF Area'].max()
             y_min = min_value - 0.025 * min_value
             y_max = max_value + 0.01 * max_value
 
@@ -237,8 +237,8 @@ if admin_user or general_user:
             ax.set_xticklabels(df_10_hari['Tanggal'].dt.strftime('%Y-%m-%d'), rotation=90, ha='center')
             
             # Menghitung batas sumbu y
-            min_value = df_10_hari['PLN Meter'].min()
-            max_value = df_10_hari['PLN Meter'].max()
+            min_value = df_10_hari['EMS'].min()
+            max_value = df_10_hari['EMS'].max()
             y_min = min_value - 0.025 * min_value
             y_max = max_value + 0.01 * max_value
 
