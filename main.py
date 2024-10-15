@@ -151,6 +151,15 @@ if admin_user or general_user:
             # Mengatur posisi tick label di tengah batang
             ax.set_xticks(df_10_hari['Tanggal'])
             ax.set_xticklabels(df_10_hari['Tanggal'].dt.strftime('%Y-%m-%d'), rotation=90, ha='center')
+
+            # Menghitung batas sumbu y
+            min_value = df_10_hari['POY'].min()
+            max_value = df_10_hari['POY'].max()
+            y_min = min_value - 0.1 * min_value
+            y_max = max_value + 0.1 * max_value
+
+            # Mengatur batas sumbu y
+            ax.set_ylim(y_min, y_max)
             
             # Menambahkan label dan judul
             plt.xlabel('Tanggal')
