@@ -181,7 +181,7 @@ if admin_user or general_user:
         with tab3:
             # Membuat grafik batang
             fig, ax = plt.subplots(figsize=(10, 6))
-            bars = ax.bar(df_10_hari['Tanggal'], df_10_hari['Sum ALL APF Area'], color='lightgray')
+            bars = ax.bar(df_10_hari['Tanggal'], df_10_hari['SUM ALL APF Area'], color='lightgray')
         
             # Mengatur warna batang untuk tanggal terakhir
             bars[0].set_color('cyan')
@@ -192,8 +192,8 @@ if admin_user or general_user:
             
             # Menambahkan label dan judul
             plt.xlabel('Tanggal')
-            plt.ylabel('PLN')
-            plt.title('Konsumsi Listrik Sesuai Meter PLN dalam 10 Hari Terakhir')
+            plt.ylabel('SUM ALL APF')
+            plt.title('Konsumsi Listrik Sesuai Meter di Plant dalam 10 Hari Terakhir')
             
             # Menampilkan grafik di Streamlit
             st.pyplot(fig)
@@ -212,7 +212,7 @@ if admin_user or general_user:
             # Menambahkan label dan judul
             plt.xlabel('Tanggal')
             plt.ylabel('PLN')
-            plt.title('Konsumsi Listrik Sesuai Meter PLN dalam 10 Hari Terakhir')
+            plt.title('Konsumsi Listrik Sesuai EMS dalam 10 Hari Terakhir')
             
             # Menampilkan grafik di Streamlit
             st.pyplot(fig)
