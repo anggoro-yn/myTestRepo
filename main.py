@@ -153,21 +153,45 @@ if admin_user or general_user:
     nilai_poy_rata2 = df_10_hari['POY'].mean()
     nilai_pp_rata2 = df_10_hari['PP'].mean()
     nilai_tx1_rata2 = df_10_hari['TX 1'].mean()
+    nilai_tx2_rata2 = df_10_hari['TX 2'].mean()
+    nilai_tx3_rata2 = df_10_hari['TX 3'].mean()
+    nilai_tx4_rata2 = df_10_hari['TX 4 (+Doubling)'].mean()
+    nilai_wrp_rata2 = df_10_hari['WRP'].mean()
+    nilai_sp3_rata2 = df_10_hari['SP3 Compressor'].mean()
+    nilai_tx2c_rata2 = df_10_hari['TX2 Compressor'].mean()
 
      # Menampilkan data sesuai dengan tanggal yang dipilih
     nilai_poy = float(df.loc[df['Tanggal'] == tanggal_dipilih, 'POY'].values[0])
     nilai_pp = float(df.loc[df['Tanggal'] == tanggal_dipilih, 'PP'].values[0])
     nilai_tx1 = float(df.loc[df['Tanggal'] == tanggal_dipilih, 'TX 1'].values[0])
+    nilai_tx2 = float(df.loc[df['Tanggal'] == tanggal_dipilih, 'TX 2'].values[0])
+    nilai_tx3 = float(df.loc[df['Tanggal'] == tanggal_dipilih, 'TX 3'].values[0])
+    nilai_tx4 = float(df.loc[df['Tanggal'] == tanggal_dipilih, 'TX 4 (+Doubling)'].values[0])
+    nilai_wrp = float(df.loc[df['Tanggal'] == tanggal_dipilih, 'WRP'].values[0])
+    nilai_sp3 = float(df.loc[df['Tanggal'] == tanggal_dipilih, 'SP 3 Compressor'].values[0])
+    nilai_tx2c = float(df.loc[df['Tanggal'] == tanggal_dipilih, 'TX 2 Compressor'].values[0])
     
     # Mencari nilai untuk satu hari sebelum tanggal_dipilih
     nilai_poy_sebelumnya = float(df.loc[df['Tanggal'] == tanggal_sebelumnya, 'POY'].values[0])
     nilai_pp_sebelumnya = float(df.loc[df['Tanggal'] == tanggal_sebelumnya, 'PP'].values[0])
     nilai_tx1_sebelumnya = float(df.loc[df['Tanggal'] == tanggal_sebelumnya, 'TX 1'].values[0])
+    nilai_tx2_sebelumnya = float(df.loc[df['Tanggal'] == tanggal_sebelumnya, 'TX 2'].values[0])
+    nilai_tx3_sebelumnya = float(df.loc[df['Tanggal'] == tanggal_sebelumnya, 'TX 3'].values[0])
+    nilai_tx4_sebelumnya = float(df.loc[df['Tanggal'] == tanggal_sebelumnya, 'TX 4 (+Doubling)'].values[0])
+    nilai_wrp_sebelumnya = float(df.loc[df['Tanggal'] == tanggal_sebelumnya, 'WRP'].values[0])
+    nilai_sp3_sebelumnya = float(df.loc[df['Tanggal'] == tanggal_sebelumnya, 'SP 3 Compressor'].values[0])
+    nilai_tx2c_sebelumnya = float(df.loc[df['Tanggal'] == tanggal_sebelumnya, 'TX 2 Compressor'].values[0])
     
     #mencari delta value
     delta_poy = round(nilai_poy - nilai_poy_sebelumnya, 2)
     delta_pp = round(nilai_pp - nilai_pp_sebelumnya, 2)
     delta_tx1 = round(nilai_tx1 - nilai_tx1_sebelumnya, 2)
+    delta_tx2 = round(nilai_tx2 - nilai_tx2_sebelumnya, 2)
+    delta_tx3 = round(nilai_tx3 - nilai_tx3_sebelumnya, 2)
+    delta_tx4 = round(nilai_tx4 - nilai_tx4_sebelumnya, 2)
+    delta_wrp = round(nilai_wrp - nilai_wrp_sebelumnya, 2)
+    delta_sp3 = round(nilai_sp3 - nilai_sp3_sebelumnya, 2)
+    delta_tx2c = round(nilai_tx2c - nilai_tx2c_sebelumnya, 2)
     
     col1, col2, col3, col4 = st.columns(4)
     with col1:
@@ -176,6 +200,8 @@ if admin_user or general_user:
         st.metric(label='PP Plant', value=nilai_pp, delta = delta_pp)
     with col3:
         st.metric(label='TX 1 Plant', value=nilai_tx1, delta = delta_tx1)
+    with col4:
+        st.metric(label='TX 2 Plant', value=nilai_tx2, delta = delta_tx2)
 
     col1, col2, col3, col4 = st.columns(4)
     with col1:
@@ -184,6 +210,8 @@ if admin_user or general_user:
         st.metric(label='PP Plant Rata-rata (10 hari)', value=round(nilai_pp_rata2, 2))
     with col3:
         st.metric(label='TX1 Plant Rata-rata (10 hari)', value=round(nilai_tx1_rata2, 2))
+    with col4:
+        st.metric(label='TX2 Plant Rata-rata (10 hari)', value=round(nilai_tx2_rata2, 2))
     
     
     # add a border
