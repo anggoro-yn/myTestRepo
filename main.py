@@ -144,7 +144,7 @@ if admin_user or general_user:
     plt.xlabel('Tanggal')
     plt.ylabel('Nilai PLN')
     plt.title('Grafik Batang Nilai POY dalam 10 Hari Terakhir')
-    plt.xticks(rotation=45)
+    plt.xticks(rotation=90)
     
     # Menampilkan grafik di Streamlit
     st.pyplot(plt)
