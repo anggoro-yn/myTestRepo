@@ -169,7 +169,7 @@ if admin_user or general_user:
             # Menampilkan grafik di Streamlit
             st.pyplot(fig)
             # Memberikan catatan
-            st.write('Note: Y-axis doesn't start from zero to emphasize fluctuation.')
+            st.write("Note: Y-axis doesn't start from zero to emphasize fluctuation.")
         with tab2:
             # Membuat grafik batang
             fig, ax = plt.subplots(figsize=(10, 6))
