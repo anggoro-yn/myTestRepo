@@ -145,6 +145,28 @@ if admin_user or general_user:
     # Subjudul
     st.markdown('## Pemakaian listrik masing-masing plant')
     st.markdown('Berdasarkan pencatatan kWhmeter di masing-masing plant')
+
+    # Menghitung rata-rata untuk sepuluh hari terakhir
+    nilai_poy_rata2 = df_10_hari['POY'].mean()
+
+     # Menampilkan data sesuai dengan tanggal yang dipilih
+    nilai_poy = float(df.loc[df['Tanggal'] == tanggal_dipilih, 'POY'].values[0])
+    
+    # Mencari nilai untuk satu hari sebelum tanggal_dipilih
+    nilai_poy_sebelumnya = float(df.loc[df['Tanggal'] == tanggal_sebelumnya, 'POY'].values[0])
+    
+    #mencari delta value
+    delta_poy = round(nilai_po - nilai_poy_sebelumnya, 2)
+    
+    col1, col2, col3, col4 = st.columns(4)
+    with col1:
+        st.metric(label='POY Plant', value=nilai_poy, delta = delta_poy)
+    
+    col1, col2, col3, col4 = st.columns(4)
+    with col1:
+        st.metric(label='POY Plant Rata-rata (10 hari)', value=round(nilai_poy_rata2, 2))
+    
+    
     # add a border
     st.markdown("""<hr style="border:1px solid gray">""", unsafe_allow_html=True)
 
