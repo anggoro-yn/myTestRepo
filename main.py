@@ -75,7 +75,7 @@ with st.sidebar:
         name = ''
         
     if st.button('Change Password'):
-        password_baru = st.text_input("New password")
+        password_baru = st.text_input("New password", type='password')
         dict_user[name] = password_baru
     
 
