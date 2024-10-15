@@ -35,6 +35,7 @@ df['EMS'] = df['EMS'].str.replace(',', '.').astype(float)
 admin_user = False
 general_user = False
 dict_user = {'anggoro' : 'password01' ,'rahul':'password02','siska':'password03'}
+dict_name = {'anggoro' : 'Anggoro Yudho Nuswantoro' ,'rahul': 'Rahul Bankar','siska':'Siska Rahmawati'}
 
 #st.set_page_config(layout="wide")
 
@@ -73,7 +74,7 @@ with st.sidebar:
 
 if admin_user or general_user:
 
-    st.markdown("Selamat datang " + name)
+    st.markdown("Selamat datang " + dict_name[name])
     st.title('PT Asia Pacific Fiber Tbk')
     st.markdown("## Monitoring Konsumsi Listrik Harian")
     st.write(df)
