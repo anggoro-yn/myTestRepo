@@ -212,6 +212,26 @@ if admin_user or general_user:
         st.metric(label='TX1 Plant Rata-rata (10 hari)', value=round(nilai_tx1_rata2, 2))
     with col4:
         st.metric(label='TX2 Plant Rata-rata (10 hari)', value=round(nilai_tx2_rata2, 2))
+
+    col1, col2, col3, col4 = st.columns(4)
+    with col1:
+        st.metric(label='TX 3 Plant', value=nilai_tx3, delta = delta_tx3)
+    with col2:
+        st.metric(label='TX 4 & Doubling Plant', value=nilai_tx4, delta = delta_tx4)
+    with col3:
+        st.metric(label='WRP', value=nilai_wrp, delta = delta_wrp)
+    with col4:
+        st.metric(label='SP3 & TX2 Utility', value=nilai_tx2c + nilai_sp3, delta = delta_tx2c+nilai_sp3)
+
+    col1, col2, col3, col4 = st.columns(4)
+    with col1:
+        st.metric(label='TX3 Plant Rata-rata (10 hari)', value=round(nilai_tx3_rata2, 2))
+    with col2:
+        st.metric(label='TX4 & Doubling Plant Rata-rata (10 hari)', value=round(nilai_tx4_rata2, 2))
+    with col3:
+        st.metric(label='WRP Plant Rata-rata (10 hari)', value=round(nilai_wrp_rata2, 2))
+    with col4:
+        st.metric(label='SP3 & TX2 Utility Rata-rata (10 hari)', value=round(nilai_tx2c_rata2 + nilai_sp3_rata2, 2))
     
     
     # add a border
