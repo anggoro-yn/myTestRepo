@@ -171,7 +171,7 @@ if admin_user or general_user:
         st.write(tanggal_dipilih)
         
         # Menampilkan data sesuai dengan tanggal yang dipilih
-        nilai_SP4 = float(prod_df.loc[df['Tanggal'] == tanggal_dipilih, 'SP4'].values[0])
+        nilai_SP4 = prod_df.loc[df['Tanggal'] == tanggal_dipilih, 'SP4'].values[0]
         
         # Mencari nilai untuk satu hari sebelum tanggal_dipilih
         tanggal_sebelumnya = tanggal_dipilih - pd.Timedelta(days=1)
