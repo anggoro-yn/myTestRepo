@@ -75,6 +75,16 @@ df.drop(columns=['Unnamed: 14'], inplace=True)
 df['Tanggal'] = pd.to_datetime(df['Tanggal']) + pd.DateOffset(hours=8)
 # Mengurutkan dataframe berdasarkan kolom 'Tanggal' secara descending
 df = df.sort_values(by='Tanggal', ascending=False)
+# Mengkonversi kolom 'PLN Meter' dan kolom lainnya ke float
+# List of columns to be converted
+columns_to_convert = [
+    'PLN Meter', 'APF Meter (ION)', 'POY', 'TX 1', 'TX 2', 'WRP', 
+    'TX 3', 'TX 4 (+Doubling)', 'PP', 'SP3 Compressor', 
+    'TX 2 Compressor', 'SUM ALL APF Area', 'EMS'
+]
+# Loop untuk mengkonversi semua kolom
+for col in columns_to_convert:
+    df[col] = df[col].str.replace(',', '.').astype(float)
 
 # Load Production dataset
 prod_df = pd.read_csv('product.csv', delimiter=';')
@@ -82,6 +92,16 @@ prod_df = pd.read_csv('product.csv', delimiter=';')
 prod_df['Tanggal'] = pd.to_datetime(prod_df['Tanggal']) + pd.DateOffset(hours=8)
 # Mengurutkan dataframe berdasarkan kolom 'Tanggal' secara descending
 prod_df = prod_df.sort_values(by='Tanggal', ascending=False)
+# Mengkonversi kolom 'PLN Meter' dan kolom lainnya ke float
+# List of columns to be converted
+columns_to_convert = [
+    'SP4', 'M1', 'M2', 'T1', 'T2', 'T3 (In house POY)', 
+    'T3 (Outsource POY)', 'T3', 'T4 (In house POY)', 'T4 (Outsource POY)', 
+    'T4', 'DBL', 'Total','Marketable'
+]
+# Loop untuk mengkonversi semua kolom
+for col in columns_to_convert:
+    prod_df[col] = prod_df[col].str.replace(',', '.').astype(float)
 
 # Mengambil kolom 'Tanggal' dan memasukkannya ke dalam list 'tanggal_pengukuran'
 tanggal_pengukuran = df['Tanggal'].tolist()
