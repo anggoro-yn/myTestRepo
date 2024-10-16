@@ -155,6 +155,10 @@ if admin_user or general_user:
     tabGeneral, tabElec  = st.tabs(["General", "Electricity"])
     with tabGeneral:
         st.write(prod_df)
+        st.markdown("## Monitoring Konsumsi Listrik Harian")
+        # Menampilkan tanggal
+        st.metric(label="Tanggal", value=tanggal_dipilih.strftime('%Y-%m-%d'))
+
     with tabElec:
         st.markdown("## Monitoring Konsumsi Listrik Harian")
         
