@@ -167,7 +167,9 @@ if admin_user or general_user:
         
         # Menghitung rata-rata untuk sepuluh hari terakhir
         nilai_SP4_rata2 = prod_df_10_hari['SP4'].mean()
-    
+
+        st.write(tanggal_dipilih)
+        
         # Menampilkan data sesuai dengan tanggal yang dipilih
         nilai_SP4 = float(prod_df.loc[df['Tanggal'] == tanggal_dipilih, 'SP4'].values[0])
         
