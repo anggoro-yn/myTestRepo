@@ -137,10 +137,10 @@ with st.sidebar:
         general_user = False
 
 if admin_user or general_user:
+    st.markdown("Selamat datang " + dict_name[name])
+    st.title('PT Asia Pacific Fiber Tbk')
     tabElec, tabGeneral = st.tabs(["Electricity","General"])
     with tabElec:
-        st.markdown("Selamat datang " + dict_name[name])
-        st.title('PT Asia Pacific Fiber Tbk')
         st.markdown("## Monitoring Konsumsi Listrik Harian")
         
         # Menampilkan tanggal
