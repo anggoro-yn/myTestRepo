@@ -67,8 +67,12 @@ def buat_grafik_kwh(column_name, nilai_rata2, judul):
 
 
 # Load dataset
+# Electricity dataset
 df = pd.read_csv('data.csv', delimiter=';')
 df.drop(columns=['Unnamed: 14'], inplace=True)
+# Production dataset
+prod_df = pd.read_csv('product.csv', delimiter=';')
+
 
 # Mengubah kolom 'Tanggal' menjadi tipe datetime
 df['Tanggal'] = pd.to_datetime(df['Tanggal']) + pd.DateOffset(hours=8)
@@ -142,6 +146,8 @@ if admin_user or general_user:
     
     # Tab untuk memilih dashboard
     tabGeneral, tabElec  = st.tabs(["General", "Electricity"])
+    with tabGeneral:
+        st.write(prod_df)
     with tabElec:
         st.markdown("## Monitoring Konsumsi Listrik Harian")
         
