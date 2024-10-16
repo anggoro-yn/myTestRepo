@@ -158,7 +158,7 @@ if admin_user or general_user:
     # Tab untuk memilih dashboard
     tabGeneral, tabElec  = st.tabs(["General", "Electricity"])
     with tabGeneral:
-        st.markdown("## Monitoring Konsumsi Listrik Harian")
+        st.markdown("## Dashboard produksi Harian")
         # Menampilkan tanggal
         st.metric(label="Tanggal", value=tanggal_dipilih.strftime('%Y-%m-%d'))
         st.write(prod_df)
@@ -185,7 +185,7 @@ if admin_user or general_user:
             st.metric(label='SP 4', value=nilai_SP4, delta = delta_SP4)
     
     with tabElec:
-        st.markdown("## Monitoring Konsumsi Listrik Harian")
+        st.markdown("## Dashboard Pemakaian Listrik Harian")
         
         # Menampilkan tanggal
         st.metric(label="Tanggal", value=tanggal_dipilih.strftime('%Y-%m-%d'))
