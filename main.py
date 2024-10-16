@@ -163,21 +163,24 @@ if admin_user or general_user:
         st.metric(label="Tanggal", value=tanggal_dipilih.strftime('%Y-%m-%d'))
         st.write(prod_df)
         # Menyaring data untuk sepuluh hari terakhir
-        df_10_hari = df[(df['Tanggal'] >= tanggal_awal) & (df['Tanggal'] <= tanggal_akhir)]
+        prod_df_10_hari = df[(df['Tanggal'] >= tanggal_awal) & (df['Tanggal'] <= tanggal_akhir)]
         
         # Menghitung rata-rata untuk sepuluh hari terakhir
-        nilai_pln_rata2 = df_10_hari['PLN Meter'].mean()
+        nilai_SP4_rata2 = prod_df_10_hari['SP4'].mean()
     
         # Menampilkan data sesuai dengan tanggal yang dipilih
-        nilai_pln = float(df.loc[df['Tanggal'] == tanggal_dipilih, 'PLN Meter'].values[0])
+        nilai_SP4 = float(prod_df.loc[df['Tanggal'] == tanggal_dipilih, 'SP4'].values[0])
         
         # Mencari nilai untuk satu hari sebelum tanggal_dipilih
         tanggal_sebelumnya = tanggal_dipilih - pd.Timedelta(days=1)
-        nilai_pln_sebelumnya = float(df.loc[df['Tanggal'] == tanggal_sebelumnya, 'PLN Meter'].values[0])
+        nilai_pln_sebelumnya = float(prod_df.loc[df['Tanggal'] == tanggal_sebelumnya, 'SP4'].values[0])
         
         #mencari delta value
-        delta_PLN = round(nilai_pln - nilai_pln_sebelumnya, 2)
+        delta_SP4 = round(nilai_SP4 - nilai_SP4_sebelumnya, 2)
 
+        col1, col2, col3, col4 = st.columns(4)
+        with col1:
+            st.metric(label='SP 4', value=nilai_SP4, delta = delta_SP4)
     
     with tabElec:
         st.markdown("## Monitoring Konsumsi Listrik Harian")
