@@ -139,7 +139,9 @@ with st.sidebar:
 if admin_user or general_user:
     st.markdown("Selamat datang " + dict_name[name])
     st.title('PT Asia Pacific Fiber Tbk')
-    tabElec, tabGeneral = st.tabs(["Electricity","General"])
+    
+    # Tab untuk memilih dashboard
+    tabElec, tabGeneral = st.tabs(["General", "Electricity"])
     with tabElec:
         st.markdown("## Monitoring Konsumsi Listrik Harian")
         
