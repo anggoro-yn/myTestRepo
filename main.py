@@ -175,7 +175,7 @@ if admin_user or general_user:
         
         # Mencari nilai untuk satu hari sebelum tanggal_dipilih
         tanggal_sebelumnya = tanggal_dipilih - pd.Timedelta(days=1)
-        nilai_pln_sebelumnya = prod_df.loc[prod_df['Tanggal'] == tanggal_sebelumnya, 'SP4'].values[0]
+        nilai_SP4_sebelumnya = prod_df.loc[prod_df['Tanggal'] == tanggal_sebelumnya, 'SP4'].values[0]
         
         #mencari delta value
         delta_SP4 = round(nilai_SP4 - nilai_SP4_sebelumnya, 2)
