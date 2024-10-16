@@ -163,7 +163,7 @@ if admin_user or general_user:
         st.metric(label="Tanggal", value=tanggal_dipilih.strftime('%Y-%m-%d'))
         st.write(prod_df)
         # Menyaring data untuk sepuluh hari terakhir
-        prod_df_10_hari = df[(df['Tanggal'] >= tanggal_awal) & (df['Tanggal'] <= tanggal_akhir)]
+        prod_df_10_hari = prod_df[(df['Tanggal'] >= tanggal_awal) & (prod_df['Tanggal'] <= tanggal_akhir)]
         
         # Menghitung rata-rata untuk sepuluh hari terakhir
         nilai_SP4_rata2 = prod_df_10_hari['SP4'].mean()
