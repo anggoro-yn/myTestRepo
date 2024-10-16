@@ -141,7 +141,7 @@ if admin_user or general_user:
     st.title('PT Asia Pacific Fiber Tbk')
     
     # Tab untuk memilih dashboard
-    tabElec, tabGeneral = st.tabs(["General", "Electricity"])
+    tabGeneral, tabElec  = st.tabs(["General", "Electricity"])
     with tabElec:
         st.markdown("## Monitoring Konsumsi Listrik Harian")
         
