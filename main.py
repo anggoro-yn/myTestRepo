@@ -67,6 +67,7 @@ def buat_grafik_kwh(column_name, nilai_rata2, judul):
 
 
 # Load dataset
+
 # Load lectricity dataset
 df = pd.read_csv('data.csv', delimiter=';')
 df.drop(columns=['Unnamed: 14'], inplace=True)
@@ -74,18 +75,13 @@ df.drop(columns=['Unnamed: 14'], inplace=True)
 df['Tanggal'] = pd.to_datetime(df['Tanggal']) + pd.DateOffset(hours=8)
 # Mengurutkan dataframe berdasarkan kolom 'Tanggal' secara descending
 df = df.sort_values(by='Tanggal', ascending=False)
+
 # Load Production dataset
 prod_df = pd.read_csv('product.csv', delimiter=';')
 # Mengubah kolom 'Tanggal' menjadi tipe datetime
 prod_df['Tanggal'] = pd.to_datetime(prod_df['Tanggal']) + pd.DateOffset(hours=8)
 # Mengurutkan dataframe berdasarkan kolom 'Tanggal' secara descending
 prod_df = prod_df.sort_values(by='Tanggal', ascending=False)
-
-# Mengubah kolom 'Tanggal' menjadi tipe datetime
-df['Tanggal'] = pd.to_datetime(df['Tanggal']) + pd.DateOffset(hours=8)
-
-# Mengurutkan dataframe berdasarkan kolom 'Tanggal' secara descending
-df = df.sort_values(by='Tanggal', ascending=False)
 
 # Mengambil kolom 'Tanggal' dan memasukkannya ke dalam list 'tanggal_pengukuran'
 tanggal_pengukuran = df['Tanggal'].tolist()
@@ -158,7 +154,23 @@ if admin_user or general_user:
         # Menampilkan tanggal
         st.metric(label="Tanggal", value=tanggal_dipilih.strftime('%Y-%m-%d'))
         st.write(prod_df)
+        # Menyaring data untuk sepuluh hari terakhir
+        df_10_hari = df[(df['Tanggal'] >= tanggal_awal) & (df['Tanggal'] <= tanggal_akhir)]
+        
+        # Menghitung rata-rata untuk sepuluh hari terakhir
+        nilai_pln_rata2 = df_10_hari['PLN Meter'].mean()
+    
+        # Menampilkan data sesuai dengan tanggal yang dipilih
+        nilai_pln = float(df.loc[df['Tanggal'] == tanggal_dipilih, 'PLN Meter'].values[0])
+        
+        # Mencari nilai untuk satu hari sebelum tanggal_dipilih
+        tanggal_sebelumnya = tanggal_dipilih - pd.Timedelta(days=1)
+        nilai_pln_sebelumnya = float(df.loc[df['Tanggal'] == tanggal_sebelumnya, 'PLN Meter'].values[0])
+        
+        #mencari delta value
+        delta_PLN = round(nilai_pln - nilai_pln_sebelumnya, 2)
 
+    
     with tabElec:
         st.markdown("## Monitoring Konsumsi Listrik Harian")
         
