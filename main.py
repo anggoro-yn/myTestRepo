@@ -1,4 +1,4 @@
-_import streamlit as st
+import streamlit as st
 import pandas as pd
 import plotly.express as px
 import matplotlib.pyplot as plt
@@ -282,6 +282,8 @@ if admin_user or general_user:
         delta_Sum_APF = round(nilai_Sum_APF - nilai_Sum_APF_sebelumnya, 2)
         delta_ems = round(nilai_ems - nilai_ems_sebelumnya, 2)
         '''
+        
+        hitungDataDitampilkan(elec_df, tanggal_awal, tanggal_akhir)
         
         # add a border
         st.markdown("""<hr style="border:1px solid gray">""", unsafe_allow_html=True)
