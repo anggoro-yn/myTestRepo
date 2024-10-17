@@ -68,11 +68,14 @@ def buat_grafik_kwh(column_name, nilai_rata2, judul):
 def hitungDataDitampilkan(df, tanggal_awal, tanggal_akhir):
     # Menyaring data untuk sepuluh hari terakhir
     df_10_hari = df[(df['Tanggal'] >= tanggal_awal) & (df['Tanggal'] <= tanggal_akhir)]
-    # Hitung rata-rata untuk setiap kolom
-    mean_values = df_10_hari.mean().to_dict()
-
+    # Hitung rata-rata untuk setiap kolom, kecuali kolom 'Tanggal'
+    mean_values = df_10_hari.drop(columns=["Tanggal"]).mean()
+    
     # Bulatkan setiap nilai rata-rata ke dua desimal dan buat dictionary
     elec_dict_rata2 = {key: round(value, 2) for key, value in mean_values.items()}
+    
+    # Menambahkan kolom 'Tanggal' kembali ke dictionary tanpa perubahan
+    elec_dict_rata2['Tanggal'] = df_10_hari['Tanggal'].tolist()
 
     # Tampilkan dictionary menggunakan Streamlit
     st.write(elec_dict_rata2)
