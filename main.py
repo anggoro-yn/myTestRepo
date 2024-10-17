@@ -173,7 +173,7 @@ if admin_user or general_user:
     # Memilih tanggal
     col1, col2 = st.columns([1,3])
     with col1:
-        tanggal_dipilih = st.selectbox('Date :', tanggal_pengukuran, key="product")
+        tanggal_dipilih = st.selectbox('Date :', tanggal_pengukuran, key="tanggal")
     # Menentukan rentang tanggal untuk sepuluh hari terakhir
     tanggal_awal = tanggal_dipilih - pd.Timedelta(days=9)
     tanggal_akhir = tanggal_dipilih
@@ -213,10 +213,6 @@ if admin_user or general_user:
         with col1:
             st.markdown("## Daily Electricity Dashboard")
         with col2:    
-            tanggal_dipilih = st.selectbox('Date :', tanggal_pengukuran, key="elec")
-            # Menentukan rentang tanggal untuk sepuluh hari terakhir
-            tanggal_awal = tanggal_dipilih - pd.Timedelta(days=9)
-            tanggal_akhir = tanggal_dipilih
             # Menampilkan tanggal
             st.metric(label="Date", value=tanggal_dipilih.strftime('%Y-%m-%d'))
     
