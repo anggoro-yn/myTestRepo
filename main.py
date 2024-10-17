@@ -105,7 +105,6 @@ for col in columns_to_convert:
 
 # Mengambil kolom 'Tanggal' dan memasukkannya ke dalam list 'tanggal_pengukuran'
 tanggal_pengukuran = df['Tanggal'].tolist()
-tanggal_dipilih = tanggal_pengukuran[0]
 
 # User tool
 admin_user = False
