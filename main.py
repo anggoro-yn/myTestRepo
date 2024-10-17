@@ -109,6 +109,7 @@ tanggal_pengukuran = df['Tanggal'].tolist()
 # User tool
 admin_user = False
 general_user = False
+name = 'Guest'
 dict_user = {'anggoro' : 'password01' ,'rahul':'password02','siska':'password03'}
 dict_name = {'anggoro' : 'Anggoro Yudho Nuswantoro' ,'rahul': 'Rahul Bankar','siska':'Siska Rahmawati'}
 
@@ -119,12 +120,7 @@ dict_name = {'anggoro' : 'Anggoro Yudho Nuswantoro' ,'rahul': 'Rahul Bankar','si
 # SIDE BAR
 #################################
 with st.sidebar:
-    tanggal_dipilih = st.selectbox('Date :', tanggal_pengukuran)
-    # Menentukan rentang tanggal untuk sepuluh hari terakhir
-    tanggal_awal = tanggal_dipilih - pd.Timedelta(days=9)
-    tanggal_akhir = tanggal_dipilih
-
-    st.header('User Login')
+    st.header('User Authentification and Authorizaton')
     name = st.text_input("Username")
     secret_code = st.text_input("Password", type="password")
 
@@ -157,19 +153,22 @@ with st.sidebar:
             general_user = False
 
     st.markdown("""<hr style="border:1px solid gray">""", unsafe_allow_html=True)
-
-
+    
+    tanggal_dipilih = st.selectbox('Date :', tanggal_pengukuran)
+    # Menentukan rentang tanggal untuk sepuluh hari terakhir
+    tanggal_awal = tanggal_dipilih - pd.Timedelta(days=9)
+    tanggal_akhir = tanggal_dipilih
 
 #################################
 # MAIN PAGE
 #################################
 
-# Company Logo and Name
 col1, col2 = st.columns([3,1])
 with col1:
     st.title('PT Asia Pacific Fiber Tbk')
 with col2:
     st.image('LogoAPF.png', use_column_width=True)
+
 
 if admin_user or general_user:
     # Welcome greeting
@@ -205,13 +204,11 @@ if admin_user or general_user:
             st.metric(label='SP 4', value=nilai_SP4, delta = delta_SP4) '''
     
     with tabElec:
-        col1, col2 = st.columns([2,1])
-        with col1:
-            st.markdown("## Daily Electricity Dashboard")
-        with col2:
-            # Menampilkan tanggal
-            st.metric(label="Date", value=tanggal_dipilih.strftime('%Y-%m-%d'))
-
+        st.markdown("## Daily Electricity Dashboard")
+        
+        # Menampilkan tanggal
+        st.metric(label="Date", value=tanggal_dipilih.strftime('%Y-%m-%d'))
+    
         # Menyaring data untuk sepuluh hari terakhir
         df_10_hari = df[(df['Tanggal'] >= tanggal_awal) & (df['Tanggal'] <= tanggal_akhir)]
         
