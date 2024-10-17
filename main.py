@@ -163,12 +163,12 @@ with st.sidebar:
 # MAIN PAGE
 #################################
 
+# Company Logo and Name
 col1, col2 = st.columns([3,1])
 with col1:
     st.title('PT Asia Pacific Fiber Tbk')
 with col2:
     st.image('LogoAPF.png', use_column_width=True)
-
 
 if admin_user or general_user:
     # Welcome greeting
@@ -204,10 +204,12 @@ if admin_user or general_user:
             st.metric(label='SP 4', value=nilai_SP4, delta = delta_SP4) '''
     
     with tabElec:
-        st.markdown("## Daily Electricity Dashboard")
-        
-        # Menampilkan tanggal
-        st.metric(label="Date", value=tanggal_dipilih.strftime('%Y-%m-%d'))
+        col1, col2 = st.columns(2)
+        with col1:
+            st.markdown("## Daily Electricity Dashboard")
+        with col2:
+            # Menampilkan tanggal
+            st.metric(label="Date", value=tanggal_dipilih.strftime('%Y-%m-%d'))
     
         # Menyaring data untuk sepuluh hari terakhir
         df_10_hari = df[(df['Tanggal'] >= tanggal_awal) & (df['Tanggal'] <= tanggal_akhir)]
