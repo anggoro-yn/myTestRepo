@@ -72,6 +72,14 @@ def hitungDataDitampilkan(df, tanggal_awal, tanggal_akhir):
     elec_dict_rata2 = df_10_hari.mean().round(2).to_dict()
     # Tampilkan dictionary menggunakan Streamlit
     st.write(elec_dict_rata2)
+    # Hitung rata-rata untuk setiap kolom
+    mean_values = df_10_hari.mean()
+    
+    # Bulatkan ke dua desimal
+    rounded_mean_values = mean_values.round(2)
+    
+    # Convert to dictionary
+    elec_dict_rata2 = rounded_mean_values.to_dict()
     
     # Menampilkan data sesuai dengan tanggal yang dipilih
     # Filter dataframe berdasarkan tanggal tertentu
