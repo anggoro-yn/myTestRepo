@@ -152,7 +152,7 @@ with st.sidebar:
         general_user = False
 
 if admin_user or general_user:
-    st.markdown("Selamat datang " + dict_name[name])
+    st.markdown("Welcome " + dict_name[name])
     st.title('PT Asia Pacific Fiber Tbk')
     
     # Tab untuk memilih dashboard
@@ -186,7 +186,7 @@ if admin_user or general_user:
             st.metric(label='SP 4', value=nilai_SP4, delta = delta_SP4) '''
     
     with tabElec:
-        st.markdown("## Dashboard Pemakaian Listrik Harian")
+        st.markdown("## Daily Electricity Dashboard")
         
         # Menampilkan tanggal
         st.metric(label="Tanggal", value=tanggal_dipilih.strftime('%Y-%m-%d'))
@@ -200,7 +200,7 @@ if admin_user or general_user:
         nilai_Sum_APF_rata2 = df_10_hari['SUM ALL APF Area'].mean()
         nilai_ems_rata2 = df_10_hari['EMS'].mean()
     
-         # Menampilkan data sesuai dengan tanggal yang dipilih
+        # Menampilkan data sesuai dengan tanggal yang dipilih
         nilai_pln = float(df.loc[df['Tanggal'] == tanggal_dipilih, 'PLN Meter'].values[0])
         nilai_apf = float(df.loc[df['Tanggal'] == tanggal_dipilih, 'APF Meter (ION)'].values[0])
         nilai_Sum_APF = float(df.loc[df['Tanggal'] == tanggal_dipilih, 'SUM ALL APF Area'].values[0])
@@ -222,8 +222,8 @@ if admin_user or general_user:
         # add a border
         st.markdown("""<hr style="border:1px solid gray">""", unsafe_allow_html=True)
         # Subjudul
-        st.markdown('## Pemakaian Listrik APF Total')
-        st.markdown('Berdasarkan pencatatan kWhmeter di GI PLN, GI APF dan Total Pemakaian Seluruh Plant')
+        st.markdown('## Total Electricity Consumption')
+        st.markdown('Based on kWhmeter recording at GI PLN, GI APF and Total Plant recording')
     
         col1, col2, col3, col4 = st.columns(4)
         with col1:
