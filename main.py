@@ -65,27 +65,6 @@ def buat_grafik_kwh(column_name, nilai_rata2, judul):
     </p>
     """, unsafe_allow_html=True)
 
-
-# Load dataset
-
-# Load lectricity dataset
-elec_df = pd.read_csv('data.csv', delimiter=';')
-elec_df.drop(columns=['Unnamed: 14'], inplace=True)
-# Mengubah kolom 'Tanggal' menjadi tipe datetime
-elec_df['Tanggal'] = pd.to_datetime(elec_df['Tanggal']) + pd.DateOffset(hours=8)
-# Mengurutkan dataframe berdasarkan kolom 'Tanggal' secara descending
-elec_df = elec_df.sort_values(by='Tanggal', ascending=False)
-# Mengkonversi kolom 'PLN Meter' dan kolom lainnya ke float
-# List of columns to be converted
-columns_to_convert = [
-    'PLN Meter', 'APF Meter (ION)', 'POY', 'TX 1', 'TX 2', 'WRP', 
-    'TX 3', 'TX 4 (+Doubling)', 'PP', 'SP3 Compressor', 
-    'TX 2 Compressor', 'SUM ALL APF Area', 'EMS'
-]
-# Loop untuk mengkonversi semua kolom
-for col in columns_to_convert:
-    elec_df[col] = elec_df[col].str.replace(',', '.').astype(float)
-
 def hitungDataDitampilkan(df, tanggal_awal, tanggal_akhir):
     # Menyaring data untuk sepuluh hari terakhir
     df_10_hari = df[(df['Tanggal'] >= tanggal_awal) & (df['Tanggal'] <= tanggal_akhir)]
@@ -118,6 +97,27 @@ def hitungDataDitampilkan(df, tanggal_awal, tanggal_akhir):
     st.write(dict_delta)
     
     return elec_dict_rata2, dict_data_tanggal, dict_data_tanggal_sebelumnya, dict_delta
+
+# Load dataset
+
+# Load lectricity dataset
+elec_df = pd.read_csv('data.csv', delimiter=';')
+elec_df.drop(columns=['Unnamed: 14'], inplace=True)
+# Mengubah kolom 'Tanggal' menjadi tipe datetime
+elec_df['Tanggal'] = pd.to_datetime(elec_df['Tanggal']) + pd.DateOffset(hours=8)
+# Mengurutkan dataframe berdasarkan kolom 'Tanggal' secara descending
+elec_df = elec_df.sort_values(by='Tanggal', ascending=False)
+# Mengkonversi kolom 'PLN Meter' dan kolom lainnya ke float
+# List of columns to be converted
+columns_to_convert = [
+    'PLN Meter', 'APF Meter (ION)', 'POY', 'TX 1', 'TX 2', 'WRP', 
+    'TX 3', 'TX 4 (+Doubling)', 'PP', 'SP3 Compressor', 
+    'TX 2 Compressor', 'SUM ALL APF Area', 'EMS'
+]
+# Loop untuk mengkonversi semua kolom
+for col in columns_to_convert:
+    elec_df[col] = elec_df[col].str.replace(',', '.').astype(float)
+
 
 
 # Load Production dataset
@@ -284,7 +284,7 @@ if admin_user or general_user:
         delta_ems = round(nilai_ems - nilai_ems_sebelumnya, 2)
         '''
         
-        hitungDataDitampilkan(elec_df, tanggal_awal, tanggal_akhir)
+        elec_dict_rata2, dict_data_tanggal, dict_data_tanggal_sebelumnya, dict_delta = hitungDataDitampilkan(elec_df, tanggal_awal, tanggal_akhir)
         
         # add a border
         st.markdown("""<hr style="border:1px solid gray">""", unsafe_allow_html=True)
@@ -294,7 +294,7 @@ if admin_user or general_user:
     
         col1, col2, col3, col4 = st.columns(4)
         with col1:
-            st.metric(label='PLN Meter', value=nilai_pln, delta = delta_PLN)
+            st.metric(label='PLN Meter', value=dict_data_tanggal['PLN Meter'], delta = dict_delta['PLN Meter'])
         with col2:
             st.metric(label='APF Meter (ION)', value=nilai_apf, delta = delta_APF)
         with col3:
