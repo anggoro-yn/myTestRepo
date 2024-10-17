@@ -24,7 +24,7 @@ def buat_grafik_kwh(df, column_name, nilai_rata2, judul):
         else:
             colors.append('lightgray')  # Warna untuk batang lainnya            
 
-    bars = ax.bar(df_10_hari['Tanggal'], df_10_hari[column_name], color=colors)
+    bars = ax.bar(df['Tanggal'], df[column_name], color=colors)
 
     # Menambahkan garis horizontal putus-putus
     ax.axhline(y=nilai_rata2, color='black', linestyle='--') 
