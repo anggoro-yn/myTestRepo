@@ -86,41 +86,37 @@ columns_to_convert = [
 for col in columns_to_convert:
     elec_df[col] = elec_df[col].str.replace(',', '.').astype(float)
 
-# Menyaring data untuk sepuluh hari terakhir
-elec_df_10_hari = elec_df[(elec_df['Tanggal'] >= tanggal_awal) & (elec_df['Tanggal'] <= tanggal_akhir)]
+def hitungDataDitampilkan(df, tanggal_awal, tanggal_akhir):
+    # Menyaring data untuk sepuluh hari terakhir
+    df_10_hari = df[(df['Tanggal'] >= tanggal_awal) & (df['Tanggal'] <= tanggal_akhir)]
+    # Hitung rata-rata untuk setiap kolom
+    elec_dict_rata2 = df_10_hari.mean().to_dict()
+    # Tampilkan dictionary menggunakan Streamlit
+    st.write(elec_dict_rata2)
+    
+    # Menampilkan data sesuai dengan tanggal yang dipilih
+    # Filter dataframe berdasarkan tanggal tertentu
+    df_filtered = df[df["kolomA"] == tanggal_akhir]
+    # Buat dictionary dari data yang difilter
+    dict_data_tanggal = df_filtered.drop(columns=["Tanggal"]).iloc[0].to_dict()
+    # Tampilkan dictionary menggunakan Streamlit
+    st.write(dict_data_tanggal)
 
-elec_nilai_rata2 = {}
+    # Mencari nilai untuk satu hari sebelum tanggal_dipilih
+    tanggal_sebelumnya = tanggal_akhir - pd.Timedelta(days=1)
+    # Filter dataframe berdasarkan tanggal tertentu
+    df_filtered = df[df["Tanggal"] == tanggal_sebelumnya]
+    # Buat dictionary dari data yang difilter
+    dict_data_tanggal_sebelumnya = df_filtered.drop(columns=["Tanggal"]).iloc[0].to_dict()
+    # Tampilkan dictionary menggunakan Streamlit
+    st.write(dict_data_tanggal_sebelumnya)
 
-# Hitung rata-rata untuk setiap kolom
-elec_dict_rata2 = elec_df_10_hari.mean().to_dict()
+    #mencari delta value
+    # Membuat dictionary dict_c dengan key yang sama dan value adalah hasil pengurangan value dict_A dengan value dict_B
+    dict_delta = {key: dict_data_tanggal[key] - dict_data_tanggal_sebelumnya[key] for key in dict_data_tanggal}
+    # Tampilkan dictionary dict_c menggunakan Streamlit
+    st.write(dict_c)
 
-# Tampilkan dictionary menggunakan Streamlit
-st.write(elec_dict_rata2)
-
-# Menghitung rata-rata untuk sepuluh hari terakhir
-nilai_pln_rata2 = df_10_hari['PLN Meter'].mean()
-nilai_apf_rata2 = df_10_hari['APF Meter (ION)'].mean()
-nilai_Sum_APF_rata2 = df_10_hari['SUM ALL APF Area'].mean()
-nilai_ems_rata2 = df_10_hari['EMS'].mean()
-
-# Menampilkan data sesuai dengan tanggal yang dipilih
-nilai_pln = float(df.loc[df['Tanggal'] == tanggal_dipilih, 'PLN Meter'].values[0])
-nilai_apf = float(df.loc[df['Tanggal'] == tanggal_dipilih, 'APF Meter (ION)'].values[0])
-nilai_Sum_APF = float(df.loc[df['Tanggal'] == tanggal_dipilih, 'SUM ALL APF Area'].values[0])
-nilai_ems = float(df.loc[df['Tanggal'] == tanggal_dipilih, 'EMS'].values[0])
-
-# Mencari nilai untuk satu hari sebelum tanggal_dipilih
-tanggal_sebelumnya = tanggal_dipilih - pd.Timedelta(days=1)
-nilai_pln_sebelumnya = float(df.loc[df['Tanggal'] == tanggal_sebelumnya, 'PLN Meter'].values[0])
-nilai_apf_sebelumnya = float(df.loc[df['Tanggal'] == tanggal_sebelumnya, 'APF Meter (ION)'].values[0])
-nilai_Sum_APF_sebelumnya = float(df.loc[df['Tanggal'] == tanggal_sebelumnya, 'SUM ALL APF Area'].values[0])
-nilai_ems_sebelumnya = float(df.loc[df['Tanggal'] == tanggal_sebelumnya, 'EMS'].values[0])
-
-#mencari delta value
-delta_PLN = round(nilai_pln - nilai_pln_sebelumnya, 2)
-delta_APF = round(nilai_apf - nilai_apf_sebelumnya, 2)
-delta_Sum_APF = round(nilai_Sum_APF - nilai_Sum_APF_sebelumnya, 2)
-delta_ems = round(nilai_ems - nilai_ems_sebelumnya, 2)
 
 
 # Load Production dataset
