@@ -330,7 +330,7 @@ if admin_user or general_user:
     
     
         # Memilih nilai tertinggi dari kolom 'Tanggal'
-        tanggal_tertinggi = df['Tanggal'].max()
+        # tanggal_tertinggi = df['Tanggal'].max()
     
         # add a border
         st.markdown("""<hr style="border:1px solid gray">""", unsafe_allow_html=True)
