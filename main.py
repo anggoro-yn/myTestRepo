@@ -200,7 +200,7 @@ if admin_user or general_user:
             st.metric(label='SP 4', value=nilai_SP4, delta = delta_SP4) '''
     
     with tabElec:
-        col1, col2 = st.columns([2,1])
+        col1, col2 = st.columns([3,1])
         with col1:
             st.markdown("## Daily Electricity Dashboard")
         with col2:    
