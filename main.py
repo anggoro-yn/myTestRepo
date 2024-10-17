@@ -258,37 +258,8 @@ if admin_user or general_user:
             st.metric(label="Date", value=tanggal_dipilih.strftime('%d-%m-%Y'))
 
         st.markdown("Values are shown in MWh (Megawatthour), unless it is stated differently explicitly")
-
-        comment01 = '''
-        # Menyaring data untuk sepuluh hari terakhir
-        df_10_hari = df[(df['Tanggal'] >= tanggal_awal) & (df['Tanggal'] <= tanggal_akhir)]
         
-        # Menghitung rata-rata untuk sepuluh hari terakhir
-        nilai_pln_rata2 = df_10_hari['PLN Meter'].mean()
-        nilai_apf_rata2 = df_10_hari['APF Meter (ION)'].mean()
-        nilai_Sum_APF_rata2 = df_10_hari['SUM ALL APF Area'].mean()
-        nilai_ems_rata2 = df_10_hari['EMS'].mean()
-    
-        # Menampilkan data sesuai dengan tanggal yang dipilih
-        nilai_pln = float(df.loc[df['Tanggal'] == tanggal_dipilih, 'PLN Meter'].values[0])
-        nilai_apf = float(df.loc[df['Tanggal'] == tanggal_dipilih, 'APF Meter (ION)'].values[0])
-        nilai_Sum_APF = float(df.loc[df['Tanggal'] == tanggal_dipilih, 'SUM ALL APF Area'].values[0])
-        nilai_ems = float(df.loc[df['Tanggal'] == tanggal_dipilih, 'EMS'].values[0])
-        
-        # Mencari nilai untuk satu hari sebelum tanggal_dipilih
-        tanggal_sebelumnya = tanggal_dipilih - pd.Timedelta(days=1)
-        nilai_pln_sebelumnya = float(df.loc[df['Tanggal'] == tanggal_sebelumnya, 'PLN Meter'].values[0])
-        nilai_apf_sebelumnya = float(df.loc[df['Tanggal'] == tanggal_sebelumnya, 'APF Meter (ION)'].values[0])
-        nilai_Sum_APF_sebelumnya = float(df.loc[df['Tanggal'] == tanggal_sebelumnya, 'SUM ALL APF Area'].values[0])
-        nilai_ems_sebelumnya = float(df.loc[df['Tanggal'] == tanggal_sebelumnya, 'EMS'].values[0])
-        
-        #mencari delta value
-        delta_PLN = round(nilai_pln - nilai_pln_sebelumnya, 2)
-        delta_APF = round(nilai_apf - nilai_apf_sebelumnya, 2)
-        delta_Sum_APF = round(nilai_Sum_APF - nilai_Sum_APF_sebelumnya, 2)
-        delta_ems = round(nilai_ems - nilai_ems_sebelumnya, 2)
-        '''
-        
+        # Hitung data-data yang dibutuhkan untuk ditampilkan
         elec_df_10_hari, elec_dict_rata2, elec_dict_data_tanggal, elec_dict_data_tanggal_sebelumnya, elec_dict_delta = hitungDataDitampilkan(elec_df, tanggal_awal, tanggal_akhir)
         
         # add a border
@@ -328,9 +299,6 @@ if admin_user or general_user:
             with tab4:
                 buat_grafik_kwh(elec_df_10_hari, 'EMS', elec_dict_rata2['EMS'], 'Konsumsi listrik berdasar EMS dalam 10 hari terakhir')
     
-    
-        # Memilih nilai tertinggi dari kolom 'Tanggal'
-        # tanggal_tertinggi = df['Tanggal'].max()
     
         # add a border
         st.markdown("""<hr style="border:1px solid gray">""", unsafe_allow_html=True)
@@ -385,15 +353,15 @@ if admin_user or general_user:
         
         col1, col2 = st.columns(2)
         with col1:
-            st.metric(label='POY Plant', value=nilai_poy, delta = delta_poy)
+            st.metric(label='POY', value=elec_dict_data_tanggal['POY'], delta = elec_dict_delta['POY'])
         with col2:
-            st.metric(label='PP Plant', value=nilai_pp, delta = delta_pp)
+            st.metric(label='PP', value=elec_dict_data_tanggal['PP'], delta = elec_dict_delta['PP'])
     
         col1, col2 = st.columns(2)
         with col1:
-            st.metric(label='POY Plant Rata-rata (10 hari)', value=round(nilai_poy_rata2, 2))
+            st.metric(label='POY', value=elec_dict_rata2['POY'])
         with col2:
-            st.metric(label='PP Plant Rata-rata (10 hari)', value=round(nilai_pp_rata2, 2))
+            st.metric(label='PP', value=elec_dict_rata2['PP'])
     
         
         # add a border
