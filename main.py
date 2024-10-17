@@ -92,7 +92,7 @@ def hitungDataDitampilkan(df, tanggal_awal, tanggal_akhir):
 
     #mencari delta value
     # Membuat dictionary dict_c dengan key yang sama dan value adalah hasil pengurangan value dict_A dengan value dict_B
-    dict_delta = {key: dict_data_tanggal[key] - dict_data_tanggal_sebelumnya[key] for key in dict_data_tanggal}
+    dict_delta = {key: round(dict_data_tanggal[key] - dict_data_tanggal_sebelumnya[key],2) for key in dict_data_tanggal}
     # Tampilkan dictionary dict_c menggunakan Streamlit
     st.write(dict_delta)
     
