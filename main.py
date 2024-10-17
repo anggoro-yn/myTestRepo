@@ -107,8 +107,8 @@ for col in columns_to_convert:
 tanggal_pengukuran = df['Tanggal'].tolist()
 
 # User tool
-#admin_user = False
-#general_user = False
+admin_user = False
+general_user = False
 name = 'Guest'
 dict_user = {'anggoro' : 'password01' ,'rahul':'password02','siska':'password03'}
 dict_name = {'anggoro' : 'Anggoro Yudho Nuswantoro' ,'rahul': 'Rahul Bankar','siska':'Siska Rahmawati'}
@@ -124,30 +124,30 @@ with st.sidebar:
     st.header('User Authentification and Authorizaton')
     name = st.text_input("Username")
     secret_code = st.text_input("Password", type="password")
-
+    try:
+        correct_secret_code = dict_user[name]
+    except Exception as e:
+        correct_secret_code = 'incorrect code !!!!!!!!'
+    else:
+        if name != '' and secret_code != '':
+            if correct_secret_code == secret_code :
+                if name == 'anggoro':
+                    admin_user = True
+                    general_user = False
+                else:
+                    general_user = True
+                    admin_user = False
+            else:
+                admin_user = False
+                general_user = False
+        else:
+            admin_user = False
+            general_user = False
+    
     col1, col2 = st.columns(2)
     with col1:
         if st.button('Log in'):
-            try:
-                correct_secret_code = dict_user[name]
-            except Exception as e:
-                correct_secret_code = 'incorrect code !!!!!!!!'
-            else:
-                if name != '' and secret_code != '':
-                    if correct_secret_code == secret_code :
-                        if name == 'anggoro':
-                            admin_user = True
-                            general_user = False
-                        else:
-                            general_user = True
-                            admin_user = False
-                    else:
-                        admin_user = False
-                        general_user = False
-                else:
-                    admin_user = False
-                    general_user = False
-            
+            pass
     with col2:
         if st.button('Log out'):
             admin_user = False
