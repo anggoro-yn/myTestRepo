@@ -296,11 +296,11 @@ if admin_user or general_user:
         with col1:
             st.metric(label='PLN Meter', value=dict_data_tanggal['PLN Meter'], delta = dict_delta['PLN Meter'])
         with col2:
-            st.metric(label='APF Meter (ION)', value=nilai_apf, delta = delta_APF)
+            st.metric(label='APF Meter (ION)', value=dict_data_tanggal['APF Meter (ION)'], delta = dict_delta['APF Meter (ION)'])
         with col3:
-            st.metric(label='Sum ALL APF Area', value=nilai_Sum_APF, delta = delta_Sum_APF)
+            st.metric(label='SUM ALL APF Area', value=dict_data_tanggal['SUM ALL APF Area'], delta = dict_delta['SUM ALL APF Area'])
         with col4:
-            st.metric(label='EMS', value=nilai_ems, delta = delta_ems)
+            st.metric(label='EMS', value=dict_data_tanggal['EMS'], delta = dict_delta['EMS'])
         
         col1, col2, col3, col4 = st.columns(4)
         with col1:
