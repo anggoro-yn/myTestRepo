@@ -167,12 +167,12 @@ with col2:
     st.image('LogoAPF.png', use_column_width=True)
 
 if admin_user or general_user:
-    # Welcome greeting
-    st.markdown("Welcome " + dict_name[name])
 
     # Memilih tanggal
     col1, col2 = st.columns([3,1])
     with col1:
+        # Welcome greeting
+        st.markdown("Welcome " + dict_name[name])
         st.markdown("Please choose a date (the default the lastest available date) : ")
     with col2:
         tanggal_dipilih = st.selectbox('Date :', tanggal_pengukuran, key="tanggal")
