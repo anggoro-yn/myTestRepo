@@ -188,7 +188,7 @@ if admin_user or general_user:
             st.markdown("## Daily Production Dashboard")
         with col2:    
             # Menampilkan tanggal
-            st.metric(label="Date", value=tanggal_dipilih.strftime('%Y-%m-%d'))
+            st.metric(label="Date", value=tanggal_dipilih.strftime('%d-%m-%Y'))
 
         # Menyaring data untuk sepuluh hari terakhir
         prod_df_10_hari = prod_df[(df['Tanggal'] >= tanggal_awal) & (prod_df['Tanggal'] <= tanggal_akhir)]
