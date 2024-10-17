@@ -217,7 +217,9 @@ if admin_user or general_user:
         with col2:    
             # Menampilkan tanggal
             st.metric(label="Date", value=tanggal_dipilih.strftime('%Y-%m-%d'))
-    
+
+        st.markdown("Values are shown in MWh (Megawatthour), unless it is stated differently explicitly")
+        
         # Menyaring data untuk sepuluh hari terakhir
         df_10_hari = df[(df['Tanggal'] >= tanggal_awal) & (df['Tanggal'] <= tanggal_akhir)]
         
