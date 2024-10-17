@@ -109,7 +109,6 @@ tanggal_pengukuran = df['Tanggal'].tolist()
 # User tool
 admin_user = False
 general_user = False
-name = 'Guest'
 dict_user = {'anggoro' : 'password01' ,'rahul':'password02','siska':'password03'}
 dict_name = {'anggoro' : 'Anggoro Yudho Nuswantoro' ,'rahul': 'Rahul Bankar','siska':'Siska Rahmawati'}
 
@@ -120,7 +119,7 @@ dict_name = {'anggoro' : 'Anggoro Yudho Nuswantoro' ,'rahul': 'Rahul Bankar','si
 # SIDE BAR
 #################################
 with st.sidebar:
-    st.header('User Authentification and Authorizaton')
+    st.header('User Login')
     name = st.text_input("Username")
     secret_code = st.text_input("Password", type="password")
 
