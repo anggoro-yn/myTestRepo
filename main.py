@@ -216,7 +216,7 @@ if admin_user or general_user:
             st.markdown("## Daily Electricity Dashboard")
         with col2:    
             # Menampilkan tanggal
-            st.metric(label="Date", value=tanggal_dipilih.strftime('%Y-%m-%d'))
+            st.metric(label="Date", value=tanggal_dipilih.strftime('%d-%m-%Y'))
 
         st.markdown("Values are shown in MWh (Megawatthour), unless it is stated differently explicitly")
         
