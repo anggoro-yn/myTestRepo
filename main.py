@@ -326,7 +326,7 @@ if admin_user or general_user:
             with tab3:
                 buat_grafik_kwh('SUM ALL APF Area', elec_dict_rata2['SUM ALL APF Area'], 'Jumlah Pemakaian Listrik Seluruh Plant dalam 10 hari terakhir')
             with tab4:
-                buat_grafik_kwh('EMS', =elec_dict_rata2['EMS'], 'Konsumsi listrik berdasar EMS dalam 10 hari terakhir')
+                buat_grafik_kwh('EMS', elec_dict_rata2['EMS'], 'Konsumsi listrik berdasar EMS dalam 10 hari terakhir')
     
     
         # Memilih nilai tertinggi dari kolom 'Tanggal'
