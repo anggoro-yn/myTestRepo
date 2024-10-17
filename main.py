@@ -169,6 +169,12 @@ with col2:
 if admin_user or general_user:
     # Welcome greeting
     st.markdown("Welcome " + dict_name[name])
+    # Memilih tanggal
+    tanggal_dipilih = st.selectbox('Date :', tanggal_pengukuran, key="product")
+    # Menentukan rentang tanggal untuk sepuluh hari terakhir
+    tanggal_awal = tanggal_dipilih - pd.Timedelta(days=9)
+    tanggal_akhir = tanggal_dipilih
+
     # Tab untuk memilih dashboard
     tabElec, tabProduct  = st.tabs(["Electricity", "Product"])
     with tabProduct:
@@ -176,10 +182,6 @@ if admin_user or general_user:
         with col1:
             st.markdown("## Daily Electricity Dashboard")
         with col2:    
-            tanggal_dipilih = st.selectbox('Date :', tanggal_pengukuran, key="product")
-            # Menentukan rentang tanggal untuk sepuluh hari terakhir
-            tanggal_awal = tanggal_dipilih - pd.Timedelta(days=9)
-            tanggal_akhir = tanggal_dipilih
             # Menampilkan tanggal
             st.metric(label="Date", value=tanggal_dipilih.strftime('%Y-%m-%d'))
 
