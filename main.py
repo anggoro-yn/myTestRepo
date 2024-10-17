@@ -69,12 +69,12 @@ def buat_grafik_kwh(column_name, nilai_rata2, judul):
 # Load dataset
 
 # Load lectricity dataset
-df = pd.read_csv('data.csv', delimiter=';')
-df.drop(columns=['Unnamed: 14'], inplace=True)
+elec_df = pd.read_csv('data.csv', delimiter=';')
+elec_df.drop(columns=['Unnamed: 14'], inplace=True)
 # Mengubah kolom 'Tanggal' menjadi tipe datetime
-df['Tanggal'] = pd.to_datetime(df['Tanggal']) + pd.DateOffset(hours=8)
+elec_df['Tanggal'] = pd.to_datetime(elec_df['Tanggal']) + pd.DateOffset(hours=8)
 # Mengurutkan dataframe berdasarkan kolom 'Tanggal' secara descending
-df = df.sort_values(by='Tanggal', ascending=False)
+elec_df = elec_df.sort_values(by='Tanggal', ascending=False)
 # Mengkonversi kolom 'PLN Meter' dan kolom lainnya ke float
 # List of columns to be converted
 columns_to_convert = [
@@ -84,7 +84,44 @@ columns_to_convert = [
 ]
 # Loop untuk mengkonversi semua kolom
 for col in columns_to_convert:
-    df[col] = df[col].str.replace(',', '.').astype(float)
+    elec_df[col] = elec_df[col].str.replace(',', '.').astype(float)
+
+# Menyaring data untuk sepuluh hari terakhir
+elec_df_10_hari = elec_df[(df['Tanggal'] >= tanggal_awal) & (elec_df['Tanggal'] <= tanggal_akhir)]
+
+elec_nilai_rata2 = {}
+
+# Hitung rata-rata untuk setiap kolom
+elec_dict_rata2 = elec_df_10_hari.mean().to_dict()
+
+# Tampilkan dictionary menggunakan Streamlit
+st.write(elec_dict_rata2)
+
+# Menghitung rata-rata untuk sepuluh hari terakhir
+nilai_pln_rata2 = df_10_hari['PLN Meter'].mean()
+nilai_apf_rata2 = df_10_hari['APF Meter (ION)'].mean()
+nilai_Sum_APF_rata2 = df_10_hari['SUM ALL APF Area'].mean()
+nilai_ems_rata2 = df_10_hari['EMS'].mean()
+
+# Menampilkan data sesuai dengan tanggal yang dipilih
+nilai_pln = float(df.loc[df['Tanggal'] == tanggal_dipilih, 'PLN Meter'].values[0])
+nilai_apf = float(df.loc[df['Tanggal'] == tanggal_dipilih, 'APF Meter (ION)'].values[0])
+nilai_Sum_APF = float(df.loc[df['Tanggal'] == tanggal_dipilih, 'SUM ALL APF Area'].values[0])
+nilai_ems = float(df.loc[df['Tanggal'] == tanggal_dipilih, 'EMS'].values[0])
+
+# Mencari nilai untuk satu hari sebelum tanggal_dipilih
+tanggal_sebelumnya = tanggal_dipilih - pd.Timedelta(days=1)
+nilai_pln_sebelumnya = float(df.loc[df['Tanggal'] == tanggal_sebelumnya, 'PLN Meter'].values[0])
+nilai_apf_sebelumnya = float(df.loc[df['Tanggal'] == tanggal_sebelumnya, 'APF Meter (ION)'].values[0])
+nilai_Sum_APF_sebelumnya = float(df.loc[df['Tanggal'] == tanggal_sebelumnya, 'SUM ALL APF Area'].values[0])
+nilai_ems_sebelumnya = float(df.loc[df['Tanggal'] == tanggal_sebelumnya, 'EMS'].values[0])
+
+#mencari delta value
+delta_PLN = round(nilai_pln - nilai_pln_sebelumnya, 2)
+delta_APF = round(nilai_apf - nilai_apf_sebelumnya, 2)
+delta_Sum_APF = round(nilai_Sum_APF - nilai_Sum_APF_sebelumnya, 2)
+delta_ems = round(nilai_ems - nilai_ems_sebelumnya, 2)
+
 
 # Load Production dataset
 prod_df = pd.read_csv('product.csv', delimiter=';')
@@ -219,7 +256,8 @@ if admin_user or general_user:
             st.metric(label="Date", value=tanggal_dipilih.strftime('%d-%m-%Y'))
 
         st.markdown("Values are shown in MWh (Megawatthour), unless it is stated differently explicitly")
-        
+
+        comment01 = '''
         # Menyaring data untuk sepuluh hari terakhir
         df_10_hari = df[(df['Tanggal'] >= tanggal_awal) & (df['Tanggal'] <= tanggal_akhir)]
         
@@ -247,6 +285,7 @@ if admin_user or general_user:
         delta_APF = round(nilai_apf - nilai_apf_sebelumnya, 2)
         delta_Sum_APF = round(nilai_Sum_APF - nilai_Sum_APF_sebelumnya, 2)
         delta_ems = round(nilai_ems - nilai_ems_sebelumnya, 2)
+        '''
         
         # add a border
         st.markdown("""<hr style="border:1px solid gray">""", unsafe_allow_html=True)
