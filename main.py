@@ -119,8 +119,8 @@ dict_name = {'anggoro' : 'Anggoro Yudho Nuswantoro' ,'rahul': 'Rahul Bankar','si
 with st.sidebar:
     st.sidebar.image('LogoAPF.png')
     st.header('User')
-    name = st.text_input("Nama Anda")
-    secret_code = st.text_input("secret code Anda", type="password")
+    name = st.text_input("Username")
+    secret_code = st.text_input("Password", type="password")
 
     col1, col2 = st.columns(2)
     with col1:
@@ -150,11 +150,14 @@ with st.sidebar:
             admin_user = False
             general_user = False
 
-    tanggal_dipilih = st.selectbox('Pilihan tanggal:', tanggal_pengukuran)
+    st.markdown("""<hr style="border:1px solid gray">""", unsafe_allow_html=True)
+    
+    tanggal_dipilih = st.selectbox('Date :', tanggal_pengukuran)
     # Menentukan rentang tanggal untuk sepuluh hari terakhir
     tanggal_awal = tanggal_dipilih - pd.Timedelta(days=9)
     tanggal_akhir = tanggal_dipilih
 
+st.image('LogoAPF.png')
 
 if admin_user or general_user:
     st.markdown("Welcome " + dict_name[name])
