@@ -154,10 +154,6 @@ with st.sidebar:
 
     st.markdown("""<hr style="border:1px solid gray">""", unsafe_allow_html=True)
     
-    tanggal_dipilih = st.selectbox('Date :', tanggal_pengukuran)
-    # Menentukan rentang tanggal untuk sepuluh hari terakhir
-    tanggal_awal = tanggal_dipilih - pd.Timedelta(days=9)
-    tanggal_akhir = tanggal_dipilih
 
 #################################
 # MAIN PAGE
@@ -210,7 +206,11 @@ if admin_user or general_user:
         with col2:
             # Menampilkan tanggal
             st.metric(label="Date", value=tanggal_dipilih.strftime('%Y-%m-%d'))
-    
+            tanggal_dipilih = st.selectbox('Date :', tanggal_pengukuran)
+            # Menentukan rentang tanggal untuk sepuluh hari terakhir
+            tanggal_awal = tanggal_dipilih - pd.Timedelta(days=9)
+            tanggal_akhir = tanggal_dipilih
+
         # Menyaring data untuk sepuluh hari terakhir
         df_10_hari = df[(df['Tanggal'] >= tanggal_awal) & (df['Tanggal'] <= tanggal_akhir)]
         
