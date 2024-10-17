@@ -69,7 +69,7 @@ def hitungDataDitampilkan(df, tanggal_awal, tanggal_akhir):
     # Menyaring data untuk sepuluh hari terakhir
     df_10_hari = df[(df['Tanggal'] >= tanggal_awal) & (df['Tanggal'] <= tanggal_akhir)]
     # Hitung rata-rata untuk setiap kolom
-    elec_dict_rata2 = df_10_hari.mean().to_dict()
+    elec_dict_rata2 = df_10_hari.mean().round(2).to_dict()
     # Tampilkan dictionary menggunakan Streamlit
     st.write(elec_dict_rata2)
     
