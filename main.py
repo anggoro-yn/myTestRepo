@@ -165,7 +165,7 @@ with st.sidebar:
 
 col1, col2 = st.columns([4,1])
 with col2:
-    st.image('LogoAPF.png', width= 100)
+    st.image('LogoAPF.png', use_column_width=True)
 
 if admin_user or general_user:
     st.markdown("Welcome " + dict_name[name])
