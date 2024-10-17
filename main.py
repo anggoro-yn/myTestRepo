@@ -170,10 +170,10 @@ with col1:
 with col2:
     st.image('LogoAPF.png', use_column_width=True)
 
-# Welcome greeting
-st.markdown("Welcome " + dict_name[name])
 
 if admin_user or general_user:
+    # Welcome greeting
+    st.markdown("Welcome " + dict_name[name])
     # Tab untuk memilih dashboard
     tabElec, tabProduct  = st.tabs(["Electricity", "Product"])
     with tabProduct:
@@ -414,6 +414,8 @@ if admin_user or general_user:
 
 
 else:
+    # Welcome greeting
+    st.markdown("Welcome Guest. ")
     st.markdown('#### You are not authorized to view the webpage. Please login first!')
 
 # Add a footer or caption at the bottom of the app
