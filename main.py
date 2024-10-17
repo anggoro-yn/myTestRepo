@@ -309,9 +309,9 @@ if admin_user or general_user:
         
         col1, col2, col3, col4 = st.columns(4)
         with col1:
-            st.metric(label='PLN Meter', value=round(elec_dict_rata2['PLN Meter'],2))
+            st.metric(label='PLN Meter', value=elec_dict_rata2['PLN Meter'])
         with col2:
-            st.metric(label='APF Meter (ION)', value=round(elec_dict_rata2['APF Meter (ION)'],2))
+            st.metric(label='APF Meter (ION)', value=elec_dict_rata2['APF Meter (ION)'])
         with col3:
             st.metric(label='SUM ALL APF Area', value=elec_dict_rata2['SUM ALL APF Area'])
         with col4:
@@ -320,13 +320,13 @@ if admin_user or general_user:
         with st.expander("Click to open electricity consumption chart for 10 days"):
             tab1, tab2, tab3, tab4 = st.tabs(["PLN Meter","ION Meter","APF Sum","EMS"])
             with tab1:
-                buat_grafik_kwh('PLN Meter', nilai_pln_rata2, 'Konsumsi listrik berdasar kWhmeter PLN dalam 10 hari terakhir')
+                buat_grafik_kwh('PLN Meter', elec_dict_rata2['PLN Meter'], 'Konsumsi listrik berdasar kWhmeter PLN dalam 10 hari terakhir')
             with tab2:
-                buat_grafik_kwh('APF Meter (ION)', nilai_apf_rata2, 'Konsumsi listrik berdasar kWhmeter APF dalam 10 hari terakhir')
+                buat_grafik_kwh('APF Meter (ION)', elec_dict_rata2['APF Meter (ION)'], 'Konsumsi listrik berdasar kWhmeter APF dalam 10 hari terakhir')
             with tab3:
-                buat_grafik_kwh('SUM ALL APF Area', nilai_Sum_APF_rata2, 'Jumlah Pemakaian Listrik Seluruh Plant dalam 10 hari terakhir')
+                buat_grafik_kwh('SUM ALL APF Area', elec_dict_rata2['SUM ALL APF Area'], 'Jumlah Pemakaian Listrik Seluruh Plant dalam 10 hari terakhir')
             with tab4:
-                buat_grafik_kwh('EMS', nilai_ems_rata2, 'Konsumsi listrik berdasar EMS dalam 10 hari terakhir')
+                buat_grafik_kwh('EMS', =elec_dict_rata2['EMS'], 'Konsumsi listrik berdasar EMS dalam 10 hari terakhir')
     
     
         # Memilih nilai tertinggi dari kolom 'Tanggal'
