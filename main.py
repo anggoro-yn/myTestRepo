@@ -163,7 +163,7 @@ with st.sidebar:
 # MAIN PAGE
 #################################
 
-col1, col2 = st.columns([4,1])
+col1, col2 = st.columns([3,1])
 with col2:
     st.image('LogoAPF.png', use_column_width=True)
 
