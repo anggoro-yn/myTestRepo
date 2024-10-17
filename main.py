@@ -120,6 +120,7 @@ dict_name = {'anggoro' : 'Anggoro Yudho Nuswantoro' ,'rahul': 'Rahul Bankar','si
 # SIDE BAR
 #################################
 with st.sidebar:
+    st.sidebar.image('LogoAPF.png')
     st.header('User Authentification and Authorizaton')
     name = st.text_input("Username")
     secret_code = st.text_input("Password", type="password")
@@ -172,7 +173,7 @@ with col2:
 
 if admin_user or general_user:
     # Welcome greeting
-    st.markdown("Welcome **" + dict_name[name] + "**")
+    st.markdown("Welcome " + dict_name[name])
     # Tab untuk memilih dashboard
     tabElec, tabProduct  = st.tabs(["Electricity", "Product"])
     with tabProduct:
