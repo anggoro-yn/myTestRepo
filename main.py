@@ -172,19 +172,23 @@ if admin_user or general_user:
     # Tab untuk memilih dashboard
     tabElec, tabProduct  = st.tabs(["Electricity", "Product"])
     with tabProduct:
-        comment = '''
-        st.markdown("## Dashboard produksi Harian")
-        # Menampilkan tanggal
-        st.metric(label="Tanggal", value=tanggal_dipilih.strftime('%Y-%m-%d'))
-        st.write(prod_df)
+        col1, col2 = st.columns([3,1])
+        with col1:
+            st.markdown("## Daily Electricity Dashboard")
+        with col2:    
+            tanggal_dipilih = st.selectbox('Date :', tanggal_pengukuran)
+            # Menentukan rentang tanggal untuk sepuluh hari terakhir
+            tanggal_awal = tanggal_dipilih - pd.Timedelta(days=9)
+            tanggal_akhir = tanggal_dipilih
+            # Menampilkan tanggal
+            st.metric(label="Date", value=tanggal_dipilih.strftime('%Y-%m-%d'))
+
         # Menyaring data untuk sepuluh hari terakhir
         prod_df_10_hari = prod_df[(df['Tanggal'] >= tanggal_awal) & (prod_df['Tanggal'] <= tanggal_akhir)]
         
         # Menghitung rata-rata untuk sepuluh hari terakhir
         nilai_SP4_rata2 = prod_df_10_hari['SP4'].mean()
 
-        st.write(tanggal_dipilih)
-        
         # Menampilkan data sesuai dengan tanggal yang dipilih
         nilai_SP4 = prod_df.loc[prod_df['Tanggal'] == tanggal_dipilih, 'SP4'].values[0]
         
@@ -197,7 +201,7 @@ if admin_user or general_user:
 
         col1, col2, col3, col4 = st.columns(4)
         with col1:
-            st.metric(label='SP 4', value=nilai_SP4, delta = delta_SP4) '''
+            st.metric(label='SP 4', value=nilai_SP4, delta = delta_SP4) 
     
     with tabElec:
         col1, col2 = st.columns([3,1])
