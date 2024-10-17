@@ -107,8 +107,8 @@ for col in columns_to_convert:
 tanggal_pengukuran = df['Tanggal'].tolist()
 
 # User tool
-admin_user = False
-general_user = False
+#admin_user = False
+#general_user = False
 name = 'Guest'
 dict_user = {'anggoro' : 'password01' ,'rahul':'password02','siska':'password03'}
 dict_name = {'anggoro' : 'Anggoro Yudho Nuswantoro' ,'rahul': 'Rahul Bankar','siska':'Siska Rahmawati'}
