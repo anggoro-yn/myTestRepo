@@ -205,12 +205,12 @@ if admin_user or general_user:
         with col1:
             st.markdown("## Daily Electricity Dashboard")
         with col2:
-            # Menampilkan tanggal
-            st.metric(label="Date", value=tanggal_dipilih.strftime('%Y-%m-%d'))
             tanggal_dipilih = st.selectbox('Date :', tanggal_pengukuran)
             # Menentukan rentang tanggal untuk sepuluh hari terakhir
             tanggal_awal = tanggal_dipilih - pd.Timedelta(days=9)
             tanggal_akhir = tanggal_dipilih
+            # Menampilkan tanggal
+            st.metric(label="Date", value=tanggal_dipilih.strftime('%Y-%m-%d'))
 
         # Menyaring data untuk sepuluh hari terakhir
         df_10_hari = df[(df['Tanggal'] >= tanggal_awal) & (df['Tanggal'] <= tanggal_akhir)]
