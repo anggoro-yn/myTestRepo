@@ -33,8 +33,8 @@ def buat_grafik_kwh(df, column_name, nilai_rata2, judul):
     #bars[0].set_color('cyan')
     
     # Mengatur posisi tick label di tengah batang
-    ax.set_xticks(df_10_hari['Tanggal'])
-    ax.set_xticklabels(df_10_hari['Tanggal'].dt.strftime('%Y-%m-%d'), rotation=90, ha='center')
+    ax.set_xticks(df['Tanggal'])
+    ax.set_xticklabels(df['Tanggal'].dt.strftime('%Y-%m-%d'), rotation=90, ha='center')
     
     # Menghitung batas sumbu y
     min_value = df[column_name].min()
