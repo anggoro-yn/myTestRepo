@@ -115,8 +115,9 @@ def hitungDataDitampilkan(df, tanggal_awal, tanggal_akhir):
     # Membuat dictionary dict_c dengan key yang sama dan value adalah hasil pengurangan value dict_A dengan value dict_B
     dict_delta = {key: dict_data_tanggal[key] - dict_data_tanggal_sebelumnya[key] for key in dict_data_tanggal}
     # Tampilkan dictionary dict_c menggunakan Streamlit
-    st.write(dict_c)
-
+    st.write(dict_delta)
+    
+    return elec_dict_rata2, dict_data_tanggal, dict_data_tanggal_sebelumnya, dict_delta
 
 
 # Load Production dataset
