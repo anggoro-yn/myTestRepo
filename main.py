@@ -119,6 +119,11 @@ dict_name = {'anggoro' : 'Anggoro Yudho Nuswantoro' ,'rahul': 'Rahul Bankar','si
 # SIDE BAR
 #################################
 with st.sidebar:
+    tanggal_dipilih = st.selectbox('Date :', tanggal_pengukuran)
+    # Menentukan rentang tanggal untuk sepuluh hari terakhir
+    tanggal_awal = tanggal_dipilih - pd.Timedelta(days=9)
+    tanggal_akhir = tanggal_dipilih
+
     st.header('User Login')
     name = st.text_input("Username")
     secret_code = st.text_input("Password", type="password")
@@ -153,10 +158,6 @@ with st.sidebar:
 
     st.markdown("""<hr style="border:1px solid gray">""", unsafe_allow_html=True)
 
-    tanggal_dipilih = st.selectbox('Date :', tanggal_pengukuran)
-    # Menentukan rentang tanggal untuk sepuluh hari terakhir
-    tanggal_awal = tanggal_dipilih - pd.Timedelta(days=9)
-    tanggal_akhir = tanggal_dipilih
 
 
 #################################
