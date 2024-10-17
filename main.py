@@ -156,7 +156,7 @@ if admin_user or general_user:
     st.title('PT Asia Pacific Fiber Tbk')
     
     # Tab untuk memilih dashboard
-    tabGeneral, tabElec  = st.tabs(["General", "Electricity"])
+    tabElec, tabProduct  = st.tabs(["Electricity", "Product"])
     with tabGeneral:
         comment = '''
         st.markdown("## Dashboard produksi Harian")
