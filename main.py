@@ -284,7 +284,7 @@ if admin_user or general_user:
         delta_ems = round(nilai_ems - nilai_ems_sebelumnya, 2)
         '''
         
-        elec_dict_rata2, dict_data_tanggal, dict_data_tanggal_sebelumnya, dict_delta = hitungDataDitampilkan(elec_df, tanggal_awal, tanggal_akhir)
+        elec_dict_rata2, elec_dict_data_tanggal, elec_dict_data_tanggal_sebelumnya, elec_dict_delta = hitungDataDitampilkan(elec_df, tanggal_awal, tanggal_akhir)
         
         # add a border
         st.markdown("""<hr style="border:1px solid gray">""", unsafe_allow_html=True)
@@ -294,24 +294,24 @@ if admin_user or general_user:
     
         col1, col2, col3, col4 = st.columns(4)
         with col1:
-            st.metric(label='PLN Meter', value=dict_data_tanggal['PLN Meter'], delta = dict_delta['PLN Meter'])
+            st.metric(label='PLN Meter', value=elec_dict_data_tanggal['PLN Meter'], delta = elec_dict_delta['PLN Meter'])
         with col2:
-            st.metric(label='APF Meter (ION)', value=dict_data_tanggal['APF Meter (ION)'], delta = dict_delta['APF Meter (ION)'])
+            st.metric(label='APF Meter (ION)', value=elec_dict_data_tanggal['APF Meter (ION)'], delta = elec_dict_delta['APF Meter (ION)'])
         with col3:
-            st.metric(label='SUM ALL APF Area', value=dict_data_tanggal['SUM ALL APF Area'], delta = dict_delta['SUM ALL APF Area'])
+            st.metric(label='SUM ALL APF Area', value=elec_dict_data_tanggal['SUM ALL APF Area'], delta = elec_dict_delta['SUM ALL APF Area'])
         with col4:
-            st.metric(label='EMS', value=dict_data_tanggal['EMS'], delta = dict_delta['EMS'])
+            st.metric(label='EMS', value=elec_dict_data_tanggal['EMS'], delta = elec_dict_delta['EMS'])
         
         col1, col2, col3, col4 = st.columns(4)
         with col1:
-            st.metric(label='PLN Meter Rata-rata (10 hari)', value=round(nilai_pln_rata2, 2))
+            st.metric(label='PLN Meter', value=elec_dict_rata2['PLN Meter'])
         with col2:
-            st.metric(label='APF Meter (ION) Rata-rata (10 hari)', value=round(nilai_apf_rata2, 2))
+            st.metric(label='APF Meter (ION)', value=elec_dict_rata2['APF Meter (ION)'])
         with col3:
-            st.metric(label='Sum ALL APF Area Rata-rata (10 hari)', value=round(nilai_Sum_APF_rata2, 2))
+            st.metric(label='SUM ALL APF Area', value=elec_dict_rata2['SUM ALL APF Area'])
         with col4:
-            st.metric(label='EMS Rata-rata (10 hari)', value=round(nilai_ems_rata2, 2))
-    
+            st.metric(label='EMS', value=elec_dict_rata2['EMS'])
+  
         with st.expander("Click to open electricity consumption chart for 10 days"):
             tab1, tab2, tab3, tab4 = st.tabs(["PLN Meter","ION Meter","APF Sum","EMS"])
             with tab1:
