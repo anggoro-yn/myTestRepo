@@ -157,7 +157,7 @@ if admin_user or general_user:
     
     # Tab untuk memilih dashboard
     tabElec, tabProduct  = st.tabs(["Electricity", "Product"])
-    with tabGeneral:
+    with tabProduct:
         comment = '''
         st.markdown("## Dashboard produksi Harian")
         # Menampilkan tanggal
