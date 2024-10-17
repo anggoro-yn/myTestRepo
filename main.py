@@ -70,15 +70,12 @@ def hitungDataDitampilkan(df, tanggal_awal, tanggal_akhir):
     df_10_hari = df[(df['Tanggal'] >= tanggal_awal) & (df['Tanggal'] <= tanggal_akhir)]
     # Hitung rata-rata untuk setiap kolom, kecuali kolom 'Tanggal'
     mean_values = df_10_hari.drop(columns=["Tanggal"]).mean()
-    
     # Bulatkan setiap nilai rata-rata ke dua desimal dan buat dictionary
     elec_dict_rata2 = {key: round(value, 2) for key, value in mean_values.items()}
-    
     # Menambahkan kolom 'Tanggal' kembali ke dictionary tanpa perubahan
     elec_dict_rata2['Tanggal'] = df_10_hari['Tanggal'].tolist()
-
     # Tampilkan dictionary menggunakan Streamlit
-    st.write(elec_dict_rata2)
+    #st.write(elec_dict_rata2)
 
     
     # Menampilkan data sesuai dengan tanggal yang dipilih
@@ -87,7 +84,7 @@ def hitungDataDitampilkan(df, tanggal_awal, tanggal_akhir):
     # Buat dictionary dari data yang difilter
     dict_data_tanggal = df_filtered.drop(columns=["Tanggal"]).iloc[0].to_dict()
     # Tampilkan dictionary menggunakan Streamlit
-    st.write(dict_data_tanggal)
+    #st.write(dict_data_tanggal)
 
     # Mencari nilai untuk satu hari sebelum tanggal_dipilih
     tanggal_sebelumnya = tanggal_akhir - pd.Timedelta(days=1)
@@ -96,13 +93,13 @@ def hitungDataDitampilkan(df, tanggal_awal, tanggal_akhir):
     # Buat dictionary dari data yang difilter
     dict_data_tanggal_sebelumnya = df_filtered.drop(columns=["Tanggal"]).iloc[0].to_dict()
     # Tampilkan dictionary menggunakan Streamlit
-    st.write(dict_data_tanggal_sebelumnya)
+    #st.write(dict_data_tanggal_sebelumnya)
 
     #mencari delta value
     # Membuat dictionary dict_c dengan key yang sama dan value adalah hasil pengurangan value dict_A dengan value dict_B
     dict_delta = {key: round(dict_data_tanggal[key] - dict_data_tanggal_sebelumnya[key],2) for key in dict_data_tanggal}
     # Tampilkan dictionary dict_c menggunakan Streamlit
-    st.write(dict_delta)
+    #st.write(dict_delta)
     
     return elec_dict_rata2, dict_data_tanggal, dict_data_tanggal_sebelumnya, dict_delta
 
