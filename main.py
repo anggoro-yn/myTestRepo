@@ -120,7 +120,6 @@ dict_name = {'anggoro' : 'Anggoro Yudho Nuswantoro' ,'rahul': 'Rahul Bankar','si
 # SIDE BAR
 #################################
 with st.sidebar:
-    st.sidebar.image('LogoAPF.png')
     st.header('User Authentification and Authorizaton')
     name = st.text_input("Username")
     secret_code = st.text_input("Password", type="password")
