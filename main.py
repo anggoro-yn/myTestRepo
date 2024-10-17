@@ -87,7 +87,7 @@ for col in columns_to_convert:
     elec_df[col] = elec_df[col].str.replace(',', '.').astype(float)
 
 # Menyaring data untuk sepuluh hari terakhir
-elec_df_10_hari = elec_df[(df['Tanggal'] >= tanggal_awal) & (elec_df['Tanggal'] <= tanggal_akhir)]
+elec_df_10_hari = elec_df[(elec_df['Tanggal'] >= tanggal_awal) & (elec_df['Tanggal'] <= tanggal_akhir)]
 
 elec_nilai_rata2 = {}
 
