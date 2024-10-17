@@ -118,38 +118,43 @@ dict_name = {'anggoro' : 'Anggoro Yudho Nuswantoro' ,'rahul': 'Rahul Bankar','si
 # Sidebar
 with st.sidebar:
     st.sidebar.image('LogoAPF.png')
-    st.header('Pilihan')
+    st.header('User')
+    name = st.text_input("Nama Anda")
+    secret_code = st.text_input("secret code Anda", type="password")
+
+    col1, col2 = st.columns(2)
+    with col1:
+        if st.button('Log in'):
+            try:
+                correct_secret_code = dict_user[name]
+            except Exception as e:
+                correct_secret_code = 'incorrect code !!!!!!!!'
+            else:
+                if name != '' and secret_code != '':
+                    if correct_secret_code == secret_code :
+                        if name == 'anggoro':
+                            admin_user = True
+                            general_user = False
+                        else:
+                            general_user = True
+                            admin_user = False
+                    else:
+                        admin_user = False
+                        general_user = False
+                else:
+                    admin_user = False
+                    general_user = False
+            
+    with col2:
+        if st.button('Log out'):
+            admin_user = False
+            general_user = False
+
     tanggal_dipilih = st.selectbox('Pilihan tanggal:', tanggal_pengukuran)
-    
     # Menentukan rentang tanggal untuk sepuluh hari terakhir
     tanggal_awal = tanggal_dipilih - pd.Timedelta(days=9)
     tanggal_akhir = tanggal_dipilih
 
-    name = st.text_input("Nama Anda")
-    secret_code = st.text_input("secret code Anda", type="password")
-    try:
-        correct_secret_code = dict_user[name]
-    except Exception as e:
-        correct_secret_code = 'incorrect code !!!!!!!!'
-    else:
-        if name != '' and secret_code != '':
-            if correct_secret_code == secret_code :
-                if name == 'anggoro':
-                    admin_user = True
-                    general_user = False
-                else:
-                    general_user = True
-                    admin_user = False
-            else:
-                admin_user = False
-                general_user = False
-        else:
-            admin_user = False
-            general_user = False
-
-    if st.button('Log out'):
-        admin_user = False
-        general_user = False
 
 if admin_user or general_user:
     st.markdown("Welcome " + dict_name[name])
