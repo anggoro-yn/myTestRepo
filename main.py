@@ -109,6 +109,7 @@ tanggal_pengukuran = df['Tanggal'].tolist()
 # User tool
 admin_user = False
 general_user = False
+name = 'Guest'
 dict_user = {'anggoro' : 'password01' ,'rahul':'password02','siska':'password03'}
 dict_name = {'anggoro' : 'Anggoro Yudho Nuswantoro' ,'rahul': 'Rahul Bankar','siska':'Siska Rahmawati'}
 
@@ -120,7 +121,7 @@ dict_name = {'anggoro' : 'Anggoro Yudho Nuswantoro' ,'rahul': 'Rahul Bankar','si
 #################################
 with st.sidebar:
     st.sidebar.image('LogoAPF.png')
-    st.header('User')
+    st.header('User Authentification and Authorizaton')
     name = st.text_input("Username")
     secret_code = st.text_input("Password", type="password")
 
@@ -173,9 +174,6 @@ with col2:
 st.markdown("Welcome " + dict_name[name])
 
 if admin_user or general_user:
-    st.markdown("Welcome " + dict_name[name])
-    st.title('PT Asia Pacific Fiber Tbk')
-    
     # Tab untuk memilih dashboard
     tabElec, tabProduct  = st.tabs(["Electricity", "Product"])
     with tabProduct:
