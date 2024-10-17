@@ -169,8 +169,11 @@ with col2:
 if admin_user or general_user:
     # Welcome greeting
     st.markdown("Welcome " + dict_name[name])
+
     # Memilih tanggal
-    tanggal_dipilih = st.selectbox('Date :', tanggal_pengukuran, key="product")
+    col1, col2 = st.columns([1,3])
+    with col1:
+        tanggal_dipilih = st.selectbox('Date :', tanggal_pengukuran, key="product")
     # Menentukan rentang tanggal untuk sepuluh hari terakhir
     tanggal_awal = tanggal_dipilih - pd.Timedelta(days=9)
     tanggal_akhir = tanggal_dipilih
