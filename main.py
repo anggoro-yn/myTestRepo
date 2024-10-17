@@ -163,7 +163,7 @@ with st.sidebar:
 # MAIN PAGE
 #################################
 
-st.image('LogoAPF.png', width= 300)
+st.image('LogoAPF.png', width= 100)
 
 if admin_user or general_user:
     st.markdown("Welcome " + dict_name[name])
