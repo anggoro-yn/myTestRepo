@@ -14,7 +14,7 @@ def buat_grafik_kwh(df, column_name, nilai_rata2, judul):
     latest_date = df['Tanggal'].max()
     
     colors = []
-    for index, row in df_10_hari.iterrows():
+    for index, row in df.iterrows():
         if row['Tanggal'] == latest_date:
             colors.append('turquoise')  # Warna untuk tanggal terbaru
         elif row[column_name] == max_value:
