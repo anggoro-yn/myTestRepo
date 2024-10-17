@@ -185,7 +185,7 @@ if admin_user or general_user:
     with tabProduct:
         col1, col2 = st.columns([3,1])
         with col1:
-            st.markdown("## Daily Electricity Dashboard")
+            st.markdown("## Daily Production Dashboard")
         with col2:    
             # Menampilkan tanggal
             st.metric(label="Date", value=tanggal_dipilih.strftime('%Y-%m-%d'))
