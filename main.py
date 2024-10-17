@@ -414,7 +414,7 @@ if admin_user or general_user:
 
 
 else:
-    st.markdown('#### Anda tidak memiliki otorisasi untuk melihat halaman ini!')
+    st.markdown('#### You are not authorized to view the webpage. Please login first!')
 
 # Add a footer or caption at the bottom of the app
 st.markdown("""<hr style="border:1px solid gray">""", unsafe_allow_html=True)
