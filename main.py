@@ -115,7 +115,9 @@ dict_name = {'anggoro' : 'Anggoro Yudho Nuswantoro' ,'rahul': 'Rahul Bankar','si
 # Menset page layout
 #st.set_page_config(layout="wide")
 
-# Sidebar
+#################################
+# SIDE BAR
+#################################
 with st.sidebar:
     st.sidebar.image('LogoAPF.png')
     st.header('User')
@@ -157,7 +159,11 @@ with st.sidebar:
     tanggal_awal = tanggal_dipilih - pd.Timedelta(days=9)
     tanggal_akhir = tanggal_dipilih
 
-st.image('LogoAPF.png')
+#################################
+# MAIN PAGE
+#################################
+
+st.image('LogoAPF.png', width= 300)
 
 if admin_user or general_user:
     st.markdown("Welcome " + dict_name[name])
