@@ -1,4 +1,4 @@
-import streamlit as st
+_import streamlit as st
 import pandas as pd
 import plotly.express as px
 import matplotlib.pyplot as plt
@@ -137,7 +137,7 @@ for col in columns_to_convert:
     prod_df[col] = prod_df[col].str.replace(',', '.').astype(float)
 
 # Mengambil kolom 'Tanggal' dan memasukkannya ke dalam list 'tanggal_pengukuran'
-tanggal_pengukuran = df['Tanggal'].tolist()
+tanggal_pengukuran = elec_df['Tanggal'].tolist()
 tanggal_dipilih = tanggal_pengukuran[0]
 
 # User tool
