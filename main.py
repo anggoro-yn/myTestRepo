@@ -4,7 +4,7 @@ import plotly.express as px
 import matplotlib.pyplot as plt
 
 # Fungsi untuk membuat grafik pemakaian listrik dalam sepuluh hari terakhir
-def buat_grafik_kwh(column_name, nilai_rata2, judul):
+def buat_grafik_kwh(df, column_name, nilai_rata2, judul):
     # Membuat grafik batang
     fig, ax = plt.subplots(figsize=(10, 6))
 
@@ -71,11 +71,11 @@ def hitungDataDitampilkan(df, tanggal_awal, tanggal_akhir):
     # Hitung rata-rata untuk setiap kolom, kecuali kolom 'Tanggal'
     mean_values = df_10_hari.drop(columns=["Tanggal"]).mean()
     # Bulatkan setiap nilai rata-rata ke dua desimal dan buat dictionary
-    elec_dict_rata2 = {key: round(value, 2) for key, value in mean_values.items()}
+    dict_rata2 = {key: round(value, 2) for key, value in mean_values.items()}
     # Menambahkan kolom 'Tanggal' kembali ke dictionary tanpa perubahan
-    elec_dict_rata2['Tanggal'] = df_10_hari['Tanggal'].tolist()
+    dict_rata2['Tanggal'] = df_10_hari['Tanggal'].tolist()
     # Tampilkan dictionary menggunakan Streamlit
-    #st.write(elec_dict_rata2)
+    #st.write(dict_rata2)
 
     
     # Menampilkan data sesuai dengan tanggal yang dipilih
@@ -101,7 +101,7 @@ def hitungDataDitampilkan(df, tanggal_awal, tanggal_akhir):
     # Tampilkan dictionary dict_c menggunakan Streamlit
     #st.write(dict_delta)
     
-    return elec_dict_rata2, dict_data_tanggal, dict_data_tanggal_sebelumnya, dict_delta
+    return df_10_hari, dict_rata2, dict_data_tanggal, dict_data_tanggal_sebelumnya, dict_delta
 
 # Load dataset
 
@@ -289,7 +289,7 @@ if admin_user or general_user:
         delta_ems = round(nilai_ems - nilai_ems_sebelumnya, 2)
         '''
         
-        elec_dict_rata2, elec_dict_data_tanggal, elec_dict_data_tanggal_sebelumnya, elec_dict_delta = hitungDataDitampilkan(elec_df, tanggal_awal, tanggal_akhir)
+        elec_df_10_hari, elec_dict_rata2, elec_dict_data_tanggal, elec_dict_data_tanggal_sebelumnya, elec_dict_delta = hitungDataDitampilkan(elec_df, tanggal_awal, tanggal_akhir)
         
         # add a border
         st.markdown("""<hr style="border:1px solid gray">""", unsafe_allow_html=True)
@@ -320,13 +320,13 @@ if admin_user or general_user:
         with st.expander("Click to open electricity consumption chart for 10 days"):
             tab1, tab2, tab3, tab4 = st.tabs(["PLN Meter","ION Meter","APF Sum","EMS"])
             with tab1:
-                buat_grafik_kwh('PLN Meter', elec_dict_rata2['PLN Meter'], 'Konsumsi listrik berdasar kWhmeter PLN dalam 10 hari terakhir')
+                buat_grafik_kwh(elec_df_10_hari, 'PLN Meter', elec_dict_rata2['PLN Meter'], 'Konsumsi listrik berdasar kWhmeter PLN dalam 10 hari terakhir')
             with tab2:
-                buat_grafik_kwh('APF Meter (ION)', elec_dict_rata2['APF Meter (ION)'], 'Konsumsi listrik berdasar kWhmeter APF dalam 10 hari terakhir')
+                buat_grafik_kwh(elec_df, 'APF Meter (ION)', elec_dict_rata2['APF Meter (ION)'], 'Konsumsi listrik berdasar kWhmeter APF dalam 10 hari terakhir')
             with tab3:
-                buat_grafik_kwh('SUM ALL APF Area', elec_dict_rata2['SUM ALL APF Area'], 'Jumlah Pemakaian Listrik Seluruh Plant dalam 10 hari terakhir')
+                buat_grafik_kwh(elec_df, 'SUM ALL APF Area', elec_dict_rata2['SUM ALL APF Area'], 'Jumlah Pemakaian Listrik Seluruh Plant dalam 10 hari terakhir')
             with tab4:
-                buat_grafik_kwh('EMS', elec_dict_rata2['EMS'], 'Konsumsi listrik berdasar EMS dalam 10 hari terakhir')
+                buat_grafik_kwh(elec_df, 'EMS', elec_dict_rata2['EMS'], 'Konsumsi listrik berdasar EMS dalam 10 hari terakhir')
     
     
         # Memilih nilai tertinggi dari kolom 'Tanggal'
