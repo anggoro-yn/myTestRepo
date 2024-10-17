@@ -173,7 +173,7 @@ if admin_user or general_user:
     with col1:
         # Welcome greeting
         st.markdown("Welcome " + dict_name[name])
-        st.markdown("Please choose a date (the default the lastest available date) : ")
+        st.markdown("Please choose a date : ")
     with col2:
         tanggal_dipilih = st.selectbox('Date :', tanggal_pengukuran, key="tanggal")
     # Menentukan rentang tanggal untuk sepuluh hari terakhir
