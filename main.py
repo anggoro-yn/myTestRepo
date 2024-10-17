@@ -153,7 +153,12 @@ with st.sidebar:
             general_user = False
 
     st.markdown("""<hr style="border:1px solid gray">""", unsafe_allow_html=True)
-    
+
+    tanggal_dipilih = st.selectbox('Date :', tanggal_pengukuran)
+    # Menentukan rentang tanggal untuk sepuluh hari terakhir
+    tanggal_awal = tanggal_dipilih - pd.Timedelta(days=9)
+    tanggal_akhir = tanggal_dipilih
+
 
 #################################
 # MAIN PAGE
@@ -204,10 +209,6 @@ if admin_user or general_user:
         with col1:
             st.markdown("## Daily Electricity Dashboard")
         with col2:
-            tanggal_dipilih = st.selectbox('Date :', tanggal_pengukuran)
-            # Menentukan rentang tanggal untuk sepuluh hari terakhir
-            tanggal_awal = tanggal_dipilih - pd.Timedelta(days=9)
-            tanggal_akhir = tanggal_dipilih
             # Menampilkan tanggal
             st.metric(label="Date", value=tanggal_dipilih.strftime('%Y-%m-%d'))
 
