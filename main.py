@@ -96,7 +96,7 @@ def hitungDataDitampilkan(df, tanggal_awal, tanggal_akhir):
     
     # Menampilkan data sesuai dengan tanggal yang dipilih
     # Filter dataframe berdasarkan tanggal tertentu
-    df_filtered = df[df["kolomA"] == tanggal_akhir]
+    df_filtered = df[df["Tanggal"] == tanggal_akhir]
     # Buat dictionary dari data yang difilter
     dict_data_tanggal = df_filtered.drop(columns=["Tanggal"]).iloc[0].to_dict()
     # Tampilkan dictionary menggunakan Streamlit
