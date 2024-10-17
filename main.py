@@ -164,8 +164,13 @@ with st.sidebar:
 #################################
 
 col1, col2 = st.columns([3,1])
+with col1:
+    st.title('PT Asia Pacific Fiber Tbk')
 with col2:
     st.image('LogoAPF.png', use_column_width=True)
+
+# Welcome greeting
+st.markdown("Welcome " + dict_name[name])
 
 if admin_user or general_user:
     st.markdown("Welcome " + dict_name[name])
