@@ -312,9 +312,9 @@ if admin_user or general_user:
         
         col1, col2, col3, col4 = st.columns(4)
         with col1:
-            st.metric(label='PLN Meter', value=elec_dict_rata2['PLN Meter'])
+            st.metric(label='PLN Meter', value=round(elec_dict_rata2['PLN Meter'],2))
         with col2:
-            st.metric(label='APF Meter (ION)', value=elec_dict_rata2['APF Meter (ION)'])
+            st.metric(label='APF Meter (ION)', value=round(elec_dict_rata2['APF Meter (ION)'],2))
         with col3:
             st.metric(label='SUM ALL APF Area', value=elec_dict_rata2['SUM ALL APF Area'])
         with col4:
