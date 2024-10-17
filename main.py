@@ -171,8 +171,10 @@ if admin_user or general_user:
     st.markdown("Welcome " + dict_name[name])
 
     # Memilih tanggal
-    col1, col2 = st.columns([1,3])
+    col1, col2 = st.columns([3,1])
     with col1:
+        st.markdown("Please choose a date (the default the lastest available date) : ")
+    with col2:
         tanggal_dipilih = st.selectbox('Date :', tanggal_pengukuran, key="tanggal")
     # Menentukan rentang tanggal untuk sepuluh hari terakhir
     tanggal_awal = tanggal_dipilih - pd.Timedelta(days=9)
