@@ -274,7 +274,7 @@ if admin_user or general_user:
         with col4:
             st.metric(label='EMS Rata-rata (10 hari)', value=round(nilai_ems_rata2, 2))
     
-        with st.expander("Klik untuk melihat grafik pemakaian listrik"):
+        with st.expander("Click to open electricity consumption chart for 10 days"):
             tab1, tab2, tab3, tab4 = st.tabs(["PLN Meter","ION Meter","APF Sum","EMS"])
             with tab1:
                 buat_grafik_kwh('PLN Meter', nilai_pln_rata2, 'Konsumsi listrik berdasar kWhmeter PLN dalam 10 hari terakhir')
@@ -293,8 +293,8 @@ if admin_user or general_user:
         st.markdown("""<hr style="border:1px solid gray">""", unsafe_allow_html=True)
     
         # Subjudul
-        st.markdown('## Pemakaian listrik masing-masing plant')
-        st.markdown('Berdasarkan pencatatan kWhmeter di masing-masing plant')
+        st.markdown('## Plant Electricity consumption')
+        st.markdown('Based on kWhmeter recording in each plant')
     
         # Menghitung rata-rata untuk sepuluh hari terakhir
         nilai_poy_rata2 = df_10_hari['POY'].mean()
@@ -395,7 +395,7 @@ if admin_user or general_user:
         with col3:
             st.metric(label='TX2 Compressor Rata-rata (10 hari)', value=round(nilai_tx2c_rata2, 2))
     
-        with st.expander("Klik untuk melihat grafik pemakaian listrik"):
+        with st.expander("Click to open electricity consumption chart for 10 days"):
             tabPOY, tabPP, tabTX1, tabTX2, tabTX3, tabTX4, tabWRP, tabSP3, tabTX2C = st.tabs(["POY", "PP", "TX1", "TX2", "TX3", "TX4", "WRP", "SP3 Comp", "TX2 Comp"])
             with tabPOY:
                 buat_grafik_kwh('POY', nilai_poy_rata2, 'Konsumsi listrik Plant POY dalam 10 hari terakhir')
