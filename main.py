@@ -9,9 +9,9 @@ def buat_grafik_kwh(df, column_name, nilai_rata2, judul):
     fig, ax = plt.subplots(figsize=(10, 6))
 
     # Menentukan nilai maksimum, minimum, dan tanggal terbaru
-    max_value = df_10_hari[column_name].max()
-    min_value = df_10_hari[column_name].min()
-    latest_date = df_10_hari['Tanggal'].max()
+    max_value = df[column_name].max()
+    min_value = df[column_name].min()
+    latest_date = df['Tanggal'].max()
     
     colors = []
     for index, row in df_10_hari.iterrows():
@@ -37,8 +37,8 @@ def buat_grafik_kwh(df, column_name, nilai_rata2, judul):
     ax.set_xticklabels(df_10_hari['Tanggal'].dt.strftime('%Y-%m-%d'), rotation=90, ha='center')
     
     # Menghitung batas sumbu y
-    min_value = df_10_hari[column_name].min()
-    max_value = df_10_hari[column_name].max()
+    min_value = df[column_name].min()
+    max_value = df[column_name].max()
     y_min = min_value - 0.01 * min_value
     y_max = max_value + 0.01 * max_value
 
@@ -322,11 +322,11 @@ if admin_user or general_user:
             with tab1:
                 buat_grafik_kwh(elec_df_10_hari, 'PLN Meter', elec_dict_rata2['PLN Meter'], 'Konsumsi listrik berdasar kWhmeter PLN dalam 10 hari terakhir')
             with tab2:
-                buat_grafik_kwh(elec_df, 'APF Meter (ION)', elec_dict_rata2['APF Meter (ION)'], 'Konsumsi listrik berdasar kWhmeter APF dalam 10 hari terakhir')
+                buat_grafik_kwh(elec_df_10_hari, 'APF Meter (ION)', elec_dict_rata2['APF Meter (ION)'], 'Konsumsi listrik berdasar kWhmeter APF dalam 10 hari terakhir')
             with tab3:
-                buat_grafik_kwh(elec_df, 'SUM ALL APF Area', elec_dict_rata2['SUM ALL APF Area'], 'Jumlah Pemakaian Listrik Seluruh Plant dalam 10 hari terakhir')
+                buat_grafik_kwh(elec_df_10_hari, 'SUM ALL APF Area', elec_dict_rata2['SUM ALL APF Area'], 'Jumlah Pemakaian Listrik Seluruh Plant dalam 10 hari terakhir')
             with tab4:
-                buat_grafik_kwh(elec_df, 'EMS', elec_dict_rata2['EMS'], 'Konsumsi listrik berdasar EMS dalam 10 hari terakhir')
+                buat_grafik_kwh(elec_df_10_hari, 'EMS', elec_dict_rata2['EMS'], 'Konsumsi listrik berdasar EMS dalam 10 hari terakhir')
     
     
         # Memilih nilai tertinggi dari kolom 'Tanggal'
