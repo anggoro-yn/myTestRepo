@@ -366,21 +366,21 @@ if admin_user or general_user:
             with tabPOY:
                 buat_grafik_kwh(elec_df_10_hari, 'POY', elec_dict_rata2['POY'], 'POY Electrical Consumption')
             with tabPP:
-                buat_grafik_kwh('PP', nilai_pp_rata2, 'Konsumsi listrik Plant PP dalam 10 hari terakhir')
+                buat_grafik_kwh(elec_df_10_hari, 'PP', elec_dict_rata2['POY'], 'PP Electrical Consumption')
             with tabTX1:
-                buat_grafik_kwh('TX 1', nilai_tx1_rata2, 'Konsumsi listrik Plant TX 1 dalam 10 hari terakhir')
+                buat_grafik_kwh(elec_df_10_hari, 'TX 1', elec_dict_rata2['TX 1'], 'TX 1 Electrical Consumption')
             with tabTX2:
-                buat_grafik_kwh('TX 2', nilai_tx2_rata2, 'Konsumsi listrik Plant TX 2 dalam 10 hari terakhir')
+                buat_grafik_kwh(elec_df_10_hari, 'TX 2', elec_dict_rata2['TX 2'], 'TX 2 Electrical Consumption')
             with tabTX3:
-                buat_grafik_kwh('TX 3', nilai_tx3_rata2, 'Konsumsi listrik Plant TX 3 dalam 10 hari terakhir')
+                buat_grafik_kwh(elec_df_10_hari, 'TX 3', elec_dict_rata2['TX 3'], 'TX 3 Electrical Consumption')
             with tabTX4:
-                buat_grafik_kwh('TX 4 (+Doubling)', nilai_tx4_rata2, 'Konsumsi listrik Plant TX 4 dalam 10 hari terakhir')
+                buat_grafik_kwh(elec_df_10_hari, 'TX 4 & Doubling', elec_dict_rata2['TX 4 (+Doubling)'], 'TX 4 & Doubling Electrical Consumption')
             with tabWRP:
-                buat_grafik_kwh('WRP', nilai_wrp_rata2, 'Konsumsi listrik Recycling Plant dalam 10 hari terakhir')
+                buat_grafik_kwh(elec_df_10_hari, 'WRP', elec_dict_rata2['WRP'], 'WRP Electrical Consumption')
             with tabSP3:
-                buat_grafik_kwh('SP3 Compressor', nilai_sp3_rata2, 'Konsumsi listrik Compressor SP3  dalam 10 hari terakhir')
+                buat_grafik_kwh(elec_df_10_hari, 'SP3 Compressor', elec_dict_rata2['SP3 Compressor'], 'SP3 Compressor Electrical Consumption')
             with tabTX2C:
-                buat_grafik_kwh('TX 2 Compressor', nilai_tx2c_rata2, 'Konsumsi listrik Compressor TX 2  dalam 10 hari terakhir')
+                buat_grafik_kwh(elec_df_10_hari, 'TX 2 Compressor', elec_dict_rata2['TX 2 Compressor'], 'TX 2 Compressor Electrical Consumption')
     
         
         # add a border
