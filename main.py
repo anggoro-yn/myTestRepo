@@ -302,7 +302,19 @@ if admin_user or general_user:
     
         # add a border
         st.markdown("""<hr style="border:1px solid gray">""", unsafe_allow_html=True)
-    
+
+        # Ekstrak label dan nilai dari dictionary
+        labels = list(elec_dict_data_tanggal.keys())
+        values = list(elec_dict_data_tanggal.values())
+        
+        # Buat pie chart menggunakan Matplotlib
+        fig, ax = plt.subplots()
+        ax.pie(values, labels=labels, autopct='%1.1f%%')
+        ax.set_title('Pie Chart dari Dictionary')
+        
+        # Tampilkan pie chart di Streamlit
+        st.pyplot(fig)
+        
         # Subjudul
         st.markdown('## Plant Electricity consumption')
         st.markdown('Based on kWhmeter recording in each plant, showing daily consumption and 10-day average.')
