@@ -240,8 +240,11 @@ if admin_user or general_user:
         st.markdown('## Marketable Production')
         #st.markdown('Based on kWhmeter recording at GI PLN, GI APF and Total Plant recording, showing daily consumption and 10-day average.')
     
-        st.metric(label='Marketable', value=prod_dict_data_tanggal['EMS'], delta = prod_dict_delta['EMS'])
+        st.metric(label='Marketable', value=prod_dict_data_tanggal['Marketable'], delta = prod_dict_delta['Marketable'])
         
+        # add a border
+        st.markdown("""<hr style="border:1px solid gray">""", unsafe_allow_html=True)
+
         col1, col2, col3, col4 = st.columns(4)
         with col1:
             st.metric(label='Avg PLN Meter', value=elec_dict_rata2['PLN Meter'])
