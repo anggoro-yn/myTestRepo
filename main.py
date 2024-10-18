@@ -229,16 +229,16 @@ if admin_user or general_user:
             # Menampilkan tanggal
             st.metric(label="Date", value=tanggal_dipilih.strftime('%d-%m-%Y'))
 
-        st.markdown("Values are shown in MWh (Megawatthour), unless it is stated differently explicitly")
+        st.markdown("Values are shown in MT (Metric Tonnes), unless it is stated differently explicitly")
         
         # Hitung data-data yang dibutuhkan untuk ditampilkan
-        elec_df_10_hari, elec_dict_rata2, elec_dict_data_tanggal, elec_dict_data_tanggal_sebelumnya, elec_dict_delta = hitungDataDitampilkan(elec_df, tanggal_awal, tanggal_akhir)
+        prod_df_10_hari, prod_dict_rata2, prod_dict_data_tanggal, prod_dict_data_tanggal_sebelumnya, prod_dict_delta = hitungDataDitampilkan(prod_df, tanggal_awal, tanggal_akhir)
         
         # add a border
         st.markdown("""<hr style="border:1px solid gray">""", unsafe_allow_html=True)
         # Subjudul
-        st.markdown('## Total Electricity Consumption')
-        st.markdown('Based on kWhmeter recording at GI PLN, GI APF and Total Plant recording, showing daily consumption and 10-day average.')
+        st.markdown('## Marketable Production')
+        #st.markdown('Based on kWhmeter recording at GI PLN, GI APF and Total Plant recording, showing daily consumption and 10-day average.')
     
         col1, col2, col3, col4 = st.columns(4)
         with col1:
