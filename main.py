@@ -297,7 +297,7 @@ if admin_user or general_user:
             with tab3:
                 buat_grafik_kwh(elec_df_10_hari, 'SUM ALL APF Area', elec_dict_rata2['SUM ALL APF Area'], 'Electrical Consumption Based on All Plants Total Reading')
             with tab4:
-                buat_grafik_kwh(elec_df_10_hari, 'EMS', elec_dict_rata2['EMS'], 'Electrical Consumption Based on EMS)
+                buat_grafik_kwh(elec_df_10_hari, 'EMS', elec_dict_rata2['EMS'], 'Electrical Consumption Based on EMS')
     
     
         # add a border
