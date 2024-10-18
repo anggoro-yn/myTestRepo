@@ -241,9 +241,11 @@ if admin_user or general_user:
         # Subjudul
         st.markdown('## Marketable Production')
         #st.markdown('Based on kWhmeter recording at GI PLN, GI APF and Total Plant recording, showing daily consumption and 10-day average.')
-    
-        st.metric(label='Marketable', value=prod_dict_data_tanggal['Marketable'], delta = prod_dict_delta['Marketable'])
-        buat_grafik_kwh(prod_df_10_hari, 'Marketable', prod_dict_rata2['Marketable'], 'Marketable Production', axis_limit = 0.1)
+        col1, col2 = st.columns([1,3])
+        with col1:
+            st.metric(label='Marketable', value=prod_dict_data_tanggal['Marketable'], delta = prod_dict_delta['Marketable'])
+        with col2:
+            buat_grafik_kwh(prod_df_10_hari, 'Marketable', prod_dict_rata2['Marketable'], 'Marketable Production', axis_limit = 0.1)
         
         # add a border
         st.markdown("""<hr style="border:1px solid gray">""", unsafe_allow_html=True)
