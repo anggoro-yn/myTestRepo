@@ -374,7 +374,7 @@ if admin_user or general_user:
             with tabTX3:
                 buat_grafik_kwh(elec_df_10_hari, 'TX 3', elec_dict_rata2['TX 3'], 'TX 3 Electrical Consumption')
             with tabTX4:
-                buat_grafik_kwh(elec_df_10_hari, 'TX 4 & Doubling', elec_dict_rata2['TX 4 (+Doubling)'], 'TX 4 & Doubling Electrical Consumption')
+                buat_grafik_kwh(elec_df_10_hari, 'TX 4 (+Doubling)', elec_dict_rata2['TX 4 (+Doubling)'], 'TX 4 & Doubling Electrical Consumption')
             with tabWRP:
                 buat_grafik_kwh(elec_df_10_hari, 'WRP', elec_dict_rata2['WRP'], 'WRP Electrical Consumption')
             with tabSP3:
