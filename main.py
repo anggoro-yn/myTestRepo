@@ -303,6 +303,11 @@ if admin_user or general_user:
         # add a border
         st.markdown("""<hr style="border:1px solid gray">""", unsafe_allow_html=True)
 
+        # SUB JUDUL
+        st.markdown('## Plant Electricity consumption')
+        st.markdown('Based on kWhmeter recording in each plant, showing daily consumption and 10-day average.')
+
+        # PIE CHART PEMAKAIAN LISTRIK PER PLANT
         # Key yang ingin di-drop
         keys_to_drop = ['EMS', 'SUM ALL APF Area', 'APF Meter (ION)', 'PLN Meter']
         
@@ -320,11 +325,7 @@ if admin_user or general_user:
         
         # Tampilkan pie chart di Streamlit
         st.pyplot(fig)
-        
-        # Subjudul
-        st.markdown('## Plant Electricity consumption')
-        st.markdown('Based on kWhmeter recording in each plant, showing daily consumption and 10-day average.')
-    
+
         col1, col2 = st.columns(2)
         with col1:
             st.metric(label='POY', value=elec_dict_data_tanggal['POY'], delta = elec_dict_delta['POY'])
