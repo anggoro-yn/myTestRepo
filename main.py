@@ -347,19 +347,19 @@ if admin_user or general_user:
     
         col1, col2, col3 = st.columns(3)
         with col1:
-            st.metric(label='WRP', value=nilai_wrp, delta = delta_wrp)
+            st.metric(label='WRP', value=elec_dict_data_tanggal['WRP'], delta = elec_dict_delta['WRP'])
         with col2:
-            st.metric(label='SP3 Compressor', value=nilai_sp3, delta = delta_sp3)
+            st.metric(label='SP3 Compressor', value=elec_dict_data_tanggal['SP3 Compressor'], delta = elec_dict_delta['SP3 Compressor'])
         with col3:
-            st.metric(label='TX2 Compressor', value=nilai_tx2c, delta = delta_tx2c)
+            st.metric(label='TX 2 Compressor', value=elec_dict_data_tanggal['TX 2 Compressor'], delta = elec_dict_delta['TX 2 Compressor'])
     
         col1, col2, col3 = st.columns(3)
         with col1:
-            st.metric(label='WRP Plant Rata-rata (10 hari)', value=round(nilai_wrp_rata2, 2))
+            st.metric(label='Avg WRP', value=elec_dict_rata2['WRP'])
         with col2:
-            st.metric(label='SP3 Compressor Rata-rata (10 hari)', value=round(nilai_sp3_rata2, 2))
+            st.metric(label='Avg SP3 Compressor', value=elec_dict_rata2['SP3 Compressor'])
         with col3:
-            st.metric(label='TX2 Compressor Rata-rata (10 hari)', value=round(nilai_tx2c_rata2, 2))
+            st.metric(label='Avg TX 2 Compressor', value=elec_dict_rata2['TX 2 Compressor'])
     
         with st.expander("Click to open electricity consumption chart for 10 days"):
             tabPOY, tabPP, tabTX1, tabTX2, tabTX3, tabTX4, tabWRP, tabSP3, tabTX2C = st.tabs(["POY", "PP", "TX1", "TX2", "TX3", "TX4", "WRP", "SP3 Comp", "TX2 Comp"])
