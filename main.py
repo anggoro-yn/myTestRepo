@@ -307,7 +307,6 @@ if admin_user or general_user:
         st.markdown('## Plant Electricity consumption')
         st.markdown('Based on kWhmeter recording in each plant')
     
-        
         col1, col2 = st.columns(2)
         with col1:
             st.metric(label='POY', value=elec_dict_data_tanggal['POY'], delta = elec_dict_delta['POY'])
@@ -319,30 +318,29 @@ if admin_user or general_user:
             st.metric(label='POY', value=elec_dict_rata2['POY'])
         with col2:
             st.metric(label='PP', value=elec_dict_rata2['PP'])
-    
         
         # add a border
         st.markdown("""<hr style="border:1px dashed gray">""", unsafe_allow_html=True)
         
         col1, col2, col3, col4 = st.columns(4)
         with col1:
-            st.metric(label='TX 1 Plant', value=nilai_tx1, delta = delta_tx1)
+            st.metric(label='TX 1', value=elec_dict_data_tanggal['TX 1'], delta = elec_dict_delta['TX 1'])
         with col2:
-            st.metric(label='TX 2 Plant', value=nilai_tx2, delta = delta_tx2)
+            st.metric(label='TX 2', value=elec_dict_data_tanggal['TX 2'], delta = elec_dict_delta['TX 2'])
         with col3:
-            st.metric(label='TX 3 Plant', value=nilai_tx3, delta = delta_tx3)
+            st.metric(label='TX 3', value=elec_dict_data_tanggal['TX 3'], delta = elec_dict_delta['TX 3'])
         with col4:
-            st.metric(label='TX 4 & Doubling Plant', value=nilai_tx4, delta = delta_tx4)
+            st.metric(label='TX 4 & Doubling Plant', value=elec_dict_data_tanggal['TX 4 (+Doubling)'], delta = elec_dict_delta['TX 4 (+Doubling)'])
     
         col1, col2, col3, col4 = st.columns(4)
         with col1:
-            st.metric(label='TX1 Plant Rata-rata (10 hari)', value=round(nilai_tx1_rata2, 2))
+            st.metric(label='TX1 Plant Rata-rata (10 hari)', value=elec_dict_rata2['TX 1'])
         with col2:
-            st.metric(label='TX2 Plant Rata-rata (10 hari)', value=round(nilai_tx2_rata2, 2))
+            st.metric(label='TX2 Plant Rata-rata (10 hari)', value=elec_dict_rata2['TX 2'])
         with col3:
-            st.metric(label='TX3 Plant Rata-rata (10 hari)', value=round(nilai_tx3_rata2, 2))
+            st.metric(label='TX3 Plant Rata-rata (10 hari)', value=elec_dict_rata2['TX 3'])
         with col4:
-            st.metric(label='TX4 & Doubling Plant Rata-rata (10 hari)', value=round(nilai_tx4_rata2, 2))
+            st.metric(label='TX4 Plant Rata-rata (10 hari)', value=elec_dict_rata2['TX 4 (+Doubling)'])
         
         # add a border
         st.markdown("""<hr style="border:1px dashed gray">""", unsafe_allow_html=True)
