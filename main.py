@@ -229,25 +229,47 @@ if admin_user or general_user:
             # Menampilkan tanggal
             st.metric(label="Date", value=tanggal_dipilih.strftime('%d-%m-%Y'))
 
-        # Menyaring data untuk sepuluh hari terakhir
-        prod_df_10_hari = prod_df[(prod_df['Tanggal'] >= tanggal_awal) & (prod_df['Tanggal'] <= tanggal_akhir)]
+        st.markdown("Values are shown in MWh (Megawatthour), unless it is stated differently explicitly")
         
-        # Menghitung rata-rata untuk sepuluh hari terakhir
-        nilai_SP4_rata2 = prod_df_10_hari['SP4'].mean()
-
-        # Menampilkan data sesuai dengan tanggal yang dipilih
-        nilai_SP4 = prod_df.loc[prod_df['Tanggal'] == tanggal_dipilih, 'SP4'].values[0]
+        # Hitung data-data yang dibutuhkan untuk ditampilkan
+        elec_df_10_hari, elec_dict_rata2, elec_dict_data_tanggal, elec_dict_data_tanggal_sebelumnya, elec_dict_delta = hitungDataDitampilkan(elec_df, tanggal_awal, tanggal_akhir)
         
-        # Mencari nilai untuk satu hari sebelum tanggal_dipilih
-        tanggal_sebelumnya = tanggal_dipilih - pd.Timedelta(days=1)
-        nilai_SP4_sebelumnya = prod_df.loc[prod_df['Tanggal'] == tanggal_sebelumnya, 'SP4'].values[0]
-        
-        #mencari delta value
-        delta_SP4 = round(nilai_SP4 - nilai_SP4_sebelumnya, 2)
-
+        # add a border
+        st.markdown("""<hr style="border:1px solid gray">""", unsafe_allow_html=True)
+        # Subjudul
+        st.markdown('## Total Electricity Consumption')
+        st.markdown('Based on kWhmeter recording at GI PLN, GI APF and Total Plant recording, showing daily consumption and 10-day average.')
+    
         col1, col2, col3, col4 = st.columns(4)
         with col1:
-            st.metric(label='SP 4', value=nilai_SP4, delta = delta_SP4) 
+            st.metric(label='PLN Meter', value=elec_dict_data_tanggal['PLN Meter'], delta = elec_dict_delta['PLN Meter'])
+        with col2:
+            st.metric(label='APF Meter (ION)', value=elec_dict_data_tanggal['APF Meter (ION)'], delta = elec_dict_delta['APF Meter (ION)'])
+        with col3:
+            st.metric(label='SUM ALL APF Area', value=elec_dict_data_tanggal['SUM ALL APF Area'], delta = elec_dict_delta['SUM ALL APF Area'])
+        with col4:
+            st.metric(label='EMS', value=elec_dict_data_tanggal['EMS'], delta = elec_dict_delta['EMS'])
+        
+        col1, col2, col3, col4 = st.columns(4)
+        with col1:
+            st.metric(label='Avg PLN Meter', value=elec_dict_rata2['PLN Meter'])
+        with col2:
+            st.metric(label='Avg APF Meter (ION)', value=elec_dict_rata2['APF Meter (ION)'])
+        with col3:
+            st.metric(label='Avg SUM ALL APF Area', value=elec_dict_rata2['SUM ALL APF Area'])
+        with col4:
+            st.metric(label='Avg EMS', value=elec_dict_rata2['EMS'])
+  
+        with st.expander("Click to open electricity consumption chart for 10 days"):
+            tab1, tab2, tab3, tab4 = st.tabs(["PLN Meter","ION Meter","APF Sum","EMS"])
+            with tab1:
+                buat_grafik_kwh(elec_df_10_hari, 'PLN Meter', elec_dict_rata2['PLN Meter'], 'Electrical Consumption Based on PLN KWhmeter')
+            with tab2:
+                buat_grafik_kwh(elec_df_10_hari, 'APF Meter (ION)', elec_dict_rata2['APF Meter (ION)'], 'Electrical Consumption Based on APF KWhmeter')
+            with tab3:
+                buat_grafik_kwh(elec_df_10_hari, 'SUM ALL APF Area', elec_dict_rata2['SUM ALL APF Area'], 'Electrical Consumption Based on All Plants Total Reading')
+            with tab4:
+                buat_grafik_kwh(elec_df_10_hari, 'EMS', elec_dict_rata2['EMS'], 'Electrical Consumption Based on EMS')
     
     with tabElec:
         col1, col2 = st.columns([3,1])
