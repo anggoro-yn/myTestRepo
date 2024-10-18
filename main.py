@@ -310,8 +310,8 @@ if admin_user or general_user:
         filtered_dict = {key: value for key, value in elec_dict_data_tanggal.items() if key not in keys_to_drop}
 
         # Ekstrak label dan nilai dari dictionary
-        labels = list(filtered_dict_tanggal.keys())
-        values = list(filtered_dict_tanggal.values())
+        labels = list(filtered_dict.keys())
+        values = list(filtered_dict.values())
         
         # Buat pie chart menggunakan Matplotlib
         fig, ax = plt.subplots()
