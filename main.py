@@ -68,6 +68,7 @@ def buat_grafik_kwh(df, column_name, nilai_rata2, judul):
 def hitungDataDitampilkan(df, tanggal_awal, tanggal_akhir):
     # Menyaring data untuk sepuluh hari terakhir
     df_10_hari = df[(df['Tanggal'] >= tanggal_awal) & (df['Tanggal'] <= tanggal_akhir)]
+    st.write(df_10_hari)
     # Hitung rata-rata untuk setiap kolom, kecuali kolom 'Tanggal'
     mean_values = df_10_hari.drop(columns=["Tanggal"]).mean()
     # Bulatkan setiap nilai rata-rata ke dua desimal dan buat dictionary
