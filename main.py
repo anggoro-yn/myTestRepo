@@ -266,7 +266,7 @@ if admin_user or general_user:
         st.markdown("""<hr style="border:1px solid gray">""", unsafe_allow_html=True)
         # Subjudul
         st.markdown('## Total Electricity Consumption')
-        st.markdown('Based on kWhmeter recording at GI PLN, GI APF and Total Plant recording')
+        st.markdown('Based on kWhmeter recording at GI PLN, GI APF and Total Plant recording, showing daily consumption and 10-day average.')
     
         col1, col2, col3, col4 = st.columns(4)
         with col1:
@@ -305,7 +305,7 @@ if admin_user or general_user:
     
         # Subjudul
         st.markdown('## Plant Electricity consumption')
-        st.markdown('Based on kWhmeter recording in each plant')
+        st.markdown('Based on kWhmeter recording in each plant, showing daily consumption and 10-day average.')
     
         col1, col2 = st.columns(2)
         with col1:
@@ -334,13 +334,13 @@ if admin_user or general_user:
     
         col1, col2, col3, col4 = st.columns(4)
         with col1:
-            st.metric(label='TX1 Plant Rata-rata (10 hari)', value=elec_dict_rata2['TX 1'])
+            st.metric(label='Rata-rata TX1 Plant', value=elec_dict_rata2['TX 1'])
         with col2:
-            st.metric(label='TX2 Plant Rata-rata (10 hari)', value=elec_dict_rata2['TX 2'])
+            st.metric(label='Rata-rata TX2 Plant', value=elec_dict_rata2['TX 2'])
         with col3:
-            st.metric(label='TX3 Plant Rata-rata (10 hari)', value=elec_dict_rata2['TX 3'])
+            st.metric(label='Rata-rata TX3 Plant', value=elec_dict_rata2['TX 3'])
         with col4:
-            st.metric(label='TX4 Plant Rata-rata (10 hari)', value=elec_dict_rata2['TX 4 (+Doubling)'])
+            st.metric(label='Rata-rata TX4 & DoublingPlant', value=elec_dict_rata2['TX 4 (+Doubling)'])
         
         # add a border
         st.markdown("""<hr style="border:1px dashed gray">""", unsafe_allow_html=True)
