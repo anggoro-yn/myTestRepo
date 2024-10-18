@@ -250,17 +250,6 @@ if admin_user or general_user:
         # add a border
         st.markdown("""<hr style="border:1px solid gray">""", unsafe_allow_html=True)
 
-        with st.expander("Click to open electricity consumption chart for 10 days"):
-            tab1, tab2, tab3, tab4 = st.tabs(["PLN Meter","ION Meter","APF Sum","EMS"])
-            with tab1:
-                buat_grafik_kwh(elec_df_10_hari, 'PLN Meter', elec_dict_rata2['PLN Meter'], 'Electrical Consumption Based on PLN KWhmeter')
-            with tab2:
-                buat_grafik_kwh(elec_df_10_hari, 'APF Meter (ION)', elec_dict_rata2['APF Meter (ION)'], 'Electrical Consumption Based on APF KWhmeter')
-            with tab3:
-                buat_grafik_kwh(elec_df_10_hari, 'SUM ALL APF Area', elec_dict_rata2['SUM ALL APF Area'], 'Electrical Consumption Based on All Plants Total Reading')
-            with tab4:
-                buat_grafik_kwh(elec_df_10_hari, 'EMS', elec_dict_rata2['EMS'], 'Electrical Consumption Based on EMS')
-    
     with tabElec:
         col1, col2 = st.columns([3,1])
         with col1:
