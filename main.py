@@ -303,9 +303,15 @@ if admin_user or general_user:
         # add a border
         st.markdown("""<hr style="border:1px solid gray">""", unsafe_allow_html=True)
 
+        # Key yang ingin di-drop
+        keys_to_drop = ['EMS', 'SUM ALL APF Area', 'APF Meter (ION)', 'PLN Meter']
+        
+        # Menggunakan dictionary comprehension untuk membuat dictionary baru tanpa key yang di-drop
+        filtered_dict = {key: value for key, value in elec_dict_data_tanggal.items() if key not in keys_to_drop}
+
         # Ekstrak label dan nilai dari dictionary
-        labels = list(elec_dict_data_tanggal.keys())
-        values = list(elec_dict_data_tanggal.values())
+        labels = list(filtered_dict_tanggal.keys())
+        values = list(filtered_dict_tanggal.values())
         
         # Buat pie chart menggunakan Matplotlib
         fig, ax = plt.subplots()
