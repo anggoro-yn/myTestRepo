@@ -291,13 +291,13 @@ if admin_user or general_user:
         with st.expander("Click to open electricity consumption chart for 10 days"):
             tab1, tab2, tab3, tab4 = st.tabs(["PLN Meter","ION Meter","APF Sum","EMS"])
             with tab1:
-                buat_grafik_kwh(elec_df_10_hari, 'PLN Meter', elec_dict_rata2['PLN Meter'], 'Konsumsi listrik berdasar kWhmeter PLN dalam 10 hari terakhir')
+                buat_grafik_kwh(elec_df_10_hari, 'PLN Meter', elec_dict_rata2['PLN Meter'], 'Electrical Consumption Based on PLN KWhmeter')
             with tab2:
-                buat_grafik_kwh(elec_df_10_hari, 'APF Meter (ION)', elec_dict_rata2['APF Meter (ION)'], 'Konsumsi listrik berdasar kWhmeter APF dalam 10 hari terakhir')
+                buat_grafik_kwh(elec_df_10_hari, 'APF Meter (ION)', elec_dict_rata2['APF Meter (ION)'], 'Electrical Consumption Based on APF KWhmeter')
             with tab3:
-                buat_grafik_kwh(elec_df_10_hari, 'SUM ALL APF Area', elec_dict_rata2['SUM ALL APF Area'], 'Jumlah Pemakaian Listrik Seluruh Plant dalam 10 hari terakhir')
+                buat_grafik_kwh(elec_df_10_hari, 'SUM ALL APF Area', elec_dict_rata2['SUM ALL APF Area'], 'Electrical Consumption Based on All Plants Total Reading')
             with tab4:
-                buat_grafik_kwh(elec_df_10_hari, 'EMS', elec_dict_rata2['EMS'], 'Konsumsi listrik berdasar EMS dalam 10 hari terakhir')
+                buat_grafik_kwh(elec_df_10_hari, 'EMS', elec_dict_rata2['EMS'], 'Electrical Consumption Based on EMS)
     
     
         # add a border
@@ -364,7 +364,7 @@ if admin_user or general_user:
         with st.expander("Click to open electricity consumption chart for 10 days"):
             tabPOY, tabPP, tabTX1, tabTX2, tabTX3, tabTX4, tabWRP, tabSP3, tabTX2C = st.tabs(["POY", "PP", "TX1", "TX2", "TX3", "TX4", "WRP", "SP3 Comp", "TX2 Comp"])
             with tabPOY:
-                buat_grafik_kwh('POY', nilai_poy_rata2, 'Konsumsi listrik Plant POY dalam 10 hari terakhir')
+                buat_grafik_kwh(elec_df_10_hari, 'POY', elec_dict_rata2['POY'], 'POY Electrical Consumption')
             with tabPP:
                 buat_grafik_kwh('PP', nilai_pp_rata2, 'Konsumsi listrik Plant PP dalam 10 hari terakhir')
             with tabTX1:
