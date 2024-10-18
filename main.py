@@ -386,7 +386,7 @@ if admin_user or general_user:
         # add a border
         st.markdown("""<hr style="border:1px solid gray">""", unsafe_allow_html=True)
     
-        st.write(df)
+        st.write(elec_df)
 
 
 else:
