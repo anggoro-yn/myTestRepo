@@ -315,7 +315,7 @@ if admin_user or general_user:
         
         # Buat pie chart menggunakan Matplotlib
         fig, ax = plt.subplots()
-        ax.pie(values, labels=labels, autopct='%1.1f%%')
+        ax.pie(values, labels=labels, autopct='%1.1f%%',colors = ['lightblue', 'lightgreen', 'lightcoral', 'gold', 'violet', 'turquoise', 'lime', 'orange', 'plum'])
         ax.set_title('Pie Chart dari Dictionary')
         
         # Tampilkan pie chart di Streamlit
