@@ -4,7 +4,7 @@ import plotly.express as px
 import matplotlib.pyplot as plt
 
 # Fungsi untuk membuat grafik pemakaian listrik dalam sepuluh hari terakhir
-def buat_grafik_kwh(df, column_name, nilai_rata2, judul):
+def buat_grafik_kwh(df, column_name, nilai_rata2, judul, axis_limit = 0.01):
     # Membuat grafik batang
     fig, ax = plt.subplots(figsize=(10, 6))
 
@@ -39,8 +39,8 @@ def buat_grafik_kwh(df, column_name, nilai_rata2, judul):
     # Menghitung batas sumbu y
     min_value = df[column_name].min()
     max_value = df[column_name].max()
-    y_min = min_value - 0.02 * min_value
-    y_max = max_value + 0.02 * max_value
+    y_min = min_value - axis_limit * min_value
+    y_max = max_value + axis_limit * max_value
 
     # Mengatur batas sumbu y
     ax.set_ylim(y_min, y_max)
@@ -243,7 +243,7 @@ if admin_user or general_user:
         #st.markdown('Based on kWhmeter recording at GI PLN, GI APF and Total Plant recording, showing daily consumption and 10-day average.')
     
         st.metric(label='Marketable', value=prod_dict_data_tanggal['Marketable'], delta = prod_dict_delta['Marketable'])
-        buat_grafik_kwh(prod_df_10_hari, 'Marketable', prod_dict_rata2['Marketable'], 'Marketable Production')
+        buat_grafik_kwh(prod_df_10_hari, 'Marketable', prod_dict_rata2['Marketable'], 'Marketable Production', axis_limit = 0.1)
         
         # add a border
         st.markdown("""<hr style="border:1px solid gray">""", unsafe_allow_html=True)
