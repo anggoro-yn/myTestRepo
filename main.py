@@ -280,13 +280,13 @@ if admin_user or general_user:
         
         col1, col2, col3, col4 = st.columns(4)
         with col1:
-            st.metric(label='PLN Meter', value=elec_dict_rata2['PLN Meter'])
+            st.metric(label='Rata-rata PLN Meter', value=elec_dict_rata2['PLN Meter'])
         with col2:
-            st.metric(label='APF Meter (ION)', value=elec_dict_rata2['APF Meter (ION)'])
+            st.metric(label='Rata-rata APF Meter (ION)', value=elec_dict_rata2['APF Meter (ION)'])
         with col3:
-            st.metric(label='SUM ALL APF Area', value=elec_dict_rata2['SUM ALL APF Area'])
+            st.metric(label='Rata-rata SUM ALL APF Area', value=elec_dict_rata2['SUM ALL APF Area'])
         with col4:
-            st.metric(label='EMS', value=elec_dict_rata2['EMS'])
+            st.metric(label='Rata-rata EMS', value=elec_dict_rata2['EMS'])
   
         with st.expander("Click to open electricity consumption chart for 10 days"):
             tab1, tab2, tab3, tab4 = st.tabs(["PLN Meter","ION Meter","APF Sum","EMS"])
